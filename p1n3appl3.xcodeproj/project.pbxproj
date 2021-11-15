@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4153052741FCA000041359 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4153042741FCA000041359 /* HomeView.swift */; };
+		0A4153072741FCA900041359 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4153062741FCA900041359 /* HistoryView.swift */; };
+		0A4153092741FCE500041359 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4153082741FCE500041359 /* BudgetView.swift */; };
+		0A41530B2741FCF400041359 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41530A2741FCF400041359 /* GoalsView.swift */; };
+		0A41530F2741FF1B00041359 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41530E2741FF1B00041359 /* SettingsView.swift */; };
 		25D41B9F2741FA5A008968F8 /* p1n3appl3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */; };
 		25D41BA12741FA5A008968F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D41BA02741FA5A008968F8 /* ContentView.swift */; };
 		25D41BA32741FA5C008968F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D41BA22741FA5C008968F8 /* Assets.xcassets */; };
@@ -14,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A4153042741FCA000041359 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0A4153062741FCA900041359 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		0A4153082741FCE500041359 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
+		0A41530A2741FCF400041359 /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
+		0A41530E2741FF1B00041359 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		25D41B9B2741FA5A008968F8 /* p1n3appl3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = p1n3appl3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = p1n3appl3App.swift; sourceTree = "<group>"; };
 		25D41BA02741FA5A008968F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +42,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A4153032741FC6500041359 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				25D41BA02741FA5A008968F8 /* ContentView.swift */,
+				0A4153042741FCA000041359 /* HomeView.swift */,
+				0A4153062741FCA900041359 /* HistoryView.swift */,
+				0A4153082741FCE500041359 /* BudgetView.swift */,
+				0A41530A2741FCF400041359 /* GoalsView.swift */,
+				0A41530E2741FF1B00041359 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		25D41B922741FA5A008968F8 = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */,
-				25D41BA02741FA5A008968F8 /* ContentView.swift */,
+				0A4153032741FC6500041359 /* Views */,
 				25D41BA22741FA5C008968F8 /* Assets.xcassets */,
 				25D41BA42741FA5C008968F8 /* Preview Content */,
 			);
@@ -137,8 +160,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A41530F2741FF1B00041359 /* SettingsView.swift in Sources */,
+				0A4153052741FCA000041359 /* HomeView.swift in Sources */,
+				0A4153072741FCA900041359 /* HistoryView.swift in Sources */,
 				25D41BA12741FA5A008968F8 /* ContentView.swift in Sources */,
+				0A41530B2741FCF400041359 /* GoalsView.swift in Sources */,
 				25D41B9F2741FA5A008968F8 /* p1n3appl3App.swift in Sources */,
+				0A4153092741FCE500041359 /* BudgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
