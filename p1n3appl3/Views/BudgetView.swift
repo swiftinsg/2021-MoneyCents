@@ -9,7 +9,56 @@ import SwiftUI
 
 struct BudgetView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List{
+                Section() {
+                    NavigationLink(destination: Text("Second View")) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Food")
+                            }
+                            Spacer()
+                            Text("$40.00")
+                                .foregroundColor(.red)
+                        }
+                    }
+                    
+                    NavigationLink(destination: Text("Second View")) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Transport")
+                            }
+                            Spacer()
+                            Text("$5.00")
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
+                
+                Section (){
+                    NavigationLink(destination: Text("Second View")){
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Total")
+                            }
+                            Spacer()
+                            Text("$45.00")
+                                .foregroundColor(.red)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Budget")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        
+                    }, label: {
+                        Image(systemName: "plus")
+                    })
+                }
+            }
+        }
     }
 }
 
