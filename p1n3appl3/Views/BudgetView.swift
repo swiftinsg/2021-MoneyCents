@@ -59,6 +59,7 @@ struct BudgetView: View {
                 }
             }
         }
+        
     }
 }
 

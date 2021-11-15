@@ -58,6 +58,7 @@
 		0A4153482742008900041359 /* Swift Files */ = {
 			isa = PBXGroup;
 			children = (
+				25D41BA22741FA5C008968F8 /* Assets.xcassets */,
 			);
 			path = "Swift Files";
 			sourceTree = "<group>";
@@ -84,7 +85,6 @@
 				25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */,
 				0A4153032741FC6500041359 /* Views */,
 				0A4153482742008900041359 /* Swift Files */,
-				25D41BA22741FA5C008968F8 /* Assets.xcassets */,
 				25D41BA42741FA5C008968F8 /* Preview Content */,
 			);
 			path = p1n3appl3;

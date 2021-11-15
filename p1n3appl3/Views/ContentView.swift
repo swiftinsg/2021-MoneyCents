@@ -8,7 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    // Custom colours according to pallet
+    // Darkest > Lightest shade
+    struct CustomColour {
+        static let BlueT = Color("Blue Titmouse")
+        static let Cornflower = Color("Cornflower Blue")
+        static let LightNavy = Color("Light Navy")
+        static let HawkesB = Color("Hawkes Blue")
+        static let LightCyan = Color("Light Cyan")
+    }
+ 
     var body: some View {
+        
+        // Tab view
+        
         TabView {
             // Home
             HomeView()
@@ -39,6 +53,8 @@ struct ContentView: View {
                     Label("Settings", systemImage: "gear")
                 }
         }
+        .accentColor(CustomColour.Cornflower)
+        
     }
 }
 
