@@ -8,11 +8,62 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @State private var name = ""
+    
     var body: some View {
-        VStack {
-            Text("Settings")
-            .font(.system(size: 30, weight: .semibold))
-            .padding(.top,20)
+        
+        NavigationView {
+            
+            List{
+                
+                Section(header: Text("Name")) {
+                    
+                    HStack {
+                        Image(systemName: "person").foregroundColor(.gray)
+                        TextField("Name",
+                                  text:$name )
+                            .padding(1)
+                    }
+                }
+                
+                Section(header: Text("Information")) {
+                    VStack {
+                        HStack{
+                            Image(systemName: "dollarsign.square").foregroundColor(.gray)
+                            Text("Total savings")
+                            Spacer()
+                            Text("$49.00")
+                            //WIP
+                        }
+                        .padding([.top, .bottom],9)
+                        
+                        HStack{
+                            Image(systemName: "line.3.horizontal").foregroundColor(.gray)
+                            Text("Version number")
+                            Spacer()
+                            Text("1.0")
+                        }.padding(.bottom,9)
+                        
+                        HStack{
+                            Image(systemName: "calendar").foregroundColor(.gray)
+                            Text("Date joined")
+                            Spacer()
+                            Text("12/12/21")
+                        }.padding(.bottom,9)
+                        
+                        HStack{
+                            NavigationLink(destination: Text("Second View")) {
+                                HStack {
+                                    Image(systemName: "face.smiling").foregroundColor(.gray)
+                                    Text("Credits")
+                                }
+                            }
+                        }
+                        .padding(.bottom,9)
+                    }
+                }
+            }.navigationTitle("Settings")
         }
     }
 }
