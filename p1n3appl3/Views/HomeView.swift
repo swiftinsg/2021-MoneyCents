@@ -8,20 +8,33 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    struct CustomColour {
+        static let BlueT = Color("Blue Titmouse")
+        static let Cornflower = Color("Cornflower Blue")
+        static let LightNavy = Color("Light Navy")
+        static let HawkesB = Color("Hawkes Blue")
+        static let LightCyan = Color("Light Cyan")
+    }
+    
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Goals")) {
+                Section() {
                     VStack (alignment: .leading) {
                         HStack {
                             Text("Polishing Cloth")
+                                .foregroundColor(.white)
                             Spacer()
                             Text("$2.00 / $29.00")
+                                .foregroundColor(.white)
                         }
                         .padding(.top)
                         ProgressView(value: 2, total: 29)
                             .padding(.bottom)
+                            .accentColor(.white)
                     }
+                    .listRowBackground(CustomColour.Cornflower)
                 }
                 
                 Section(header: Text("Recent Transactions")) {
@@ -37,6 +50,7 @@ struct HomeView: View {
                             Text("$0.80")
                                 .foregroundColor(.red)
                         }
+                        .padding(4)
                     }
                 }
             }
