@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State var isNewLogPresented = false
+    @Binding var logs: [Log]
+    
     struct CustomColour {
         static let BlueT = Color("Blue Titmouse")
         static let Cornflower = Color("Cornflower Blue")
@@ -55,21 +58,20 @@ struct HomeView: View {
                 }
             }
             .navigationTitle("Home")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        
-                    }, label: {
-                        Image(systemName: "plus")
-                    })
-                }
-            }
-        }
-    }
-    
-    struct HomeView_Previews: PreviewProvider {
-        static var previews: some View {
-            HomeView()
-        }
+            .navigationBarItems(trailing: Button(action: {
+                isNewLogPresented = true
+            }, label: {
+                Image(systemName: "plus")
+            }))
+        }.sheet(isPresented: $isNewLogPresented) {
+            NewLogView(logs: $logs)                }
     }
 }
+
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView(logs: .constant([]))
+    }
+}
+

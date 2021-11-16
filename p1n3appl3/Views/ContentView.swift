@@ -25,7 +25,7 @@ struct ContentView: View {
         
         TabView {
             // Home
-            HomeView()
+            HomeView(logs: .constant([]))
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
