@@ -55,42 +55,56 @@ struct HistoryView: View {
     }
 }
 
+struct CustomStyle {
+    static let light = ChartStyle(
+        backgroundColor: Color.black.opacity(0), // no background colour
+        accentColor: Color("Blue Titmouse"),
+        secondGradientColor: Color("Cornflower Blue"),
+        textColor: Color.black.opacity(0), // seems to have no effect
+        legendTextColor: Color(UIColor.darkGray),
+        dropShadowColor: Color.black.opacity(0) // seems to have no effect
+    )
+    
+    static let dark = ChartStyle(
+        backgroundColor: Color.black.opacity(0), // no background colour
+        accentColor: Color("Blue Titmouse"),
+        secondGradientColor: Color("Cornflower Blue"),
+        textColor: Color.black.opacity(0), // seems to have no effect
+        legendTextColor: Color.white,
+        dropShadowColor: Color.black.opacity(0) // seems to have no effect
+    )
+    
+    static var style: ChartStyle {
+        let light = CustomStyle.light
+        let dark = CustomStyle.dark
+        light.darkModeStyle = dark
+        let shortWeekdaySymbols = Calendar.current.shortWeekdaySymbols
+        
+        let localizedWeekdays: [String] = Array(shortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.shortWeekdaySymbols.count] + shortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
+        let c = Calendar.current
+        print(c) // prints "gregorian"
+        let first = Calendar.current.firstWeekday // this is 2 !!!
+        print(first)
+        print(shortWeekdaySymbols, localizedWeekdays)
+        return light
+    }
+}
+
 struct Chart: View {
     var body: some View {
         VStack {
             LineView(
-                data: [8,23,54,32,12,37,7,23,43],
-                //                title: "Line chart",
-                legend: "Full screen"
+                data: [1,10,1,3,5,1,8],
+                // title: "Line chart",
+                legend: "Amount / $",
+                style: CustomStyle.style
             )
             HStack {
-                Group {
+                let localizedWeekdays: [String] = Array(Calendar.current.shortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.shortWeekdaySymbols.count] + Calendar.current.shortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
+                ForEach(localizedWeekdays, id: \.self) { day in
                     Spacer()
-                    Text("S")
-                }
-                Group {
-                    Spacer()
-                    Text("M")
-                }
-                Group {
-                    Spacer()
-                    Text("T")
-                }
-                Group {
-                    Spacer()
-                    Text("W")
-                }
-                Group {
-                    Spacer()
-                    Text("T")
-                }
-                Group {
-                    Spacer()
-                    Text("F")
-                }
-                Group {
-                    Spacer()
-                    Text("S")
+                    Text(day)
+                        .foregroundColor(Color.gray)
                 }
             }
         }
