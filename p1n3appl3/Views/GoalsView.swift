@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct GoalsView: View {
-
-    @State private var completedFuture = 0
+    
+    @State private var futureCompleted = 0
     
     struct CustomColour {
         static let BlueT = Color("Blue Titmouse")
@@ -41,35 +41,49 @@ struct GoalsView: View {
                 
                 Section(header: Text("Other Goals")) {
                     
-                    Picker ("Time", selection: $completedFuture) {
+                    Picker ("Time", selection: $futureCompleted) {
                         Text("Future").tag(0)
                         Text("Completed").tag(1)
                     }
                     .pickerStyle(.segmented)
                     .padding(.vertical)
                     
-                    VStack (alignment: .leading) {
-                        HStack {
-                            Text("Polishing Cloth")
-                            Spacer()
-                            Text("$2.00 / $29.00")
+                    if futureCompleted == 0 {
+                        VStack (alignment: .leading) {
+                            HStack {
+                                Text("Polishing Cloth")
+                                Spacer()
+                                Text("$2.00 / $29.00")
+                            }
+                            .padding(.top)
+                            ProgressView(value: 2, total: 29)
+                                .padding(.bottom)
+                                .accentColor(CustomColour.Cornflower)
                         }
-                        .padding(.top)
-                        ProgressView(value: 2, total: 29)
-                            .padding(.bottom)
-                            .accentColor(CustomColour.Cornflower)
-                    }
-                    
-                    VStack (alignment: .leading) {
-                        HStack {
-                            Text("Polishing Cloth")
-                            Spacer()
-                            Text("$2.00 / $29.00")
+                    } else {
+                        VStack (alignment: .leading) {
+                            HStack {
+                                Text("Polishing Cloth")
+                                Spacer()
+                                Text("$2.00 / $29.00")
+                            }
+                            .padding(.top)
+                            ProgressView(value: 2, total: 29)
+                                .padding(.bottom)
+                                .accentColor(CustomColour.Cornflower)
                         }
-                        .padding(.top)
-                        ProgressView(value: 2, total: 29)
-                            .padding(.bottom)
-                            .accentColor(CustomColour.Cornflower)
+                        
+                        VStack (alignment: .leading) {
+                            HStack {
+                                Text("Polisihing Cloth")
+                                Spacer()
+                                Text("$2.00 / $29.00")
+                            }
+                            .padding(.top)
+                            ProgressView(value: 2, total: 29)
+                                .padding(.bottom)
+                                .accentColor(CustomColour.Cornflower)
+                        }
                     }
                 }
             }
