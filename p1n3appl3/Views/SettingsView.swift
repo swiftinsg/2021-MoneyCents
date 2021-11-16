@@ -28,7 +28,7 @@ struct SettingsView: View {
                 }
                 
                 Section(header: Text("Information")) {
-                    VStack {
+                  
                         HStack{
                             Image(systemName: "dollarsign.square").foregroundColor(.gray)
                             Text("Total savings")
@@ -61,7 +61,7 @@ struct SettingsView: View {
                             }
                         }
                         .padding(.bottom,9)
-                    }
+                    
                 }
             }.navigationTitle("Settings")
         }
