@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUICharts
 
 struct HistoryView: View {
     @State private var Yaxis = 0
@@ -14,6 +15,10 @@ struct HistoryView: View {
     var body: some View {
         NavigationView {
             List {
+                Section {
+                    Chart()
+                }
+                
                 Section {
                     VStack {
                         // Y-Axis & Segmented picker
@@ -47,6 +52,49 @@ struct HistoryView: View {
             }
             .navigationTitle("History")
         }
+    }
+}
+
+struct Chart: View {
+    var body: some View {
+        VStack {
+            LineView(
+                data: [8,23,54,32,12,37,7,23,43],
+                //                title: "Line chart",
+                legend: "Full screen"
+            )
+            HStack {
+                Group {
+                    Spacer()
+                    Text("S")
+                }
+                Group {
+                    Spacer()
+                    Text("M")
+                }
+                Group {
+                    Spacer()
+                    Text("T")
+                }
+                Group {
+                    Spacer()
+                    Text("W")
+                }
+                Group {
+                    Spacer()
+                    Text("T")
+                }
+                Group {
+                    Spacer()
+                    Text("F")
+                }
+                Group {
+                    Spacer()
+                    Text("S")
+                }
+            }
+        }
+        .frame(height:350)
     }
 }
 
