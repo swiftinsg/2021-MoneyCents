@@ -39,9 +39,9 @@ struct HistoryView: View {
                         .offset(x: -120, y: 40)
                     Picker("Xaxis", selection: $Xaxis) {
                         Text("Total").tag(0)
-                        Text("").tag(1)
-                        Text("").tag(2)
-                        Text("").tag(3)
+                        Text("Food").tag(1)
+                        Text("Transport").tag(2)
+                        Text("Entertainment").tag(3)
                     }
                     .pickerStyle(.segmented)
                     .frame(width: 350, height: 100)
