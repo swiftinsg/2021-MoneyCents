@@ -13,7 +13,7 @@ struct Log: Equatable, Codable {
     var ID = UUID()
     var Name: String
     var dateSelector = Date()
-    var Amount: Double
+    var Amount: String
     var Category: String
     var Details: String
 }

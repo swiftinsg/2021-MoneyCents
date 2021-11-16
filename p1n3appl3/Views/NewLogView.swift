@@ -13,16 +13,18 @@ struct NewLogView: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var logs: [Log]
     
-
+    
     
     // segmented picker
     @State private var logPicker = 0
     //
-    @State var Name = ""
+    @State var log = Log(Name: "",
+                         Amount: "",
+                         Category: "",
+                         Details: "")
+    
     @State var dateSelector = Date()
-    @State var Amount = ""
-    @State var Category = ""
-    @State var Details = ""
+    
     
     
     var body: some View {
@@ -38,25 +40,36 @@ struct NewLogView: View {
                     .pickerStyle(.segmented)
                 }
                 Section(header: Text("Information")) {
-                    TextField("Name", text: $Name)
+                    TextField("Name", text: $log.Name)
                         .disableAutocorrection(true)
                     DatePicker("Date", selection: $dateSelector, displayedComponents: .date)
-                    TextField("Amount", text: $Amount)
+                    TextField("Amount", text: $log.Amount)
                         .keyboardType(.numberPad)
-                    TextField("Category", text: $Category)
+                    TextField("Category", text: $log.Category)
                     
                 }
                 
                 Section(header: Text("Optional")) {
-                    TextField("Details (eg. place)", text: $Details)
+                    TextField("Details (eg. place)", text: $log.Details)
                 }
-
+                
+                Section {
+                    Button("Save") {
+                        logs.append(log)
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    Button("Discard") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    .foregroundColor(.red)
+                }
+                
             }
             .navigationTitle("New Log")
         }
         
     }
-        
+    
 }
 
 
