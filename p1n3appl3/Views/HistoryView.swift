@@ -19,7 +19,7 @@ struct HistoryView: View {
                         // Y-Axis & Segmented picker
                         VStack (alignment: .leading) {
                             Text("Y-axis")
-                                .font(.system(size: 20, weight: .semibold))
+                                .font(.headline)
                             Picker("Y-Axis", selection: $Yaxis) {
                                 Text("Week").tag(0)
                                 Text("Month").tag(1)
@@ -27,11 +27,12 @@ struct HistoryView: View {
                             }
                             .pickerStyle(.segmented)
                         }
+                        .padding(10)
 
                         // X-axis & Segmented picker
                         VStack (alignment: .leading) {
                             Text("X-axis")
-                                .font(.system(size: 20, weight: .semibold))
+                                .font(.headline)
                             Picker("Xaxis", selection: $Xaxis) {
                                 Text("Total").tag(0)
                                 Text("").tag(1)
@@ -40,8 +41,8 @@ struct HistoryView: View {
                             }
                             .pickerStyle(.segmented)
                         }
+                        .padding(10)
                     }
-                    .padding()
                 }
             }
             .navigationTitle("History")
