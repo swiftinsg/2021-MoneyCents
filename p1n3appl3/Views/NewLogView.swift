@@ -22,7 +22,7 @@ struct NewLogView: View {
                          Details: "")
     
     @State var dateSelector = Date()
-
+    
     var body: some View {
         NavigationView {
             Form {
@@ -50,17 +50,17 @@ struct NewLogView: View {
             .navigationTitle("New Log")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(
-                    leading:
-                        Button("Cancel") {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                        .foregroundColor(.red),
-                    trailing:
-                        Button("Save") {
-                            logs.append(log)
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                )
+                leading:
+                    Button("Cancel") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    .foregroundColor(.red),
+                trailing:
+                    Button("Save") {
+                        logs.append(log)
+                        presentationMode.wrappedValue.dismiss()
+                    }
+            )
         }
     }
 }

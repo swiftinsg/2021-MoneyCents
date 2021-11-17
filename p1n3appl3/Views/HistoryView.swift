@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftUICharts
 
 struct HistoryView: View {
+    
     @State private var Yaxis = 0
     @State private var Xaxis = 0
     
@@ -34,7 +35,7 @@ struct HistoryView: View {
                             .pickerStyle(.segmented)
                         }
                         .padding(10)
-
+                        
                         // X-axis & Segmented picker
                         VStack (alignment: .leading) {
                             Text("X-axis")

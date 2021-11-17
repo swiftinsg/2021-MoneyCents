@@ -10,7 +10,7 @@ import SwiftUI
 struct BudgetView: View {
     var body: some View {
         NavigationView {
-            List{
+            List {
                 Section() {
                     NavigationLink(destination: Text("Second View")) {
                         HStack {
@@ -60,7 +60,6 @@ struct BudgetView: View {
                 }
             }
         }
-        
     }
 }
 

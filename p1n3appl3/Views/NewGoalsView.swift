@@ -12,22 +12,22 @@ struct NewGoalsView: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var goals: [Goal]
     @State var goal = Goal(Name: "",
-                         Amount: "")
-
+                           Amount: "")
+    
     var body: some View {
-        NavigationView{
-        Form {
-            Section() {
-                TextField("Name", text: $goal.Name)
-                    .disableAutocorrection(true)
-                TextField("Amount", text: $goal.Amount)
-                    .keyboardType(.numberPad)
-                
+        NavigationView {
+            Form {
+                Section() {
+                    TextField("Name", text: $goal.Name)
+                        .disableAutocorrection(true)
+                    TextField("Amount", text: $goal.Amount)
+                        .keyboardType(.numberPad)
+                    
+                }
             }
-        }
-        .navigationTitle("New Goal")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarItems(
+            .navigationTitle("New Goal")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
                 leading:
                     Button("Cancel") {
                         presentationMode.wrappedValue.dismiss()
@@ -38,8 +38,8 @@ struct NewGoalsView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
             )
+        }
     }
-}
 }
 
 struct NewGoalsView_Previews: PreviewProvider {

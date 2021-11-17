@@ -110,8 +110,10 @@ struct GoalsView: View {
                     })
                 }
             }
-        }.sheet(isPresented: $isNewGoalPresented) {
-            NewGoalsView(goals: $goals)}
+        }
+        .sheet(isPresented: $isNewGoalPresented) {
+            NewGoalsView(goals: $goals)
+        }
     }
 }
 
