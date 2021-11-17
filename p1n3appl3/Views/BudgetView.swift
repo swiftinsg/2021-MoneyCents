@@ -10,7 +10,7 @@ import SwiftUI
 struct BudgetView: View {
     var body: some View {
         NavigationView {
-            List{
+            List {
                 Section() {
                     NavigationLink(destination: Text("Second View")) {
                         HStack {
@@ -48,6 +48,7 @@ struct BudgetView: View {
                     }
                 }
             }
+            .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Budget")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -59,7 +60,6 @@ struct BudgetView: View {
                 }
             }
         }
-        
     }
 }
 

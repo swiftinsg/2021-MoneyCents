@@ -89,6 +89,7 @@ struct GoalsView: View {
                     }
                 }
             }
+            .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Goals")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -109,8 +110,10 @@ struct GoalsView: View {
                     })
                 }
             }
-        }.sheet(isPresented: $isNewGoalPresented) {
-            NewGoalsView(goals: $goals)}
+        }
+        .sheet(isPresented: $isNewGoalPresented) {
+            NewGoalsView(goals: $goals)
+        }
     }
 }
 

@@ -18,7 +18,7 @@ struct ContentView: View {
         static let HawkesB = Color("Hawkes Blue")
         static let LightCyan = Color("Light Cyan")
     }
- 
+    
     var body: some View {
         
         // Tab view
@@ -32,7 +32,7 @@ struct ContentView: View {
             // History
             HistoryView()
                 .tabItem {
-                    Label("History", systemImage: "chart.xyaxis.line")
+                    Label("History", systemImage: "chart.bar")
                 }
             
             //Budget
