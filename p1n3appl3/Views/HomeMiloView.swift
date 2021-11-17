@@ -12,7 +12,7 @@ struct HomeMiloView: View {
     @State var isEditLogPresented = false
     
     var body: some View {
-        NavigationView{
+     
             List{
             
             
@@ -24,7 +24,7 @@ struct HomeMiloView: View {
                     //WIP
                 }
             }.navigationTitle("Milo") //WIP
-        }
+        
     }
 }
 struct HomeMiloView_Previews: PreviewProvider {
