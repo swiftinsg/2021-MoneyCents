@@ -53,6 +53,18 @@ struct NewLogView: View {
 
             }
             .navigationTitle("New Log")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(
+                    leading:
+                        Button("Cancel") {
+                            
+                        }
+                        .foregroundColor(.red),
+                    trailing:
+                        Button("Done") {
+                            
+                        }
+                )
         }
         
     }
