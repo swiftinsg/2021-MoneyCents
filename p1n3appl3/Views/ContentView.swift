@@ -32,7 +32,7 @@ struct ContentView: View {
             // History
             HistoryView()
                 .tabItem {
-                    Label("History", systemImage: "chart.xyaxis.line")
+                    Label("History", systemImage: "chart.bar")
                 }
             
             //Budget

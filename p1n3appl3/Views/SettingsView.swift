@@ -60,7 +60,9 @@ struct SettingsView: View {
                             }
                         }
                 }
-            }.navigationTitle("Settings")
+            }
+            .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
+            .navigationTitle("Settings")
         }
     }
 }

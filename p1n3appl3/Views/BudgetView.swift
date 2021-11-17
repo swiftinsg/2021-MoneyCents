@@ -48,6 +48,7 @@ struct BudgetView: View {
                     }
                 }
             }
+            .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Budget")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
