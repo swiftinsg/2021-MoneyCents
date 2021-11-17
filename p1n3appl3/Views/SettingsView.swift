@@ -36,22 +36,21 @@ struct SettingsView: View {
                             Text("$49.00")
                             //WIP
                         }
-                        .padding([.top, .bottom],9)
                         
                         HStack{
                             Image(systemName: "line.3.horizontal").foregroundColor(.gray)
                             Text("Version number")
                             Spacer()
                             Text("1.0")
-                        }.padding(.bottom,9)
-                        
+                        }
+
                         HStack{
                             Image(systemName: "calendar").foregroundColor(.gray)
                             Text("Date joined")
                             Spacer()
                             Text("12/12/21")
-                        }.padding(.bottom,9)
-                        
+                        }
+
                         HStack{
                             NavigationLink(destination: Text("Second View")) {
                                 HStack {
@@ -60,8 +59,6 @@ struct SettingsView: View {
                                 }
                             }
                         }
-                        .padding(.bottom,9)
-                    
                 }
             }.navigationTitle("Settings")
         }

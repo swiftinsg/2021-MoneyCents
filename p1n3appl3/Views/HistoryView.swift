@@ -17,6 +17,7 @@ struct HistoryView: View {
             List {
                 Section {
                     Chart()
+                        .padding(.bottom)
                 }
                 
                 Section {
