@@ -20,6 +20,8 @@
 		25D41BA12741FA5A008968F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D41BA02741FA5A008968F8 /* ContentView.swift */; };
 		25D41BA32741FA5C008968F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D41BA22741FA5C008968F8 /* Assets.xcassets */; };
 		25D41BA62741FA5C008968F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D41BA52741FA5C008968F8 /* Preview Assets.xcassets */; };
+		2E0A584827448BAD00858ACE /* NewGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A584727448BAD00858ACE /* NewGoalsView.swift */; };
+		2E0A584A27448FF800858ACE /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A584927448FF800858ACE /* Goal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		25D41BA02741FA5A008968F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		25D41BA22741FA5C008968F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25D41BA52741FA5C008968F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2E0A584727448BAD00858ACE /* NewGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalsView.swift; sourceTree = "<group>"; };
+		2E0A584927448FF800858ACE /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 				0A4153062741FCA900041359 /* HistoryView.swift */,
 				0A4153082741FCE500041359 /* BudgetView.swift */,
 				0A41530A2741FCF400041359 /* GoalsView.swift */,
+				2E0A584727448BAD00858ACE /* NewGoalsView.swift */,
 				0A41530E2741FF1B00041359 /* SettingsView.swift */,
 			);
 			path = Views;
@@ -69,6 +74,7 @@
 			children = (
 				0AC726CD2743CC380003519B /* AppData.swift */,
 				0AC726892743965E0003519B /* Log.swift */,
+				2E0A584927448FF800858ACE /* Goal.swift */,
 				25D41BA22741FA5C008968F8 /* Assets.xcassets */,
 			);
 			path = "Swift Files";
@@ -187,9 +193,11 @@
 			files = (
 				0A41530F2741FF1B00041359 /* SettingsView.swift in Sources */,
 				0A4153052741FCA000041359 /* HomeView.swift in Sources */,
+				2E0A584827448BAD00858ACE /* NewGoalsView.swift in Sources */,
 				0AC7268A2743965E0003519B /* Log.swift in Sources */,
 				0A4153072741FCA900041359 /* HistoryView.swift in Sources */,
 				25D41BA12741FA5A008968F8 /* ContentView.swift in Sources */,
+				2E0A584A27448FF800858ACE /* Goal.swift in Sources */,
 				0A41530B2741FCF400041359 /* GoalsView.swift in Sources */,
 				25D41B9F2741FA5A008968F8 /* p1n3appl3App.swift in Sources */,
 				0AC7268C274396700003519B /* NewLogView.swift in Sources */,

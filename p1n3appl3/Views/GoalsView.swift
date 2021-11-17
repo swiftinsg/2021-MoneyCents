@@ -10,6 +10,8 @@ import SwiftUI
 struct GoalsView: View {
     
     @State private var futureCompleted = 0
+    @State var isNewGoalPresented = false
+    @Binding var goals: [Goal]
     
     struct CustomColour {
         static let BlueT = Color("Blue Titmouse")
@@ -91,7 +93,7 @@ struct GoalsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        
+                        isNewGoalPresented = true
                     }, label: {
                         Image(systemName: "plus")
                             .foregroundColor(CustomColour.Cornflower)
@@ -107,12 +109,13 @@ struct GoalsView: View {
                     })
                 }
             }
-        }
+        }.sheet(isPresented: $isNewGoalPresented) {
+            NewGoalsView(goals: $goals)}
     }
 }
 
 struct GoalsView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalsView()
+        GoalsView(goals: .constant([]))
     }
 }
