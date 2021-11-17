@@ -13,8 +13,6 @@ struct NewLogView: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var logs: [Log]
     
-    
-    
     // segmented picker
     @State private var logPicker = 0
     //
@@ -24,15 +22,11 @@ struct NewLogView: View {
                          Details: "")
     
     @State var dateSelector = Date()
-    
-    
-    
+
     var body: some View {
-        
         NavigationView {
-            
             Form {
-                Section(header: Text("")){
+                Section(){
                     Picker("New Log", selection: $logPicker) {
                         Text("Allowance").tag(0)
                         Text("Expense").tag(1)
@@ -63,13 +57,10 @@ struct NewLogView: View {
                     }
                     .foregroundColor(.red)
                 }
-                
             }
             .navigationTitle("New Log")
         }
-        
     }
-    
 }
 
 
