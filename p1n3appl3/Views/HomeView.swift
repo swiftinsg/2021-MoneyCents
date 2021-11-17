@@ -41,34 +41,51 @@ struct HomeView: View {
                 }
                 
                 Section(header: Text("Recent Transactions")) {
-                    NavigationLink(destination:HomeMiloView() ) {
-                        HStack {
+                    HStack {
+                        NavigationLink(destination:HomeMiloView() ) {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("Milo")
+                                        .font(.headline)
+                                    Text("24 Oct 2021")
+                                        .font(.subheadline)
+                                }
+                                Spacer()
+                                Text("$0.80")
+                                    .foregroundColor(.red)
+                            }
+                            .padding(4)
+                        }.sheet(isPresented: $isNewLogPresented) {
+                            NewLogView(logs: $logs)                }
+                    }
+                    
+                    NavigationLink(destination:  Text("Second View")) {
+                        HStack{
                             VStack(alignment: .leading) {
-                                Text("Milo")
+                                Text("Allowance")
                                     .font(.headline)
-                                Text("24 Oct 2021")
+                                Text("25 Oct 2021")
                                     .font(.subheadline)
                             }
                             Spacer()
-                            Text("$0.80")
-                                .foregroundColor(.red)
+                            Text("$10.00")
+                                .foregroundColor(.blue)
                         }
                         .padding(4)
                     }
                 }
             }
-            .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
-            .navigationTitle("Home")
-            .navigationBarItems(trailing: Button(action: {
-                isNewLogPresented = true
-            }, label: {
-                Image(systemName: "plus")
-            }))
-        }.sheet(isPresented: $isNewLogPresented) {
-            NewLogView(logs: $logs)                }
+        }
+        .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
+        .navigationTitle("Home")
+        .navigationBarItems(trailing: Button(action: {
+            isNewLogPresented = true
+        }, label: {
+            Image(systemName: "plus")
+        }))
     }
+    
 }
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
