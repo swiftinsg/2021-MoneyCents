@@ -37,6 +37,18 @@ struct NewGoalsView: View {
             }
         }
         .navigationTitle("New Goal")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarItems(
+                leading:
+                    Button("Cancel") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    .foregroundColor(.red),
+                trailing:
+                    Button("Save") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+            )
     }
 }
 }
