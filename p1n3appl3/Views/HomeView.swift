@@ -75,16 +75,16 @@ struct HomeView: View {
                     }
                 }
             }
+            
+            .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
+            .navigationTitle("Home")
+            .navigationBarItems(trailing: Button(action: {
+                isNewLogPresented = true
+            }, label: {
+                Image(systemName: "plus")
+            }))
         }
-        .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
-        .navigationTitle("Home")
-        .navigationBarItems(trailing: Button(action: {
-            isNewLogPresented = true
-        }, label: {
-            Image(systemName: "plus")
-        }))
     }
-    
 }
 
 struct HomeView_Previews: PreviewProvider {
