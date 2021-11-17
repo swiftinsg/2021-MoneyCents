@@ -42,7 +42,7 @@ struct ContentView: View {
                 }
             
             // Goals
-            GoalsView()
+            GoalsView(goals: .constant([]))
                 .tabItem {
                     Label("Goals", systemImage: "list.dash")
                 }
