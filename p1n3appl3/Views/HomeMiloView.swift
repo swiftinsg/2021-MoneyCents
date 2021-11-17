@@ -22,11 +22,18 @@ struct HomeMiloView: View {
                 //WIP
             }
         }.navigationTitle("Milo") //WIP
+           
             .navigationBarItems(trailing: Button(action: {
-                
+                isEditPresented.toggle()
             }, label: {
                 Text("Edit")
             }))
+            .sheet(isPresented: $isEditPresented) {
+              //insert present code here
+                Button("WIP to add editable text field here") {
+                  isEditPresented = false
+                }
+            }
     }
 }
 struct HomeMiloView_Previews: PreviewProvider {
