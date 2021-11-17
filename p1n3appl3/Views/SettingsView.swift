@@ -47,7 +47,7 @@ struct SettingsView: View {
                     }
                     
                     HStack{
-                        NavigationLink(destination: Text("Second View")) {
+                        NavigationLink(destination:SettingsCreditView()) {
                             HStack {
                                 Image(systemName: "face.smiling").foregroundColor(.gray)
                                 Text("Credits")
