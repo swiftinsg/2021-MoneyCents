@@ -34,8 +34,25 @@ struct SettingsCreditView: View {
                 }
             }
             Section(header:Text("Special thanks")){
-                Text("Jia Chen")
+                HStack{
+                    Image(systemName: "person")
+                        .foregroundColor(.gray)
+                    Text("Jia Chen")
             }
+                HStack{
+                    Image(systemName: "person")
+                        .foregroundColor(.gray)
+                    Text("Granwyn")
+        }
+                HStack{
+                    Image(systemName: "person")
+                        .foregroundColor(.gray)
+                    Text("Rochelle")
+        }
+                HStack{
+                    Image(systemName: "person")
+                        .foregroundColor(.gray)
+                    Text("YJ")
         }
         .navigationTitle("Credits")
     }
