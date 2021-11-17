@@ -24,17 +24,6 @@ struct NewGoalsView: View {
                     .keyboardType(.numberPad)
                 
             }
-            
-            Section {
-                Button("Save") {
-                    goals.append(goal)
-                    presentationMode.wrappedValue.dismiss()
-                }
-                Button("Discard") {
-                    presentationMode.wrappedValue.dismiss()
-                }
-                .foregroundColor(.red)
-            }
         }
         .navigationTitle("New Goal")
         .navigationBarTitleDisplayMode(.inline)
