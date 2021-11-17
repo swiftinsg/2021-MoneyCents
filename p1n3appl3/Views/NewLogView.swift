@@ -63,12 +63,13 @@ struct NewLogView: View {
             .navigationBarItems(
                     leading:
                         Button("Cancel") {
-                            
+                            presentationMode.wrappedValue.dismiss()
                         }
                         .foregroundColor(.red),
                     trailing:
-                        Button("Done") {
-                            
+                        Button("Save") {
+                            logs.append(log)
+                            presentationMode.wrappedValue.dismiss()
                         }
                 )
         }
