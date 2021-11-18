@@ -10,6 +10,7 @@ import SwiftUI
 struct LogDetailView: View {
     
     @State var isEditPresented = false
+    @Binding var log: Log
     @State private var text = ""
     
     
@@ -63,6 +64,8 @@ struct LogDetailView: View {
 }
 struct LogDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        LogDetailView()
+        LogDetailView(log: .constant(
+            Log(name: "Milo", icon: "k", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.0", category: "A", details: "", type: [])
+        ))
     }
 }
