@@ -74,7 +74,6 @@ struct NewLogView: View {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Cancel")
-                            .foregroundColor(.red)
                     })
                 }
 
@@ -84,6 +83,7 @@ struct NewLogView: View {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Save")
+                            .bold()
                     })
                 }
             }

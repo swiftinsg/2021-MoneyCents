@@ -50,7 +50,6 @@ struct LogDetailView: View {
                             isEditPresented = false
                         }, label: {
                             Text("Cancel")
-                                .foregroundColor(.red)
                         })
                     }
 
@@ -59,6 +58,7 @@ struct LogDetailView: View {
                             isEditPresented = false
                         }, label: {
                             Text("Save")
+                                .bold()
                         })
                     }
                 }

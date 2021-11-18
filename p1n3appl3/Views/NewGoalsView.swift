@@ -32,7 +32,6 @@ struct NewGoalsView: View {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Cancel")
-                            .foregroundColor(.red)
                     })
                 }
 
@@ -41,6 +40,7 @@ struct NewGoalsView: View {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Save")
+                            .bold()
                     })
                 }
             }
