@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsCreditView: View {
     var body: some View {
-        NavigationView{
+        
             List{
                 Section(header:Text("The team")){
                     HStack{
@@ -57,7 +57,7 @@ struct SettingsCreditView: View {
                     .navigationTitle("Credits")
                 }
             }
-        }
+        
     }
 }
     

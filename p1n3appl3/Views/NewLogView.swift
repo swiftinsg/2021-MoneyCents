@@ -10,6 +10,10 @@ import SwiftUI
 
 struct NewLogView: View {
     
+    @State var selection = 0 // for picker
+    
+    let catergory = ["Food","Transport","Entertainment"]
+    
     @Environment(\.presentationMode) var presentationMode
     @Binding var logs: [Log]
     
@@ -33,13 +37,24 @@ struct NewLogView: View {
                     }
                     .pickerStyle(.segmented)
                 }
+                
                 Section(header: Text("Information")) {
                     TextField("Name", text: $log.Name)
                         .disableAutocorrection(true)
                     DatePicker("Date", selection: $dateSelector, displayedComponents: .date)
                     TextField("Amount", text: $log.Amount)
                         .keyboardType(.numberPad)
-                    TextField("Category", text: $log.Category)
+                    
+                    
+                    HStack {
+                        Text("Category")
+                        Spacer()
+                        Picker(selection: $selection, label: Text("Category")) {
+                            ForEach(0 ..< catergory.count) { index in
+                                Text(self.catergory[index]).tag(index)
+                            }
+                        }.pickerStyle(.menu)
+                    }
                     
                 }
                 
@@ -61,6 +76,7 @@ struct NewLogView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
             )
+            
         }
     }
 }
