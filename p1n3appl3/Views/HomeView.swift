@@ -33,22 +33,22 @@ struct HomeView: View {
                 }
                 
                 Section(header: Text("Recent Transactions")) {
-                    HStack {
-                        NavigationLink(destination:HomeMiloView() ) {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text("Milo")
-                                        .font(.headline)
-                                    Text("24 Oct 2021")
-                                        .font(.subheadline)
-                                }
-                                Spacer()
-                                Text("$0.80")
-                                    .foregroundColor(.red)
+                    NavigationLink(destination:HomeMiloView() ) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("Milo")
+                                    .font(.headline)
+                                Text("24 Oct 2021")
+                                    .font(.subheadline)
                             }
-                            .padding(4)
-                        }.sheet(isPresented: $isNewLogPresented) {
-                            NewLogView(logs: $logs)                }
+                            Spacer()
+                            Text("$0.80")
+                                .foregroundColor(.red)
+                        }
+                        .padding(4)
+                    }
+                    .sheet(isPresented: $isNewLogPresented) {
+                        NewLogView(logs: $logs)
                     }
                     
                     NavigationLink(destination:  Text("Second View")) {
