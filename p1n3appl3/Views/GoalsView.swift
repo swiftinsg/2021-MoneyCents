@@ -9,6 +9,15 @@ import SwiftUI
 
 struct GoalsView: View {
     
+    struct CustomColor {
+        static let BlueT = Color("Blue Titmouse")
+        static let Cornflower = Color("Cornflower Blue")
+        static let LightNavy = Color("Light Navy")
+        static let HawkesB = Color("Hawkes Blue")
+        static let LightCyan = Color("Light Cyan")
+    }
+
+    
     @State private var futureCompleted = 0
     @State private var switchNumber = 0
     @State var switchPickerNumber = 0
@@ -19,7 +28,8 @@ struct GoalsView: View {
                              Amount: "$29.00")]
     @State var currentGoal = [Goal(Name: "Polishing Cloth",
                                    Amount: "$29.00")]
-    
+
+
     var body: some View {
         NavigationView {
             List {
@@ -62,7 +72,7 @@ struct GoalsView: View {
                                     .padding(.top)
                                     ProgressView(value: 2, total: 29)
                                         .padding(.bottom)
-                                        .accentColor(CustomColour.Cornflower)
+                                        .accentColor(CustomColor.Cornflower)
                                 }
                             }
                         }.onDelete { offsets in
@@ -81,7 +91,7 @@ struct GoalsView: View {
                                 .padding(.top)
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
-                                    .accentColor(CustomColour.Cornflower)
+                                    .accentColor(CustomColor.Cornflower)
                             }
                             .padding(.top)
                             ProgressView(value: 2, total: 29)
@@ -99,7 +109,7 @@ struct GoalsView: View {
                                 .padding(.top)
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
-                                    .accentColor(CustomColour.Cornflower)
+                                    .accentColor(CustomColor.Cornflower)
                             }
                             .padding(.top)
                             ProgressView(value: 2, total: 29)
@@ -129,7 +139,7 @@ struct GoalsView: View {
                      }.pickerStyle(.menu)
                      .accentColor(CustomColour.Cornflower)*/
                     EditButton()
-                        .foregroundColor(CustomColour.Cornflower)
+                        .foregroundColor(CustomColor.Cornflower)
                 }
             }
         }
