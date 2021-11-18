@@ -59,6 +59,7 @@ struct SettingsView: View {
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Settings")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

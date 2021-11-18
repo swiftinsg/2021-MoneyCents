@@ -17,28 +17,35 @@ struct NewGoalsView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section() {
+                Section {
                     TextField("Name", text: $goal.name)
                         .disableAutocorrection(true)
                     TextField("Amount", text: $goal.amount)
                         .keyboardType(.numberPad)
-                    
                 }
             }
             .navigationTitle("New Goal")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(
-                leading:
-                    Button("Cancel") {
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }
-                    .foregroundColor(.red),
-                trailing:
-                    Button("Save") {
+                    }, label: {
+                        Text("Cancel")
+                    })
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }
-            )
+                    }, label: {
+                        Text("Save")
+                            .bold()
+                    })
+                }
+            }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

@@ -8,16 +8,7 @@
 import SwiftUI
 
 struct GoalsView: View {
-    
-    struct CustomColor {
-        static let BlueT = Color("Blue Titmouse")
-        static let Cornflower = Color("Cornflower Blue")
-        static let LightNavy = Color("Light Navy")
-        static let HawkesB = Color("Hawkes Blue")
-        static let LightCyan = Color("Light Cyan")
-    }
 
-    
     @State private var futureCompleted = 0
     @State private var switchNumber = 0
     @State var switchPickerNumber = 0
@@ -29,19 +20,18 @@ struct GoalsView: View {
     @State var currentGoal = [Goal(name: "Polishing Cloth",
                                    amount: "$29.00")]
 
-
     var body: some View {
         NavigationView {
             List {
-                Section() {
+                Section {
                     NavigationLink(destination: Text("Second View")){
                         VStack (alignment: .leading) {
                             HStack {
-                                /*Text(currentGoal.name)
+                                Text(currentGoal[0].name)
                                  .foregroundColor(.white)
                                  Spacer()
-                                 Text("$2.00 / \(currentGoal.amount)")
-                                 .foregroundColor(.white)*/
+                                 Text("$2.00 / \(currentGoal[0].amount)")
+                                 .foregroundColor(.white)
                             }
                             .padding(.top)
                             ProgressView(value: 2, total: 29)
@@ -75,9 +65,11 @@ struct GoalsView: View {
                                         .accentColor(CustomColor.Cornflower)
                                 }
                             }
-                        }.onDelete { offsets in
+                        }
+                        .onDelete { offsets in
                             goals.remove(atOffsets: offsets)
-                        }.onMove{ source, destination in
+                        }
+                        .onMove{ source, destination in
                             goals.move(fromOffsets: source, toOffset: destination)
                         }
                     } else {
@@ -89,14 +81,11 @@ struct GoalsView: View {
                                     Text("$2.00 / $29.00")
                                 }
                                 .padding(.top)
+                                
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
                                     .accentColor(CustomColor.Cornflower)
                             }
-                            .padding(.top)
-                            ProgressView(value: 2, total: 29)
-                                .padding(.bottom)
-                                .accentColor(CustomColor.Cornflower)
                         }
                         
                         NavigationLink(destination: Text("Second View")) {
@@ -107,14 +96,11 @@ struct GoalsView: View {
                                     Text("$2.00 / $29.00")
                                 }
                                 .padding(.top)
+                                
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
                                     .accentColor(CustomColor.Cornflower)
                             }
-                            .padding(.top)
-                            ProgressView(value: 2, total: 29)
-                                .padding(.bottom)
-                                .accentColor(CustomColor.Cornflower)
                         }
                     }
                 }
@@ -122,15 +108,6 @@ struct GoalsView: View {
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Goals")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        isNewGoalPresented = true
-                    }, label: {
-                        Image(systemName: "plus")
-                            .foregroundColor(CustomColor.Cornflower)
-                    })
-                }
-                
                 ToolbarItem(placement: .navigationBarLeading) {
                     /*Picker (selection: $switchNumber, label: Text("Switch")) {
                      ForEach(goals){ goal in
@@ -141,8 +118,18 @@ struct GoalsView: View {
                     EditButton()
                         .foregroundColor(CustomColor.Cornflower)
                 }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isNewGoalPresented = true
+                    }, label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(CustomColor.Cornflower)
+                    })
+                }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $isNewGoalPresented) {
             NewGoalsView(goals: $goals)
         }

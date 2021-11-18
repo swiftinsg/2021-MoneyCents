@@ -55,6 +55,7 @@ struct HistoryView: View {
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("History")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -81,14 +82,6 @@ struct CustomStyle {
         let light = CustomStyle.light
         let dark = CustomStyle.dark
         light.darkModeStyle = dark
-        let shortWeekdaySymbols = Calendar.current.shortWeekdaySymbols
-        
-        let localizedWeekdays: [String] = Array(shortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.shortWeekdaySymbols.count] + shortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
-        let c = Calendar.current
-        print(c) // prints "gregorian"
-        let first = Calendar.current.firstWeekday // this is 2 !!!
-        print(first)
-        print(shortWeekdaySymbols, localizedWeekdays)
         return light
     }
 }

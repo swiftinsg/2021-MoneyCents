@@ -15,7 +15,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                Section() {
+                Section {
                     VStack (alignment: .leading) {
                         HStack {
                             Text("Polishing Cloth")
@@ -48,19 +48,25 @@ struct HomeView: View {
                             Text("$\(log.amount)")
                                 .foregroundColor(.red)
                         }
-                        .sheet(isPresented: $isNewLogPresented) {
-                            NewLogView(logs: $logs)
-                        }
                     }
                 }
             }
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Home")
-            .navigationBarItems(trailing: Button(action: {
-                isNewLogPresented = true
-            }, label: {
-                Image(systemName: "plus")
-            }))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isNewLogPresented = true
+                    }, label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(CustomColor.Cornflower)
+                    })
+                }
+            }
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: $isNewLogPresented) {
+            NewLogView(logs: $logs)
         }
     }
 }
@@ -68,7 +74,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(logs: .constant([
-            Log(name: "Milo", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.00", category: "A", details: "", type: [])
+            Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.00", category: "A", details: "")
         ]))
     }
 }

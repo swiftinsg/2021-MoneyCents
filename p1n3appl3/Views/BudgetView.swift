@@ -11,7 +11,7 @@ struct BudgetView: View {
     var body: some View {
         NavigationView {
             List {
-                Section() {
+                Section {
                     NavigationLink(destination: Text("Second View")) {
                         HStack {
                             VStack(alignment: .leading) {
@@ -35,7 +35,7 @@ struct BudgetView: View {
                     }
                 }
                 
-                Section (){
+                Section {
                     NavigationLink(destination: Text("Second View")){
                         HStack {
                             VStack(alignment: .leading) {
@@ -60,6 +60,7 @@ struct BudgetView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

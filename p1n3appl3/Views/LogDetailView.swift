@@ -23,11 +23,15 @@ struct LogDetailView: View {
             }
         }
         .navigationTitle("Milo")
-        .navigationBarItems(trailing: Button(action: {
-            isEditPresented.toggle()
-        }, label: {
-            Text("Edit")
-        }))
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    isEditPresented.toggle()
+                }, label: {
+                    Text("Edit")
+                })
+            }
+        }
         .sheet(isPresented: $isEditPresented) {
             // insert present code here
             NavigationView {
@@ -40,24 +44,33 @@ struct LogDetailView: View {
                         
                     }
                 }
-                .navigationBarItems(
-                    leading:
-                        Button("Cancel") {
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
                             isEditPresented = false
-                        }.foregroundColor(.red),
-                    trailing:
-                        Button("Save"){
+                        }, label: {
+                            Text("Cancel")
+                        })
+                    }
+
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
                             isEditPresented = false
-                        }
-                )
+                        }, label: {
+                            Text("Save")
+                                .bold()
+                        })
+                    }
+                }
             }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }
 struct LogDetailView_Previews: PreviewProvider {
     static var previews: some View {
         LogDetailView(log: .constant(
-            Log(name: "Milo", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.0", category: "A", details: "Bought at school canteen during break", type: [])
+            Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.0", category: "A", details: "Bought at school canteen during break")
         ))
     }
 }

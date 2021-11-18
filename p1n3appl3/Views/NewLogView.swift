@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-
 struct NewLogView: View {
     
     @State var selection = 0 // for picker
-    
     let catergory = ["Food","Transport","Entertainment"]
     
     @Environment(\.presentationMode) var presentationMode
@@ -21,17 +19,17 @@ struct NewLogView: View {
     @State private var logPicker = 0
     //
     @State var log = Log(name: "",
+                         icon: "bag",
                          amount: "",
                          category: "",
-                         details: "",
-                         type: [.others])
+                         details: "")
     
     @State var dateSelector = Date()
     
     var body: some View {
         NavigationView {
             Form {
-                Section(){
+                Section {
                     Picker("New Log", selection: $logPicker) {
                         Text("Allowance").tag(0)
                         Text("Expense").tag(1)
@@ -46,6 +44,11 @@ struct NewLogView: View {
                     TextField("Amount", text: $log.amount)
                         .keyboardType(.numberPad)
                     
+                    HStack {
+                        Image(systemName: log.icon)
+                        TextField("Icon", text: $log.icon)
+                            .autocapitalization(.none)
+                    }
                     
                     HStack {
                         Text("Category")
@@ -68,24 +71,29 @@ struct NewLogView: View {
             }
             .navigationTitle("New Log")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(
-                leading:
-                    Button("Cancel") {
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }
-                    .foregroundColor(.red),
-                trailing:
-                    Button("Save") {
+                    }, label: {
+                        Text("Cancel")
+                    })
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
                         logs.append(log)
                         presentationMode.wrappedValue.dismiss()
-                    }
-            )
-            
+                    }, label: {
+                        Text("Save")
+                            .bold()
+                    })
+                }
+            }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
-
-
 
 struct NewLogView_Previews: PreviewProvider {
     static var previews: some View {
