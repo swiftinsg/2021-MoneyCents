@@ -62,7 +62,7 @@ struct GoalsView: View {
                                     .padding(.top)
                                     ProgressView(value: 2, total: 29)
                                         .padding(.bottom)
-                                        .accentColor(CustomColour.Cornflower)
+                                        .accentColor(CustomColor.Cornflower)
                                 }
                             }
                         }.onDelete { offsets in
@@ -81,7 +81,7 @@ struct GoalsView: View {
                                 .padding(.top)
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
-                                    .accentColor(CustomColour.Cornflower)
+                                    .accentColor(CustomColor.Cornflower)
                             }
                             .padding(.top)
                             ProgressView(value: 2, total: 29)
@@ -99,7 +99,7 @@ struct GoalsView: View {
                                 .padding(.top)
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
-                                    .accentColor(CustomColour.Cornflower)
+                                    .accentColor(CustomColor.Cornflower)
                             }
                             .padding(.top)
                             ProgressView(value: 2, total: 29)
@@ -129,7 +129,7 @@ struct GoalsView: View {
                      }.pickerStyle(.menu)
                      .accentColor(CustomColour.Cornflower)*/
                     EditButton()
-                        .foregroundColor(CustomColour.Cornflower)
+                        .foregroundColor(CustomColor.Cornflower)
                 }
             }
         }
