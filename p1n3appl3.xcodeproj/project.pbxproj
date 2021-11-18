@@ -78,6 +78,7 @@
 		0A4153482742008900041359 /* Swift Files */ = {
 			isa = PBXGroup;
 			children = (
+				25C1E99927460E2000104902 /* CustomColor.swift */,
 				0AC726892743965E0003519B /* Log.swift */,
 				2E0A584927448FF800858ACE /* Goal.swift */,
 				25D41BA22741FA5C008968F8 /* Assets.xcassets */,
@@ -104,7 +105,6 @@
 		25D41B9D2741FA5A008968F8 /* p1n3appl3 */ = {
 			isa = PBXGroup;
 			children = (
-				25C1E99927460E2000104902 /* CustomColor.swift */,
 				25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */,
 				0A4153032741FC6500041359 /* Views */,
 				0A4153482742008900041359 /* Swift Files */,
