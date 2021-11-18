@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct HomeMiloView: View {
+struct LogDetailView: View {
     
     @State var isEditPresented = false
+    @State private var text = ""
+    
     
     var body: some View {
         
@@ -31,7 +33,18 @@ struct HomeMiloView: View {
             .sheet(isPresented: $isEditPresented) {
                 //insert present code here
                 NavigationView{
-                    Text("Name")
+                    List{
+                        Section{
+                         
+                     
+                            TextField("Milo",text: $text)
+                                TextField("Name", text: $text)
+                                TextField("Amount", text: $text)
+                                TextField("Description", text: $text)
+                            
+                        }
+                    }
+                   
                     
                     
                         .navigationBarItems(
@@ -48,8 +61,8 @@ struct HomeMiloView: View {
             }
     }
 }
-struct HomeMiloView_Previews: PreviewProvider {
+struct LogDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeMiloView()
+        LogDetailView()
     }
 }

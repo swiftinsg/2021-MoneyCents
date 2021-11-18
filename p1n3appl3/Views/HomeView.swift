@@ -33,7 +33,7 @@ struct HomeView: View {
                 }
                 
                 Section(header: Text("Recent Transactions")) {
-                    NavigationLink(destination:HomeMiloView() ) {
+                    NavigationLink(destination:LogDetailView() ) {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Milo")
