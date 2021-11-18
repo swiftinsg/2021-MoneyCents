@@ -61,7 +61,10 @@ struct NewLogView: View {
                 }
                 
                 Section(header: Text("Optional")) {
-                    TextField("Details (eg. place)", text: $log.details)
+                    
+                    TextEditor(text: $log.details)
+                    
+                    
                 }
             }
             .navigationTitle("New Log")
