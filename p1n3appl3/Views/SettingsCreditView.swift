@@ -19,7 +19,7 @@ struct SettingsCreditView: View {
                 HStack{
                     Image(systemName: "person")
                         .foregroundColor(.gray)
-                    Text("Yi Kun")
+                    Text("Yikun")
                 }
                 HStack{
                     Image(systemName: "person")
