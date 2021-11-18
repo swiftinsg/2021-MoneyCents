@@ -12,14 +12,6 @@ struct HomeView: View {
     @State var isNewLogPresented = false
     @Binding var logs: [Log]
     
-    struct CustomColour {
-        static let BlueT = Color("Blue Titmouse")
-        static let Cornflower = Color("Cornflower Blue")
-        static let LightNavy = Color("Light Navy")
-        static let HawkesB = Color("Hawkes Blue")
-        static let LightCyan = Color("Light Cyan")
-    }
-    
     var body: some View {
         NavigationView {
             List {
@@ -37,45 +29,31 @@ struct HomeView: View {
                             .padding(.bottom)
                             .accentColor(.white)
                     }
-                    .listRowBackground(CustomColour.Cornflower)
+                    .listRowBackground(CustomColor.Cornflower)
                 }
                 
                 Section(header: Text("Recent Transactions")) {
-                    HStack {
-                        NavigationLink(destination:HomeMiloView() ) {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text("Milo")
-                                        .font(.headline)
-                                    Text("24 Oct 2021")
-                                        .font(.subheadline)
-                                }
-                                Spacer()
-                                Text("$0.80")
-                                    .foregroundColor(.red)
-                            }
-                            .padding(4)
-                        }.sheet(isPresented: $isNewLogPresented) {
-                            NewLogView(logs: $logs)                }
-                    }
-                    
-                    NavigationLink(destination:  Text("Second View")) {
-                        HStack{
+                    ForEach(logs) { log in
+                        let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
+                        
+                        NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
+                            
                             VStack(alignment: .leading) {
-                                Text("Allowance")
+                                Text(log.name)
                                     .font(.headline)
-                                Text("25 Oct 2021")
+                                Text(log.dateSelector, style: .date)
                                     .font(.subheadline)
                             }
                             Spacer()
-                            Text("$10.00")
-                                .foregroundColor(.blue)
+                            Text("$\(log.amount)")
+                                .foregroundColor(.red)
                         }
-                        .padding(4)
+                        .sheet(isPresented: $isNewLogPresented) {
+                            NewLogView(logs: $logs)
+                        }
                     }
                 }
             }
-            
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Home")
             .navigationBarItems(trailing: Button(action: {
@@ -89,7 +67,8 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(logs: .constant([]))
+        HomeView(logs: .constant([
+            Log(name: "Milo", icon: "k", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.00", category: "A", details: "", type: [])
+        ]))
     }
 }
-

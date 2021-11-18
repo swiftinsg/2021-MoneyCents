@@ -20,10 +20,12 @@ struct NewLogView: View {
     // segmented picker
     @State private var logPicker = 0
     //
-    @State var log = Log(Name: "",
-                         Amount: "",
-                         Category: "",
-                         Details: "")
+    @State var log = Log(name: "",
+                         icon: "",
+                         amount: "",
+                         category: "",
+                         details: "",
+                         type: [.others])
     
     @State var dateSelector = Date()
     
@@ -39,10 +41,10 @@ struct NewLogView: View {
                 }
                 
                 Section(header: Text("Information")) {
-                    TextField("Name", text: $log.Name)
+                    TextField("Name", text: $log.name)
                         .disableAutocorrection(true)
                     DatePicker("Date", selection: $dateSelector, displayedComponents: .date)
-                    TextField("Amount", text: $log.Amount)
+                    TextField("Amount", text: $log.amount)
                         .keyboardType(.numberPad)
                     
                     
@@ -59,7 +61,7 @@ struct NewLogView: View {
                 }
                 
                 Section(header: Text("Optional")) {
-                    TextField("Details (eg. place)", text: $log.Details)
+                    TextField("Details (eg. place)", text: $log.details)
                 }
             }
             .navigationTitle("New Log")

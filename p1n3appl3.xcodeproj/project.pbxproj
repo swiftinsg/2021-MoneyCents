@@ -14,7 +14,10 @@
 		0A41530F2741FF1B00041359 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A41530E2741FF1B00041359 /* SettingsView.swift */; };
 		0AC7268A2743965E0003519B /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC726892743965E0003519B /* Log.swift */; };
 		0AC7268C274396700003519B /* NewLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7268B274396700003519B /* NewLogView.swift */; };
+		0AC726CE2743CC380003519B /* (null) in Sources */ = {isa = PBXBuildFile; };
+		0AFE9A682746338800F7360D /* LogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE9A672746338800F7360D /* LogTypes.swift */; };
 		2558FBE727434DD900CB9296 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 2558FBE627434DD900CB9296 /* SwiftUICharts */; };
+		25C1E99A27460E2000104902 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1E99927460E2000104902 /* CustomColor.swift */; };
 		25D41B9F2741FA5A008968F8 /* p1n3appl3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */; };
 		25D41BA12741FA5A008968F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D41BA02741FA5A008968F8 /* ContentView.swift */; };
 		25D41BA32741FA5C008968F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D41BA22741FA5C008968F8 /* Assets.xcassets */; };
@@ -22,7 +25,7 @@
 		2E0A584827448BAD00858ACE /* NewGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A584727448BAD00858ACE /* NewGoalsView.swift */; };
 		2E0A584A27448FF800858ACE /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A584927448FF800858ACE /* Goal.swift */; };
 		2EAE11D02744BB7700A2FD92 /* SettingsCreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE11CF2744BB7700A2FD92 /* SettingsCreditView.swift */; };
-		2EAE11D22744D2D200A2FD92 /* HomeMiloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE11D12744D2D200A2FD92 /* HomeMiloView.swift */; };
+		2EAE11D22744D2D200A2FD92 /* LogDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAE11D12744D2D200A2FD92 /* LogDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,8 @@
 		0A41530E2741FF1B00041359 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0AC726892743965E0003519B /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		0AC7268B274396700003519B /* NewLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogView.swift; sourceTree = "<group>"; };
+		0AFE9A672746338800F7360D /* LogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTypes.swift; sourceTree = "<group>"; };
+		25C1E99927460E2000104902 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		25D41B9B2741FA5A008968F8 /* p1n3appl3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = p1n3appl3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = p1n3appl3App.swift; sourceTree = "<group>"; };
 		25D41BA02741FA5A008968F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,7 +46,7 @@
 		2E0A584727448BAD00858ACE /* NewGoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGoalsView.swift; sourceTree = "<group>"; };
 		2E0A584927448FF800858ACE /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		2EAE11CF2744BB7700A2FD92 /* SettingsCreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCreditView.swift; sourceTree = "<group>"; };
-		2EAE11D12744D2D200A2FD92 /* HomeMiloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMiloView.swift; sourceTree = "<group>"; };
+		2EAE11D12744D2D200A2FD92 /* LogDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +66,7 @@
 			children = (
 				25D41BA02741FA5A008968F8 /* ContentView.swift */,
 				0A4153042741FCA000041359 /* HomeView.swift */,
-				2EAE11D12744D2D200A2FD92 /* HomeMiloView.swift */,
+				2EAE11D12744D2D200A2FD92 /* LogDetailView.swift */,
 				0AC7268B274396700003519B /* NewLogView.swift */,
 				0A4153062741FCA900041359 /* HistoryView.swift */,
 				0A4153082741FCE500041359 /* BudgetView.swift */,
@@ -76,6 +81,8 @@
 		0A4153482742008900041359 /* Swift Files */ = {
 			isa = PBXGroup;
 			children = (
+				25C1E99927460E2000104902 /* CustomColor.swift */,
+				0AFE9A672746338800F7360D /* LogTypes.swift */,
 				0AC726892743965E0003519B /* Log.swift */,
 				2E0A584927448FF800858ACE /* Goal.swift */,
 				25D41BA22741FA5C008968F8 /* Assets.xcassets */,
@@ -194,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AFE9A682746338800F7360D /* LogTypes.swift in Sources */,
 				0A41530F2741FF1B00041359 /* SettingsView.swift in Sources */,
 				0A4153052741FCA000041359 /* HomeView.swift in Sources */,
 				2E0A584827448BAD00858ACE /* NewGoalsView.swift in Sources */,
@@ -202,11 +210,13 @@
 				25D41BA12741FA5A008968F8 /* ContentView.swift in Sources */,
 				2EAE11D02744BB7700A2FD92 /* SettingsCreditView.swift in Sources */,
 				2E0A584A27448FF800858ACE /* Goal.swift in Sources */,
-				2EAE11D22744D2D200A2FD92 /* HomeMiloView.swift in Sources */,
+				25C1E99A27460E2000104902 /* CustomColor.swift in Sources */,
+				2EAE11D22744D2D200A2FD92 /* LogDetailView.swift in Sources */,
 				0A41530B2741FCF400041359 /* GoalsView.swift in Sources */,
 				25D41B9F2741FA5A008968F8 /* p1n3appl3App.swift in Sources */,
 				0AC7268C274396700003519B /* NewLogView.swift in Sources */,
 				0A4153092741FCE500041359 /* BudgetView.swift in Sources */,
+				0AC726CE2743CC380003519B /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

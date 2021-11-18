@@ -20,14 +20,6 @@ struct GoalsView: View {
     @State var currentGoal = [Goal(Name: "Polishing Cloth",
                                    Amount: "$29.00")]
     
-    struct CustomColour {
-        static let BlueT = Color("Blue Titmouse")
-        static let Cornflower = Color("Cornflower Blue")
-        static let LightNavy = Color("Light Navy")
-        static let HawkesB = Color("Hawkes Blue")
-        static let LightCyan = Color("Light Cyan")
-    }
-    
     var body: some View {
         NavigationView {
             List {
@@ -47,7 +39,7 @@ struct GoalsView: View {
                                 .accentColor(.white)
                         }
                     }
-                    .listRowBackground(CustomColour.Cornflower)
+                    .listRowBackground(CustomColor.Cornflower)
                 }
                 
                 Section(header: Text("Other Goals")) {
@@ -91,6 +83,10 @@ struct GoalsView: View {
                                     .padding(.bottom)
                                     .accentColor(CustomColour.Cornflower)
                             }
+                            .padding(.top)
+                            ProgressView(value: 2, total: 29)
+                                .padding(.bottom)
+                                .accentColor(CustomColor.Cornflower)
                         }
                         
                         NavigationLink(destination: Text("Second View")) {
@@ -105,6 +101,10 @@ struct GoalsView: View {
                                     .padding(.bottom)
                                     .accentColor(CustomColour.Cornflower)
                             }
+                            .padding(.top)
+                            ProgressView(value: 2, total: 29)
+                                .padding(.bottom)
+                                .accentColor(CustomColor.Cornflower)
                         }
                     }
                 }
@@ -117,7 +117,7 @@ struct GoalsView: View {
                         isNewGoalPresented = true
                     }, label: {
                         Image(systemName: "plus")
-                            .foregroundColor(CustomColour.Cornflower)
+                            .foregroundColor(CustomColor.Cornflower)
                     })
                 }
                 
