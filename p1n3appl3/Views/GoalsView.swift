@@ -108,15 +108,6 @@ struct GoalsView: View {
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Goals")
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        isNewGoalPresented = true
-                    }, label: {
-                        Image(systemName: "plus")
-                            .foregroundColor(CustomColor.Cornflower)
-                    })
-                }
-                
                 ToolbarItem(placement: .navigationBarLeading) {
                     /*Picker (selection: $switchNumber, label: Text("Switch")) {
                      ForEach(goals){ goal in
@@ -126,6 +117,15 @@ struct GoalsView: View {
                      .accentColor(CustomColour.Cornflower)*/
                     EditButton()
                         .foregroundColor(CustomColor.Cornflower)
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isNewGoalPresented = true
+                    }, label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(CustomColor.Cornflower)
+                    })
                 }
             }
         }
