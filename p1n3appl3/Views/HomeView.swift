@@ -31,40 +31,38 @@ struct HomeView: View {
                     }
                     .listRowBackground(CustomColor.Cornflower)
                 }
-                
                 Section(header: Text("Recent Transactions")) {
-                    NavigationLink(destination:LogDetailView() ) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Milo")
-                                    .font(.headline)
-                                Text("24 Oct 2021")
-                                    .font(.subheadline)
-                            }
-                            Spacer()
-                            Text("$0.80")
-                                .foregroundColor(.red)
-                        }
-                        .padding(4)
-                    }
-                    .sheet(isPresented: $isNewLogPresented) {
-                        NewLogView(logs: $logs)
-                    }
                     
-                    NavigationLink(destination:  Text("Second View")) {
-                        HStack{
-                            VStack(alignment: .leading) {
-                                Text("Allowance")
-                                    .font(.headline)
-                                Text("25 Oct 2021")
-                                    .font(.subheadline)
-                            }
-                            Spacer()
-                            Text("$10.00")
-                                .foregroundColor(.blue)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Milo")
+                                .font(.headline)
+                            Text("24 Oct 2021")
+                                .font(.subheadline)
                         }
-                        .padding(4)
+                        Spacer()
+                        Text("$0.80")
+                            .foregroundColor(.red)
                     }
+                    .padding(4)
+                }
+                .sheet(isPresented: $isNewLogPresented) {
+                    NewLogView(logs: $logs)
+                }
+                
+                NavigationLink(destination:  Text("Second View")) {
+                    HStack{
+                        VStack(alignment: .leading) {
+                            Text("Allowance")
+                                .font(.headline)
+                            Text("25 Oct 2021")
+                                .font(.subheadline)
+                        }
+                        Spacer()
+                        Text("$10.00")
+                            .foregroundColor(.blue)
+                    }
+                    .padding(4)
                 }
             }
             
@@ -75,10 +73,10 @@ struct HomeView: View {
             }, label: {
                 Image(systemName: "plus")
             }))
+            
         }
     }
 }
-
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(logs: .constant([]))

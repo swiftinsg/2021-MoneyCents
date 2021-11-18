@@ -9,11 +9,13 @@ import Foundation
 
 // New log
 
-struct Log: Equatable, Codable {
-    var ID = UUID()
-    var Name: String
+struct Log: Identifiable, Equatable, Codable {
+    var id = UUID()
+    var name: String
+    var icon: String
     var dateSelector = Date()
-    var Amount: String
-    var Category: String
-    var Details: String
+    var amount: String
+    var category: String
+    var details: String
+    var type: [LogTypes]
 }
