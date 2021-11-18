@@ -16,21 +16,20 @@ struct LogDetailView: View {
     var body: some View {
         List {
             Section(header: Text("Information")) {
-                Text("24 October 2021")
-                Text("$0.80")
-                Text("Food")
-                Text("bought at school canteen during break")
-                //WIP
+                Text(log.name)
+                Text(log.dateSelector, style: .date)
+                Text(log.amount)
+                Text(log.details)
             }
         }
-        .navigationTitle("Milo") //WIP
+        .navigationTitle("Milo")
         .navigationBarItems(trailing: Button(action: {
             isEditPresented.toggle()
         }, label: {
             Text("Edit")
         }))
         .sheet(isPresented: $isEditPresented) {
-            //insert present code here
+            // insert present code here
             NavigationView {
                 List {
                     Section {
@@ -58,7 +57,7 @@ struct LogDetailView: View {
 struct LogDetailView_Previews: PreviewProvider {
     static var previews: some View {
         LogDetailView(log: .constant(
-            Log(name: "Milo", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.0", category: "A", details: "", type: [])
+            Log(name: "Milo", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.0", category: "A", details: "Bought at school canteen during break", type: [])
         ))
     }
 }
