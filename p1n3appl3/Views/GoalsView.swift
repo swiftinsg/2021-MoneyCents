@@ -37,11 +37,11 @@ struct GoalsView: View {
                     NavigationLink(destination: Text("Second View")){
                         VStack (alignment: .leading) {
                             HStack {
-                                /*Text(currentGoal.name)
+                                Text(currentGoal[0].name)
                                  .foregroundColor(.white)
                                  Spacer()
-                                 Text("$2.00 / \(currentGoal.amount)")
-                                 .foregroundColor(.white)*/
+                                 Text("$2.00 / \(currentGoal[0].amount)")
+                                 .foregroundColor(.white)
                             }
                             .padding(.top)
                             ProgressView(value: 2, total: 29)
