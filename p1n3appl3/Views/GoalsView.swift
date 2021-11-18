@@ -135,6 +135,7 @@ struct GoalsView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $isNewGoalPresented) {
             NewGoalsView(goals: $goals)
         }

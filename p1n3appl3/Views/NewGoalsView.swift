@@ -39,6 +39,7 @@ struct NewGoalsView: View {
                     }
             )
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

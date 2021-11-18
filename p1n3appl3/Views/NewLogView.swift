@@ -83,6 +83,7 @@ struct NewLogView: View {
             )
             
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

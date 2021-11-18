@@ -60,6 +60,7 @@ struct BudgetView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

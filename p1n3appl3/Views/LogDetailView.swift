@@ -51,6 +51,7 @@ struct LogDetailView: View {
                         }
                 )
             }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
     }
 }
