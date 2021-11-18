@@ -33,25 +33,25 @@ struct HomeView: View {
                 }
                 
                 Section(header: Text("Recent Transactions")) {
-                    ForEach(logs) { log in
-                        let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
-                        
-                        NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
-                            
-                            VStack(alignment: .leading) {
-                                Text(log.name)
-                                    .font(.headline)
-                                Text(log.dateSelector, style: .date)
-                                    .font(.subheadline)
-                            }
-                            Spacer()
-                            Text("$\(log.amount)")
-                                .foregroundColor(.red)
-                        }
-                        .sheet(isPresented: $isNewLogPresented) {
-                            NewLogView(logs: $logs)
-                        }
-                    }
+                    //                    ForEach(logs) { log in
+                    //                        let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
+                    //
+                    //                        NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
+                    //
+                    //                            VStack(alignment: .leading) {
+                    //                                Text(log.name)
+                    //                                    .font(.headline)
+                    //                                Text(log.dateSelector, style: .date)
+                    //                                    .font(.subheadline)
+                    //                            }
+                    //                            Spacer()
+                    //                            Text("$\(log.amount)")
+                    //                                .foregroundColor(.red)
+                    //                        }
+                    
+                }
+                .sheet(isPresented: $isNewLogPresented) {
+                    NewLogView(logs: $logs)
                 }
             }
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
@@ -64,6 +64,7 @@ struct HomeView: View {
         }
     }
 }
+//}
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
