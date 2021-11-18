@@ -8,16 +8,7 @@
 import SwiftUI
 
 struct GoalsView: View {
-    
-    struct CustomColor {
-        static let BlueT = Color("Blue Titmouse")
-        static let Cornflower = Color("Cornflower Blue")
-        static let LightNavy = Color("Light Navy")
-        static let HawkesB = Color("Hawkes Blue")
-        static let LightCyan = Color("Light Cyan")
-    }
 
-    
     @State private var futureCompleted = 0
     @State private var switchNumber = 0
     @State var switchPickerNumber = 0
