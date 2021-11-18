@@ -31,41 +31,29 @@ struct HomeView: View {
                     }
                     .listRowBackground(CustomColor.Cornflower)
                 }
-                Section(header: Text("Recent Transactions")) {
-                    
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Milo")
-                                .font(.headline)
-                            Text("24 Oct 2021")
-                                .font(.subheadline)
-                        }
-                        Spacer()
-                        Text("$0.80")
-                            .foregroundColor(.red)
-                    }
-                    .padding(4)
-                }
-                .sheet(isPresented: $isNewLogPresented) {
-                    NewLogView(logs: $logs)
-                }
                 
-                NavigationLink(destination:  Text("Second View")) {
-                    HStack{
-                        VStack(alignment: .leading) {
-                            Text("Allowance")
-                                .font(.headline)
-                            Text("25 Oct 2021")
-                                .font(.subheadline)
+                Section(header: Text("Recent Transactions")) {
+                    ForEach(logs) { log in
+                        let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
+                        
+                        NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
+                            
+                            VStack(alignment: .leading) {
+                                Text(log.name)
+                                    .font(.headline)
+                                Text(log.dateSelector, style: .date)
+                                    .font(.subheadline)
+                            }
+                            Spacer()
+                            Text("$\(log.amount)")
+                                .foregroundColor(.red)
                         }
-                        Spacer()
-                        Text("$10.00")
-                            .foregroundColor(.blue)
+                        .sheet(isPresented: $isNewLogPresented) {
+                            NewLogView(logs: $logs)
+                        }
                     }
-                    .padding(4)
                 }
             }
-            
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Home")
             .navigationBarItems(trailing: Button(action: {
@@ -73,13 +61,14 @@ struct HomeView: View {
             }, label: {
                 Image(systemName: "plus")
             }))
-            
         }
     }
 }
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(logs: .constant([]))
+        HomeView(logs: .constant([
+            Log(name: "Milo", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.00", category: "A", details: "", type: [])
+        ]))
     }
 }
-
