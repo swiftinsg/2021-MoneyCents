@@ -11,16 +11,16 @@ struct NewGoalsView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @Binding var goals: [Goal]
-    @State var goal = Goal(Name: "",
-                           Amount: "")
+    @State var goal = Goal(name: "",
+                           amount: "")
     
     var body: some View {
         NavigationView {
             Form {
                 Section() {
-                    TextField("Name", text: $goal.Name)
+                    TextField("Name", text: $goal.name)
                         .disableAutocorrection(true)
-                    TextField("Amount", text: $goal.Amount)
+                    TextField("Amount", text: $goal.amount)
                         .keyboardType(.numberPad)
                     
                 }

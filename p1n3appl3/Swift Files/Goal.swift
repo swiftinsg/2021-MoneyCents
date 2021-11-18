@@ -9,6 +9,6 @@ import Foundation
 
 struct Goal: Identifiable, Equatable, Codable {
     var id = UUID()
-    var Name: String
-    var Amount: String
+    var name: String
+    var amount: String
 }
