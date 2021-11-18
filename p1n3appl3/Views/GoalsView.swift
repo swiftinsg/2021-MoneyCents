@@ -22,12 +22,12 @@ struct GoalsView: View {
     @State private var switchNumber = 0
     @State var switchPickerNumber = 0
     @State var isNewGoalPresented = false
-    @State var goals = [Goal(Name: "Polishing Cloth no. 1",
-                             Amount: "$29.00"),
-                        Goal(Name: "Polishing Cloth no. 2",
-                             Amount: "$29.00")]
-    @State var currentGoal = [Goal(Name: "Polishing Cloth",
-                                   Amount: "$29.00")]
+    @State var goals = [Goal(name: "Polishing Cloth no. 1",
+                             amount: "$29.00"),
+                        Goal(name: "Polishing Cloth no. 2",
+                             amount: "$29.00")]
+    @State var currentGoal = [Goal(name: "Polishing Cloth",
+                                   amount: "$29.00")]
 
 
     var body: some View {
@@ -37,10 +37,10 @@ struct GoalsView: View {
                     NavigationLink(destination: Text("Second View")){
                         VStack (alignment: .leading) {
                             HStack {
-                                /*Text(currentGoal.Name)
+                                /*Text(currentGoal.name)
                                  .foregroundColor(.white)
                                  Spacer()
-                                 Text("$2.00 / \(currentGoal.Amount)")
+                                 Text("$2.00 / \(currentGoal.amount)")
                                  .foregroundColor(.white)*/
                             }
                             .padding(.top)
@@ -65,9 +65,9 @@ struct GoalsView: View {
                             NavigationLink(destination: Text("Second View")) {
                                 VStack (alignment: .leading) {
                                     HStack {
-                                        Text(goal.Name)
+                                        Text(goal.name)
                                         Spacer()
-                                        Text("$2.00 / \(goal.Amount)")
+                                        Text("$2.00 / \(goal.amount)")
                                     }
                                     .padding(.top)
                                     ProgressView(value: 2, total: 29)
@@ -134,7 +134,7 @@ struct GoalsView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     /*Picker (selection: $switchNumber, label: Text("Switch")) {
                      ForEach(goals){ goal in
-                     Text(goal.Name).tag(switchPickerNumber)
+                     Text(goal.name).tag(switchPickerNumber)
                      }
                      }.pickerStyle(.menu)
                      .accentColor(CustomColour.Cornflower)*/
