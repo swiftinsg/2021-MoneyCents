@@ -53,11 +53,16 @@ struct HomeView: View {
             }
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Home")
-            .navigationBarItems(trailing: Button(action: {
-                isNewLogPresented = true
-            }, label: {
-                Image(systemName: "plus")
-            }))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        isNewLogPresented = true
+                    }, label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(CustomColor.Cornflower)
+                    })
+                }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $isNewLogPresented) {

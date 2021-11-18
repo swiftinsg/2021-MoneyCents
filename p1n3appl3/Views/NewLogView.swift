@@ -68,18 +68,25 @@ struct NewLogView: View {
             }
             .navigationTitle("New Log")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(
-                leading:
-                    Button("Cancel") {
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }
-                    .foregroundColor(.red),
-                trailing:
-                    Button("Save") {
+                    }, label: {
+                        Text("Cancel")
+                            .foregroundColor(.red)
+                    })
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
                         logs.append(log)
                         presentationMode.wrappedValue.dismiss()
-                    }
-            )
+                    }, label: {
+                        Text("Save")
+                    })
+                }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

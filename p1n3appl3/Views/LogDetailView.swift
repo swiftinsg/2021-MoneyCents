@@ -23,11 +23,15 @@ struct LogDetailView: View {
             }
         }
         .navigationTitle("Milo")
-        .navigationBarItems(trailing: Button(action: {
-            isEditPresented.toggle()
-        }, label: {
-            Text("Edit")
-        }))
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    isEditPresented.toggle()
+                }, label: {
+                    Text("Edit")
+                })
+            }
+        }
         .sheet(isPresented: $isEditPresented) {
             // insert present code here
             NavigationView {
@@ -40,16 +44,24 @@ struct LogDetailView: View {
                         
                     }
                 }
-                .navigationBarItems(
-                    leading:
-                        Button("Cancel") {
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button(action: {
                             isEditPresented = false
-                        }.foregroundColor(.red),
-                    trailing:
-                        Button("Save"){
+                        }, label: {
+                            Text("Cancel")
+                                .foregroundColor(.red)
+                        })
+                    }
+
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
                             isEditPresented = false
-                        }
-                )
+                        }, label: {
+                            Text("Save")
+                        })
+                    }
+                }
             }
             .navigationViewStyle(StackNavigationViewStyle())
         }

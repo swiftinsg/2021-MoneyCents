@@ -26,17 +26,24 @@ struct NewGoalsView: View {
             }
             .navigationTitle("New Goal")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarItems(
-                leading:
-                    Button("Cancel") {
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }
-                    .foregroundColor(.red),
-                trailing:
-                    Button("Save") {
+                    }, label: {
+                        Text("Cancel")
+                            .foregroundColor(.red)
+                    })
+                }
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
                         presentationMode.wrappedValue.dismiss()
-                    }
-            )
+                    }, label: {
+                        Text("Save")
+                    })
+                }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
