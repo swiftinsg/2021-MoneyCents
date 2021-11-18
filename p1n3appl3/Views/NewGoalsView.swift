@@ -17,12 +17,11 @@ struct NewGoalsView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section() {
+                Section {
                     TextField("Name", text: $goal.name)
                         .disableAutocorrection(true)
                     TextField("Amount", text: $goal.amount)
                         .keyboardType(.numberPad)
-                    
                 }
             }
             .navigationTitle("New Goal")

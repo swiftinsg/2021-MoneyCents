@@ -15,7 +15,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                Section() {
+                Section {
                     VStack (alignment: .leading) {
                         HStack {
                             Text("Polishing Cloth")
@@ -50,11 +50,6 @@ struct HomeView: View {
                         }
                     }
                 }
-                .sheet(isPresented: $isNewLogPresented) {
-                    NewLogView(logs: $logs)
-                    
-                }
-                
             }
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Home")
@@ -65,6 +60,9 @@ struct HomeView: View {
             }))
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: $isNewLogPresented) {
+            NewLogView(logs: $logs)
+        }
     }
 }
 

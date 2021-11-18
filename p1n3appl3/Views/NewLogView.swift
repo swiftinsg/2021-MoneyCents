@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct NewLogView: View {
     
     @State var selection = 0 // for picker
@@ -30,7 +29,7 @@ struct NewLogView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(){
+                Section {
                     Picker("New Log", selection: $logPicker) {
                         Text("Allowance").tag(0)
                         Text("Expense").tag(1)
@@ -81,13 +80,10 @@ struct NewLogView: View {
                         presentationMode.wrappedValue.dismiss()
                     }
             )
-            
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
 }
-
-
 
 struct NewLogView_Previews: PreviewProvider {
     static var previews: some View {

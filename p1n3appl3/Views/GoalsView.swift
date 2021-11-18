@@ -20,11 +20,10 @@ struct GoalsView: View {
     @State var currentGoal = [Goal(name: "Polishing Cloth",
                                    amount: "$29.00")]
 
-
     var body: some View {
         NavigationView {
             List {
-                Section() {
+                Section {
                     NavigationLink(destination: Text("Second View")){
                         VStack (alignment: .leading) {
                             HStack {
@@ -66,9 +65,11 @@ struct GoalsView: View {
                                         .accentColor(CustomColor.Cornflower)
                                 }
                             }
-                        }.onDelete { offsets in
+                        }
+                        .onDelete { offsets in
                             goals.remove(atOffsets: offsets)
-                        }.onMove{ source, destination in
+                        }
+                        .onMove{ source, destination in
                             goals.move(fromOffsets: source, toOffset: destination)
                         }
                     } else {
@@ -80,6 +81,7 @@ struct GoalsView: View {
                                     Text("$2.00 / $29.00")
                                 }
                                 .padding(.top)
+                                
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
                                     .accentColor(CustomColor.Cornflower)
@@ -94,6 +96,7 @@ struct GoalsView: View {
                                     Text("$2.00 / $29.00")
                                 }
                                 .padding(.top)
+                                
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
                                     .accentColor(CustomColor.Cornflower)
