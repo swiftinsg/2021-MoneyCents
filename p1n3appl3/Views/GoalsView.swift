@@ -93,10 +93,6 @@ struct GoalsView: View {
                                     .padding(.bottom)
                                     .accentColor(CustomColor.Cornflower)
                             }
-                            .padding(.top)
-                            ProgressView(value: 2, total: 29)
-                                .padding(.bottom)
-                                .accentColor(CustomColor.Cornflower)
                         }
                         
                         NavigationLink(destination: Text("Second View")) {
@@ -111,10 +107,6 @@ struct GoalsView: View {
                                     .padding(.bottom)
                                     .accentColor(CustomColor.Cornflower)
                             }
-                            .padding(.top)
-                            ProgressView(value: 2, total: 29)
-                                .padding(.bottom)
-                                .accentColor(CustomColor.Cornflower)
                         }
                     }
                 }
