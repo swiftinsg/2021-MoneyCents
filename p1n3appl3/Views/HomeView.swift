@@ -12,14 +12,6 @@ struct HomeView: View {
     @State var isNewLogPresented = false
     @Binding var logs: [Log]
     
-    struct CustomColour {
-        static let BlueT = Color("Blue Titmouse")
-        static let Cornflower = Color("Cornflower Blue")
-        static let LightNavy = Color("Light Navy")
-        static let HawkesB = Color("Hawkes Blue")
-        static let LightCyan = Color("Light Cyan")
-    }
-    
     var body: some View {
         NavigationView {
             List {
@@ -37,7 +29,7 @@ struct HomeView: View {
                             .padding(.bottom)
                             .accentColor(.white)
                     }
-                    .listRowBackground(CustomColour.Cornflower)
+                    .listRowBackground(CustomColor.Cornflower)
                 }
                 
                 Section(header: Text("Recent Transactions")) {
