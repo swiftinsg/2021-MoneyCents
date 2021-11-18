@@ -57,7 +57,7 @@ struct LogDetailView: View {
 struct LogDetailView_Previews: PreviewProvider {
     static var previews: some View {
         LogDetailView(log: .constant(
-            Log(name: "Milo", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.0", category: "A", details: "Bought at school canteen during break", type: [])
+            Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.0", category: "A", details: "Bought at school canteen during break")
         ))
     }
 }

@@ -11,7 +11,6 @@ import SwiftUI
 struct NewLogView: View {
     
     @State var selection = 0 // for picker
-    
     let catergory = ["Food","Transport","Entertainment"]
     
     @Environment(\.presentationMode) var presentationMode
@@ -21,10 +20,10 @@ struct NewLogView: View {
     @State private var logPicker = 0
     //
     @State var log = Log(name: "",
+                         icon: "bag",
                          amount: "",
                          category: "",
-                         details: "",
-                         type: [.others])
+                         details: "")
     
     @State var dateSelector = Date()
     
@@ -46,6 +45,11 @@ struct NewLogView: View {
                     TextField("Amount", text: $log.amount)
                         .keyboardType(.numberPad)
                     
+                    HStack {
+                        Image(systemName: log.icon)
+                        TextField("Icon", text: $log.icon)
+                            .autocapitalization(.none)
+                    }
                     
                     HStack {
                         Text("Category")
