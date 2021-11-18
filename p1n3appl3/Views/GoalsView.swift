@@ -10,31 +10,39 @@ import SwiftUI
 struct GoalsView: View {
     
     @State private var futureCompleted = 0
+    @State private var switchNumber = 0
+    @State var switchPickerNumber = 0
     @State var isNewGoalPresented = false
-    @Binding var goals: [Goal]
+    @State var goals = [Goal(Name: "Polishing Cloth no. 1",
+                             Amount: "$29.00"),
+                        Goal(Name: "Polishing Cloth no. 2",
+                             Amount: "$29.00")]
+    @State var currentGoal = [Goal(Name: "Polishing Cloth",
+                                   Amount: "$29.00")]
     
     var body: some View {
         NavigationView {
             List {
                 Section() {
-                    VStack (alignment: .leading) {
-                        HStack {
-                            Text("Polishing Cloth")
-                                .foregroundColor(.white)
-                            Spacer()
-                            Text("$2.00 / $29.00")
-                                .foregroundColor(.white)
+                    NavigationLink(destination: Text("Second View")){
+                        VStack (alignment: .leading) {
+                            HStack {
+                                /*Text(currentGoal.Name)
+                                 .foregroundColor(.white)
+                                 Spacer()
+                                 Text("$2.00 / \(currentGoal.Amount)")
+                                 .foregroundColor(.white)*/
+                            }
+                            .padding(.top)
+                            ProgressView(value: 2, total: 29)
+                                .padding(.bottom)
+                                .accentColor(.white)
                         }
-                        .padding(.top)
-                        ProgressView(value: 2, total: 29)
-                            .padding(.bottom)
-                            .accentColor(.white)
                     }
                     .listRowBackground(CustomColor.Cornflower)
                 }
                 
                 Section(header: Text("Other Goals")) {
-                    
                     Picker ("Time", selection: $futureCompleted) {
                         Text("Future").tag(0)
                         Text("Completed").tag(1)
@@ -43,23 +51,37 @@ struct GoalsView: View {
                     .padding(.vertical)
                     
                     if futureCompleted == 0 {
-                        VStack (alignment: .leading) {
-                            HStack {
-                                Text("Polishing Cloth")
-                                Spacer()
-                                Text("$2.00 / $29.00")
+                        ForEach(goals){ goal in
+                            NavigationLink(destination: Text("Second View")) {
+                                VStack (alignment: .leading) {
+                                    HStack {
+                                        Text(goal.Name)
+                                        Spacer()
+                                        Text("$2.00 / \(goal.Amount)")
+                                    }
+                                    .padding(.top)
+                                    ProgressView(value: 2, total: 29)
+                                        .padding(.bottom)
+                                        .accentColor(CustomColour.Cornflower)
+                                }
                             }
-                            .padding(.top)
-                            ProgressView(value: 2, total: 29)
-                                .padding(.bottom)
-                                .accentColor(CustomColor.Cornflower)
+                        }.onDelete { offsets in
+                            goals.remove(atOffsets: offsets)
+                        }.onMove{ source, destination in
+                            goals.move(fromOffsets: source, toOffset: destination)
                         }
                     } else {
-                        VStack (alignment: .leading) {
-                            HStack {
-                                Text("Polishing Cloth")
-                                Spacer()
-                                Text("$2.00 / $29.00")
+                        NavigationLink(destination: Text("Second View")) {
+                            VStack (alignment: .leading) {
+                                HStack {
+                                    Text("Polishing Cloth")
+                                    Spacer()
+                                    Text("$2.00 / $29.00")
+                                }
+                                .padding(.top)
+                                ProgressView(value: 2, total: 29)
+                                    .padding(.bottom)
+                                    .accentColor(CustomColour.Cornflower)
                             }
                             .padding(.top)
                             ProgressView(value: 2, total: 29)
@@ -67,11 +89,17 @@ struct GoalsView: View {
                                 .accentColor(CustomColor.Cornflower)
                         }
                         
-                        VStack (alignment: .leading) {
-                            HStack {
-                                Text("Polisihing Cloth")
-                                Spacer()
-                                Text("$2.00 / $29.00")
+                        NavigationLink(destination: Text("Second View")) {
+                            VStack (alignment: .leading) {
+                                HStack {
+                                    Text("Polishing Cloth")
+                                    Spacer()
+                                    Text("$2.00 / $29.00")
+                                }
+                                .padding(.top)
+                                ProgressView(value: 2, total: 29)
+                                    .padding(.bottom)
+                                    .accentColor(CustomColour.Cornflower)
                             }
                             .padding(.top)
                             ProgressView(value: 2, total: 29)
@@ -94,12 +122,14 @@ struct GoalsView: View {
                 }
                 
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        
-                    }, label: {
-                        Text("Switch")
-                            .foregroundColor(CustomColor.Cornflower)
-                    })
+                    /*Picker (selection: $switchNumber, label: Text("Switch")) {
+                     ForEach(goals){ goal in
+                     Text(goal.Name).tag(switchPickerNumber)
+                     }
+                     }.pickerStyle(.menu)
+                     .accentColor(CustomColour.Cornflower)*/
+                    EditButton()
+                        .foregroundColor(CustomColour.Cornflower)
                 }
             }
         }
@@ -111,6 +141,6 @@ struct GoalsView: View {
 
 struct GoalsView_Previews: PreviewProvider {
     static var previews: some View {
-        GoalsView(goals: .constant([]))
+        GoalsView()
     }
 }
