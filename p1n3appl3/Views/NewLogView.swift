@@ -21,7 +21,6 @@ struct NewLogView: View {
     @State private var logPicker = 0
     //
     @State var log = Log(name: "",
-                         icon: "",
                          amount: "",
                          category: "",
                          details: "",
