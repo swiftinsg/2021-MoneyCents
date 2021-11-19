@@ -97,9 +97,13 @@ struct NewLogView: View {
                     }
                 }
                 
+                Section(header: Text("Details (e.g. location)")){
+                    TextEditor(text: $log.details)
+                }
+                /*
                 Section(header: Text("Optional")) {
                     TextField("Details (e.g. location)", text: $log.details)
-                }
+                }*/
             }
             .navigationTitle("New Log")
             .navigationBarTitleDisplayMode(.inline)
