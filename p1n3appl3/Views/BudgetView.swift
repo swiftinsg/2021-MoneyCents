@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct BudgetView: View {
+    
+    @State var isNewBudgetPresented = false
+    @Binding var budgets: [Budget]
+    
     var body: some View {
         NavigationView {
             List {
@@ -53,7 +57,7 @@ struct BudgetView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        
+                        isNewBudgetPresented = true
                     }, label: {
                         Image(systemName: "plus")
                     })
@@ -61,11 +65,14 @@ struct BudgetView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: $isNewBudgetPresented) {
+            NewBudgetView(budgets: $budgets)
+        }
     }
 }
 
 struct BudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetView()
+        BudgetView(budgets: .constant([]))
     }
 }

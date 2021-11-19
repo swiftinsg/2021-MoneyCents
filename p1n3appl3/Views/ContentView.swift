@@ -31,7 +31,7 @@ struct ContentView: View {
                 }
             
             //Budget
-            BudgetView()
+            BudgetView(budgets: .constant([]))
                 .tabItem {
                     Label("Budget", systemImage: "dollarsign.circle")
                 }
