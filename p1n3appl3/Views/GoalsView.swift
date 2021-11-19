@@ -52,7 +52,9 @@ struct GoalsView: View {
                     
                     if futureCompleted == 0 {
                         ForEach(goals){ goal in
-                            NavigationLink(destination: Text("Second View")) {
+                            let goalIndex = goals.firstIndex(of: goal)!
+                            
+                            NavigationLink(destination: GoalsDetailView(goal: $goals[goalIndex])) {
                                 VStack (alignment: .leading) {
                                     HStack {
                                         Text(goal.name)
