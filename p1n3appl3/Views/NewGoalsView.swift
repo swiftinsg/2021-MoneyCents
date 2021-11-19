@@ -46,6 +46,7 @@ struct NewGoalsView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .accentColor(CustomColor.Cornflower)
     }
 }
 

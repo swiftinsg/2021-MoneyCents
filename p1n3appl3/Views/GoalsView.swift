@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalsView: View {
-
+    
     @State private var futureCompleted = 0
     @State private var switchNumber = 0
     @State var switchPickerNumber = 0
@@ -19,19 +19,20 @@ struct GoalsView: View {
                              amount: "$29.00")]
     @State var currentGoal = [Goal(name: "Polishing Cloth",
                                    amount: "$29.00")]
-
+    
     var body: some View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: Text("Second View")){
+                    NavigationLink(destination:
+                                    GoalsDetailView(goal: $currentGoal[0])){
                         VStack (alignment: .leading) {
                             HStack {
                                 Text(currentGoal[0].name)
-                                 .foregroundColor(.white)
-                                 Spacer()
-                                 Text("$2.00 / \(currentGoal[0].amount)")
-                                 .foregroundColor(.white)
+                                    .foregroundColor(.white)
+                                Spacer()
+                                Text("$2.00 / \(currentGoal[0].amount)")
+                                    .foregroundColor(.white)
                             }
                             .padding(.top)
                             ProgressView(value: 2, total: 29)
@@ -39,7 +40,7 @@ struct GoalsView: View {
                                 .accentColor(.white)
                         }
                     }
-                    .listRowBackground(CustomColor.Cornflower)
+                                    .listRowBackground(CustomColor.Cornflower)
                 }
                 
                 Section(header: Text("Other Goals")) {
@@ -135,6 +136,7 @@ struct GoalsView: View {
         .sheet(isPresented: $isNewGoalPresented) {
             NewGoalsView(goals: $goals)
         }
+        .accentColor(CustomColor.Cornflower)
     }
 }
 
