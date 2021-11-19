@@ -8,55 +8,39 @@
 import SwiftUI
 
 struct SettingsCreditView: View {
+    
+    let team: [String] = ["Wei Xuan","Yikun","Dominic","Junrui"]
+    let specialThanks:[String] = ["Jia Chen","YJ","Granwyn","Rochelle"]
+    
     var body: some View {
+        
         List{
-            Section(header:Text("The team")){
-                HStack{
-                    Image(systemName: "person")
-                        .foregroundColor(.gray)
-                    Text("Wei Xuan")
-                }
-                HStack{
-                    Image(systemName: "person")
-                        .foregroundColor(.gray)
-                    Text("Yikun")
-                }
-                HStack{
-                    Image(systemName: "person")
-                        .foregroundColor(.gray)
-                    Text("Dominic")
-                }
-                HStack{
-                    Image(systemName: "person")
-                        .foregroundColor(.gray)
-                    Text("Junrui")
-                }
+            Section(header: Text("The Team")){
+                
+                ForEach(team.indices){ index in
+                    VStack{
+                        
+                        HStack {
+                            Image(systemName: "person")
+                                .foregroundColor(.gray)
+                            Text("\(team[index])")
+                        }
+                    }
+                }      
             }
             Section(header:Text("Special thanks")){
-                HStack{
-                    Image(systemName: "person")
-                        .foregroundColor(.gray)
-                    Text("Jia Chen")
+                ForEach(specialThanks.indices){ index in
+                    VStack{
+                        
+                        HStack {
+                            Image(systemName: "person")
+                                .foregroundColor(.gray)
+                            Text("\(specialThanks[index])")
+                        }
+                    }
                 }
-                HStack{
-                    Image(systemName: "person")
-                        .foregroundColor(.gray)
-                    Text("Granwyn")
-                }
-                HStack{
-                    Image(systemName: "person")
-                        .foregroundColor(.gray)
-                    Text("Rochelle")
-                }
-                HStack{
-                    Image(systemName: "person")
-                        .foregroundColor(.gray)
-                    Text("YJ")
-                }
-                .navigationTitle("Credits")
             }
         }
-        
     }
 }
 
