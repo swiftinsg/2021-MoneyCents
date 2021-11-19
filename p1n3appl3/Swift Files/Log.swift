@@ -14,7 +14,7 @@ struct Log: Identifiable, Equatable, Codable {
     var name: String
     var icon: String 
     var dateSelector = Date()
-    var amount: String
+    var amount: Double
     var category: String
     var details: String
 

@@ -14,20 +14,21 @@ struct NewLogView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @Binding var logs: [Log]
+    @State var enteredAmountText = ""
     
     // segmented picker
     @State private var logPicker = 0
     //
     @State var log = Log(name: "",
                          icon: "bag",
-                         amount: "",
+                         amount: 0,
                          category: "",
                          details: "")
     
     @State var dateSelector = Date()
     
     var enteredAmountDouble: Double {
-        return (Double(log.amount) ?? 0) / 100
+        return (Double(enteredAmountText) ?? 0) / 100
     }
     
     var body: some View {
@@ -55,9 +56,12 @@ struct NewLogView: View {
                         Text("Amount")
                         
                         ZStack(alignment: .trailing) {
-                            Text("\(enteredAmountDouble, specifier: "%.2f")")
+                            Text(String(format: "%.2f", enteredAmountDouble))
                             
-                            TextField("", text: $log.amount)
+                            TextField("", text: $enteredAmountText, onEditingChanged: { (_) in
+                                log.amount = enteredAmountDouble
+                                print(log.amount)
+                            })
                                 .keyboardType(.numberPad)
                                 // .accentColor(.clear) // removes the cursor
                                 .foregroundColor(.clear) // hides the text inputted

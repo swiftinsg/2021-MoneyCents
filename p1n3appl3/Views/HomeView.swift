@@ -45,7 +45,7 @@ struct HomeView: View {
                                     .font(.subheadline)
                             }
                             Spacer()
-                            Text("$\(log.amount)")
+                            Text(String(format: "%.2f", log.amount))
                                 .foregroundColor(.red)
                         }
                     }
@@ -74,7 +74,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(logs: .constant([
-            Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.00", category: "A", details: "")
+            Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.00, category: "A", details: "")
         ]))
     }
 }

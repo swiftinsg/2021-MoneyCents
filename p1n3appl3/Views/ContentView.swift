@@ -16,10 +16,10 @@ struct ContentView: View {
         TabView {
             // Home
             HomeView(logs: .constant([
-                Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.00", category: "", details: "During break"),
-                Log(name: "Food", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "2.50", category: "", details: "Break time"),
-                Log(name: "Bag", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "3.00", category: "", details: "Shopping"),
-                Log(name: "Pen", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: "1.70", category: "", details: "Ran out of ink"),
+                Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.00, category: "", details: "During break"),
+                Log(name: "Food", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 2.50, category: "", details: "Break time"),
+                Log(name: "Bag", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 3.00, category: "", details: "Shopping"),
+                Log(name: "Pen", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.70, category: "", details: "Ran out of ink"),
             ]))
                 .tabItem {
                     Label("Home", systemImage: "house")
