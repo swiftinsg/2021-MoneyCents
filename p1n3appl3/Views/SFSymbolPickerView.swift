@@ -9,6 +9,7 @@ import SwiftUI
 import SFSymbolsPicker
 
 struct SFSymbolPickerView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State private var isSFSymbolsPickerPresented = true
     @Binding var log: Log
     
@@ -32,6 +33,16 @@ struct SFSymbolPickerView: View {
                 // .health
             }
             .navigationTitle(Text("Icon"))
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Text("Done")
+                            .foregroundColor(CustomColor.Cornflower)
+                    })
+                }
+            }
         }
     }
 }
