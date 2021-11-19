@@ -77,19 +77,11 @@
 			isa = PBXGroup;
 			children = (
 				25D41BA02741FA5A008968F8 /* ContentView.swift */,
-				0A4153042741FCA000041359 /* HomeView.swift */,
-				2EAE11D12744D2D200A2FD92 /* LogDetailView.swift */,
-				0AC7268B274396700003519B /* NewLogView.swift */,
-				254AE28E27478E330017D199 /* SFSymbolPickerView.swift */,
+				2E1689BE274817FA005AE28A /* home */,
 				0A4153062741FCA900041359 /* HistoryView.swift */,
-				0A4153082741FCE500041359 /* BudgetView.swift */,
-				0A14BF642747CAAC00826571 /* NewBudgetView.swift */,
-				0A14BF622747C97600826571 /* HalfSheet.swift */,
-				0A41530A2741FCF400041359 /* GoalsView.swift */,
-				2E0A584727448BAD00858ACE /* NewGoalsView.swift */,
-				2E9FD970274756B000512C2B /* GoalsDetailView.swift */,
-				0A41530E2741FF1B00041359 /* SettingsView.swift */,
-				2EAE11CF2744BB7700A2FD92 /* SettingsCreditView.swift */,
+				2E1689BF27481855005AE28A /* budget */,
+				2E1689C027481896005AE28A /* goals */,
+				2E1689C1274818E6005AE28A /* settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -140,6 +132,46 @@
 				25D41BA52741FA5C008968F8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2E1689BE274817FA005AE28A /* home */ = {
+			isa = PBXGroup;
+			children = (
+				0A4153042741FCA000041359 /* HomeView.swift */,
+				0AC7268B274396700003519B /* NewLogView.swift */,
+				2EAE11D12744D2D200A2FD92 /* LogDetailView.swift */,
+				254AE28E27478E330017D199 /* SFSymbolPickerView.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		2E1689BF27481855005AE28A /* budget */ = {
+			isa = PBXGroup;
+			children = (
+				0A4153082741FCE500041359 /* BudgetView.swift */,
+				0A14BF642747CAAC00826571 /* NewBudgetView.swift */,
+				0A14BF622747C97600826571 /* HalfSheet.swift */,
+			);
+			path = budget;
+			sourceTree = "<group>";
+		};
+		2E1689C027481896005AE28A /* goals */ = {
+			isa = PBXGroup;
+			children = (
+				0A41530A2741FCF400041359 /* GoalsView.swift */,
+				2E0A584727448BAD00858ACE /* NewGoalsView.swift */,
+				2E9FD970274756B000512C2B /* GoalsDetailView.swift */,
+			);
+			path = goals;
+			sourceTree = "<group>";
+		};
+		2E1689C1274818E6005AE28A /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				0A41530E2741FF1B00041359 /* SettingsView.swift */,
+				2EAE11CF2744BB7700A2FD92 /* SettingsCreditView.swift */,
+			);
+			path = settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
