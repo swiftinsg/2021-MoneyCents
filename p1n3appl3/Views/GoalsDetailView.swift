@@ -10,72 +10,35 @@ import SwiftUI
 struct GoalsDetailView: View {
     
     @Binding var goal: Goal
-    @State var isGoalsEditPresented = false
-    @State var editedGoal = Goal(name: "",
-                           amount: "")
+    @State var temporaryGoal = Goal(name: "", amount: "")
     
     var body: some View {
-        List {
-            Section(header: Text("Information")) {
-                Text(goal.name)
-                Text(goal.amount)
-            }
+        Form {
+                TextField("\(goal.name)", text: $goal.name)
+                    .disableAutocorrection(true)
+                TextField("\(goal.amount)", text: $goal.amount)
+                    .keyboardType(.numberPad)
         }
-        .navigationTitle(goal.name)
-        .toolbar {
+        /*.toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
-                    isGoalsEditPresented.toggle()
+                    temporaryGoal.name = currentGoal[0].name
+                    temporaryGoal.amount = currentGoal[0].amount
+                    currentGoal[0].name = goal.name
+                    currentGoal[0].amount = goal.amount
+                    goal.name = temporaryGoal.name
+                    goal.amount = temporaryGoal.amount
                 }, label: {
-                    Text("Edit")
+                    Text("Switch")
+                        .foregroundColor(CustomColor.Cornflower)
                 })
             }
-        }
-        .sheet(isPresented: $isGoalsEditPresented) {
-            // insert present code here
-            NavigationView {
-                Form {
-                    Section {
-                        TextField("\(goal.name)", text: $editedGoal.name)
-                            .disableAutocorrection(true)
-                        TextField("\(goal.amount)", text: $editedGoal.amount)
-                            .keyboardType(.numberPad)
-                    }
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-                            isGoalsEditPresented = false
-                        }, label: {
-                            Text("Cancel")
-                        })
-                    }
-
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            isGoalsEditPresented = false
-                            if editedGoal.name != "" {
-                                goal.name = editedGoal.name
-                            }
-                            if editedGoal.amount != "" {
-                                goal.amount = editedGoal.amount
-                            }
-                        }, label: {
-                            Text("Save")
-                                .bold()
-                        })
-                    }
-                }
-            }
-            .navigationViewStyle(StackNavigationViewStyle())
-        }
+        }*/
     }
 }
 
 struct GoalsDetailView_Previews: PreviewProvider {
     static var previews: some View {
         GoalsDetailView(goal: .constant(Goal(name: "Polishing Cloth", amount: "$29.00")))
-        
-        /*(goal: .constant(Goal(name: "Polishing Cloth", amount: "$29.00")))*/
     }
 }
