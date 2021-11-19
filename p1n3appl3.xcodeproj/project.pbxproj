@@ -18,6 +18,8 @@
 		0AC7268C274396700003519B /* NewLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC7268B274396700003519B /* NewLogView.swift */; };
 		0AC726CE2743CC380003519B /* (null) in Sources */ = {isa = PBXBuildFile; };
 		0AFE9A682746338800F7360D /* LogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE9A672746338800F7360D /* LogTypes.swift */; };
+		254AE28F27478E330017D199 /* SFSymbolPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254AE28E27478E330017D199 /* SFSymbolPickerView.swift */; };
+		254AE296274798030017D199 /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 254AE295274798030017D199 /* SFSymbolsPicker */; };
 		2558FBE727434DD900CB9296 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 2558FBE627434DD900CB9296 /* SwiftUICharts */; };
 		25C1E99A27460E2000104902 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1E99927460E2000104902 /* CustomColor.swift */; };
 		25D41B9F2741FA5A008968F8 /* p1n3appl3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */; };
@@ -42,6 +44,7 @@
 		0AC726892743965E0003519B /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		0AC7268B274396700003519B /* NewLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogView.swift; sourceTree = "<group>"; };
 		0AFE9A672746338800F7360D /* LogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTypes.swift; sourceTree = "<group>"; };
+		254AE28E27478E330017D199 /* SFSymbolPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolPickerView.swift; sourceTree = "<group>"; };
 		25C1E99927460E2000104902 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		25D41B9B2741FA5A008968F8 /* p1n3appl3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = p1n3appl3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = p1n3appl3App.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2558FBE727434DD900CB9296 /* SwiftUICharts in Frameworks */,
+				254AE296274798030017D199 /* SFSymbolsPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +78,7 @@
 				0A4153042741FCA000041359 /* HomeView.swift */,
 				2EAE11D12744D2D200A2FD92 /* LogDetailView.swift */,
 				0AC7268B274396700003519B /* NewLogView.swift */,
+				254AE28E27478E330017D199 /* SFSymbolPickerView.swift */,
 				0A4153062741FCA900041359 /* HistoryView.swift */,
 				0A4153082741FCE500041359 /* BudgetView.swift */,
 				0A14BF5C274761B600826571 /* NewBudgetView.swift */,
@@ -152,6 +157,7 @@
 			name = p1n3appl3;
 			packageProductDependencies = (
 				2558FBE627434DD900CB9296 /* SwiftUICharts */,
+				254AE295274798030017D199 /* SFSymbolsPicker */,
 			);
 			productName = p1n3appl3;
 			productReference = 25D41B9B2741FA5A008968F8 /* p1n3appl3.app */;
@@ -183,6 +189,7 @@
 			mainGroup = 25D41B922741FA5A008968F8;
 			packageReferences = (
 				2558FBE527434DD900CB9296 /* XCRemoteSwiftPackageReference "ChartView" */,
+				254AE294274798030017D199 /* XCRemoteSwiftPackageReference "SFSymbolsPickerForSwiftUI" */,
 			);
 			productRefGroup = 25D41B9C2741FA5A008968F8 /* Products */;
 			projectDirPath = "";
@@ -214,6 +221,7 @@
 				0A41530F2741FF1B00041359 /* SettingsView.swift in Sources */,
 				0A4153052741FCA000041359 /* HomeView.swift in Sources */,
 				2E0A584827448BAD00858ACE /* NewGoalsView.swift in Sources */,
+				254AE28F27478E330017D199 /* SFSymbolPickerView.swift in Sources */,
 				0AC7268A2743965E0003519B /* Log.swift in Sources */,
 				0A4153072741FCA900041359 /* HistoryView.swift in Sources */,
 				25D41BA12741FA5A008968F8 /* ContentView.swift in Sources */,
@@ -433,6 +441,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		254AE294274798030017D199 /* XCRemoteSwiftPackageReference "SFSymbolsPickerForSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PorridgePi/SFSymbolsPickerForSwiftUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		2558FBE527434DD900CB9296 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -444,6 +460,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		254AE295274798030017D199 /* SFSymbolsPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 254AE294274798030017D199 /* XCRemoteSwiftPackageReference "SFSymbolsPickerForSwiftUI" */;
+			productName = SFSymbolsPicker;
+		};
 		2558FBE627434DD900CB9296 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2558FBE527434DD900CB9296 /* XCRemoteSwiftPackageReference "ChartView" */;

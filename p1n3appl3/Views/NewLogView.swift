@@ -27,6 +27,8 @@ struct NewLogView: View {
     
     @State var dateSelector = Date()
     
+    @State private var isSFSymbolPickerPresented = false
+    
     var enteredAmountDouble: Double {
         return (Double(enteredAmountText) ?? 0) / 100
     }
@@ -72,12 +74,16 @@ struct NewLogView: View {
                     HStack {
                         Text("Icon")
 
-                        HStack {
-                            TextField("", text: $log.icon)
-                                .autocapitalization(.none)
-                                .multilineTextAlignment(.trailing)
-                            Image(systemName: log.icon)
-                        }
+                        Spacer()
+                        
+                        Button(action: {
+                            isSFSymbolPickerPresented = true
+                        }, label: {
+                            HStack {
+                                Image(systemName: log.icon)
+                                Text(log.icon)
+                            }
+                        })
                     }
                     
                     HStack {
@@ -118,6 +124,9 @@ struct NewLogView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .sheet(isPresented: $isSFSymbolPickerPresented) {
+            SFSymbolPickerView(log: $log)
+        }
     }
 }
 
