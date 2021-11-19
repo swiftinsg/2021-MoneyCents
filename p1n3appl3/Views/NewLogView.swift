@@ -26,6 +26,10 @@ struct NewLogView: View {
     
     @State var dateSelector = Date()
     
+    var enteredAmountDouble: Double {
+        return (Double(log.amount) ?? 0) / 100
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -38,16 +42,38 @@ struct NewLogView: View {
                 }
                 
                 Section(header: Text("Information")) {
-                    TextField("Name", text: $log.name)
-                        .disableAutocorrection(true)
+                    HStack {
+                        Text("Name")
+                        TextField("", text: $log.name)
+                            .disableAutocorrection(true)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    
                     DatePicker("Date", selection: $dateSelector, displayedComponents: .date)
-                    TextField("Amount", text: $log.amount)
-                        .keyboardType(.numberPad)
                     
                     HStack {
-                        Image(systemName: log.icon)
-                        TextField("Icon", text: $log.icon)
-                            .autocapitalization(.none)
+                        Text("Amount")
+                        
+                        ZStack(alignment: .trailing) {
+                            Text("\(enteredAmountDouble, specifier: "%.2f")")
+                            
+                            TextField("", text: $log.amount)
+                                .keyboardType(.numberPad)
+                                // .accentColor(.clear) // removes the cursor
+                                .foregroundColor(.clear) // hides the text inputted
+                        }
+                        .multilineTextAlignment(.trailing)
+                    }
+                    
+                    HStack {
+                        Text("Icon")
+
+                        HStack {
+                            TextField("", text: $log.icon)
+                                .autocapitalization(.none)
+                                .multilineTextAlignment(.trailing)
+                            Image(systemName: log.icon)
+                        }
                     }
                     
                     HStack {
@@ -59,11 +85,10 @@ struct NewLogView: View {
                             }
                         }.pickerStyle(.menu)
                     }
-                    
                 }
                 
                 Section(header: Text("Optional")) {
-                    TextField("Details (eg. place)", text: $log.details)
+                    TextField("Details (e.g. location)", text: $log.details)
                 }
             }
             .navigationTitle("New Log")
