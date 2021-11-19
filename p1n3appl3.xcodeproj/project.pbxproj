@@ -19,13 +19,13 @@
 		0AC726CE2743CC380003519B /* (null) in Sources */ = {isa = PBXBuildFile; };
 		0AFE9A682746338800F7360D /* LogTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE9A672746338800F7360D /* LogTypes.swift */; };
 		254AE28F27478E330017D199 /* SFSymbolPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254AE28E27478E330017D199 /* SFSymbolPickerView.swift */; };
+		254AE296274798030017D199 /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 254AE295274798030017D199 /* SFSymbolsPicker */; };
 		2558FBE727434DD900CB9296 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 2558FBE627434DD900CB9296 /* SwiftUICharts */; };
 		25C1E99A27460E2000104902 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1E99927460E2000104902 /* CustomColor.swift */; };
 		25D41B9F2741FA5A008968F8 /* p1n3appl3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */; };
 		25D41BA12741FA5A008968F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D41BA02741FA5A008968F8 /* ContentView.swift */; };
 		25D41BA32741FA5C008968F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D41BA22741FA5C008968F8 /* Assets.xcassets */; };
 		25D41BA62741FA5C008968F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D41BA52741FA5C008968F8 /* Preview Assets.xcassets */; };
-		25E9252F27475805009EB0B5 /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 25E9252E27475805009EB0B5 /* SFSymbolsPicker */; };
 		2E0A584827448BAD00858ACE /* NewGoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A584727448BAD00858ACE /* NewGoalsView.swift */; };
 		2E0A584A27448FF800858ACE /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0A584927448FF800858ACE /* Goal.swift */; };
 		2E9FD971274756B000512C2B /* GoalsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9FD970274756B000512C2B /* GoalsDetailView.swift */; };
@@ -64,7 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2558FBE727434DD900CB9296 /* SwiftUICharts in Frameworks */,
-				25E9252F27475805009EB0B5 /* SFSymbolsPicker in Frameworks */,
+				254AE296274798030017D199 /* SFSymbolsPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,7 +157,7 @@
 			name = p1n3appl3;
 			packageProductDependencies = (
 				2558FBE627434DD900CB9296 /* SwiftUICharts */,
-				25E9252E27475805009EB0B5 /* SFSymbolsPicker */,
+				254AE295274798030017D199 /* SFSymbolsPicker */,
 			);
 			productName = p1n3appl3;
 			productReference = 25D41B9B2741FA5A008968F8 /* p1n3appl3.app */;
@@ -189,7 +189,7 @@
 			mainGroup = 25D41B922741FA5A008968F8;
 			packageReferences = (
 				2558FBE527434DD900CB9296 /* XCRemoteSwiftPackageReference "ChartView" */,
-				25E9252D27475805009EB0B5 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */,
+				254AE294274798030017D199 /* XCRemoteSwiftPackageReference "SFSymbolsPickerForSwiftUI" */,
 			);
 			productRefGroup = 25D41B9C2741FA5A008968F8 /* Products */;
 			projectDirPath = "";
@@ -441,6 +441,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		254AE294274798030017D199 /* XCRemoteSwiftPackageReference "SFSymbolsPickerForSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PorridgePi/SFSymbolsPickerForSwiftUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		2558FBE527434DD900CB9296 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -449,26 +457,18 @@
 				version = 1.5.5;
 			};
 		};
-		25E9252D27475805009EB0B5 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/alessiorubicini/SFSymbolsPicker";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		254AE295274798030017D199 /* SFSymbolsPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 254AE294274798030017D199 /* XCRemoteSwiftPackageReference "SFSymbolsPickerForSwiftUI" */;
+			productName = SFSymbolsPicker;
+		};
 		2558FBE627434DD900CB9296 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2558FBE527434DD900CB9296 /* XCRemoteSwiftPackageReference "ChartView" */;
 			productName = SwiftUICharts;
-		};
-		25E9252E27475805009EB0B5 /* SFSymbolsPicker */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 25E9252D27475805009EB0B5 /* XCRemoteSwiftPackageReference "SFSymbolsPicker" */;
-			productName = SFSymbolsPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

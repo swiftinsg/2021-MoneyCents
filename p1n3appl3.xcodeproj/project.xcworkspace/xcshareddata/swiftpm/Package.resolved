@@ -12,10 +12,10 @@
       },
       {
         "package": "SFSymbolsPicker",
-        "repositoryURL": "https://github.com/alessiorubicini/SFSymbolsPicker",
+        "repositoryURL": "https://github.com/PorridgePi/SFSymbolsPickerForSwiftUI",
         "state": {
           "branch": "main",
-          "revision": "2add247ae8b3fa5c0fb7322852313724ebe473cf",
+          "revision": "540c9c5d5b8a559d693d6c0dbd953a793d70ecac",
           "version": null
         }
       }
