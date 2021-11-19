@@ -5,6 +5,7 @@
 //  Created by Conqueriings on 19/11/21.
 //
 
+// Incase 
 import SwiftUI
 
 struct NewBudgetView: View {
@@ -41,19 +42,6 @@ struct NewBudgetView: View {
                     }
                     
                 }
-                Section(header: Text("Optional")) {
-                    HStack {
-                        Text("Category")
-                        Spacer()
-                        Picker(selection: $selection, label: Text("Category")) {
-                            ForEach(0 ..< catergory.count) { index in
-                                Text(self.catergory[index]).tag(index)
-                            }
-                        }.pickerStyle(.menu)
-                    }
-                    
-                    
-                }
             }
             .navigationTitle("New Budget")
             .navigationBarTitleDisplayMode(.inline)
@@ -73,8 +61,6 @@ struct NewBudgetView: View {
         }
     }
 }
-
-
 
 struct NewBudgetView_Previews: PreviewProvider {
     static var previews: some View {

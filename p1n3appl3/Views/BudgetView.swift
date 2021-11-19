@@ -9,8 +9,16 @@ import SwiftUI
 
 struct BudgetView: View {
     
-    @State var isNewBudgetPresented = false
     @Binding var budgets: [Budget]
+    @State var showSheet: Bool = false
+    
+    @Environment(\.presentationMode) var presentationMode
+    @State var budget = Budget(nameOfItem: "", amount: "")
+    @State var selection = 0
+    var enteredAmountDouble: Double {
+        return (Double(budget.amount) ?? 0) / 100
+    }
+    
     
     var body: some View {
         NavigationView {
@@ -57,22 +65,81 @@ struct BudgetView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        isNewBudgetPresented = true
+                        showSheet.toggle()
                     }, label: {
                         Image(systemName: "plus")
                     })
                 }
+                
+            }
+            .halfSheet(showSheet: $showSheet) {
+                
+                // Your Half Sheet View....
+                ZStack{
+                    
+                    
+                    VStack{
+                        
+                        NavigationView {
+                            Form {
+                                Section {
+                                    TextField("Name", text: $budget.nameOfItem)
+                                    
+                                    HStack {
+                                        Text("Amount")
+                                        
+                                        ZStack(alignment: .trailing) {
+                                            Text("\(enteredAmountDouble, specifier: "%.2f")")
+                                            
+                                            TextField("", text: $budget.amount)
+                                                .keyboardType(.numberPad)
+                                            // .accentColor(.clear) // removes the cursor
+                                                .foregroundColor(.clear) // hides the text inputted
+                                        }
+                                        .multilineTextAlignment(.trailing)
+                                    }
+                                    
+                                }
+                            }
+                            .navigationTitle("New Budget")
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationBarItems(
+                                leading:
+                                    Button("Cancel") {
+                                        showSheet.toggle()
+                                    }
+                                    .foregroundColor(.red),
+                                trailing:
+                                    Button("Save") {
+                                        showSheet.toggle()
+                                    }
+                            )
+                        }
+                    }
+                }
+                .ignoresSafeArea()
+            } onEnd: {
+                
+                print("Dismissed")
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $isNewBudgetPresented) {
-            NewBudgetView(budgets: $budgets)
-        }
     }
+    
 }
+//
+//}
+//}
 
 struct BudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetView(budgets: .constant([]))
+        BudgetView(budgets: .constant([Budget(nameOfItem: "", amount: "0")]))
     }
 }
+
+
+
+class HomeModel: ObservableObject{
+    @Published var showSheet = false
+    @Published var tapped = false
+}
+
