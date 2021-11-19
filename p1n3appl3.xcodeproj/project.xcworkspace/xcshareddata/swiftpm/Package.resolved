@@ -9,6 +9,15 @@
           "revision": "9115a992c91fa19cbb4f2241084240d38654a1fc",
           "version": "1.5.5"
         }
+      },
+      {
+        "package": "SFSymbolsPicker",
+        "repositoryURL": "https://github.com/alessiorubicini/SFSymbolsPicker",
+        "state": {
+          "branch": "main",
+          "revision": "2add247ae8b3fa5c0fb7322852313724ebe473cf",
+          "version": null
+        }
       }
     ]
   },
