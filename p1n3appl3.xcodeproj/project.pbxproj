@@ -151,8 +151,8 @@
 			isa = PBXGroup;
 			children = (
 				0A4153082741FCE500041359 /* BudgetView.swift */,
-				0A14BF642747CAAC00826571 /* NewBudgetView.swift */,
 				0A14BF622747C97600826571 /* HalfSheet.swift */,
+				0A14BF642747CAAC00826571 /* NewBudgetView.swift */,
 				2E1689C227481A9E005AE28A /* FoodDetailView.swift */,
 			);
 			path = budget;

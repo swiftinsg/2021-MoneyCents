@@ -34,7 +34,6 @@ struct NewGoalsView: View {
                         Text("Cancel")
                     })
                 }
-
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()

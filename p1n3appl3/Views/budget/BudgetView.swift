@@ -76,8 +76,6 @@ struct BudgetView: View {
                 
                 // Your Half Sheet View....
                 ZStack{
-                    
-                    
                     VStack{
                         
                         NavigationView {
@@ -137,9 +135,9 @@ struct BudgetView_Previews: PreviewProvider {
 }
 
 
-
-class HomeModel: ObservableObject{
-    @Published var showSheet = false
-    @Published var tapped = false
-}
+//
+//class HomeModel: ObservableObject{
+//    @Published var showSheet = false
+//    @Published var tapped = false
+//}
 

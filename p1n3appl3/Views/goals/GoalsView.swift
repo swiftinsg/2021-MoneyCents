@@ -1,10 +1,3 @@
-//
-//  GoalsView.swift
-//  p1n3appl3
-//
-//  Created by Conqueriings on 15/11/21.
-//
-
 import SwiftUI
 
 struct GoalsView: View {
@@ -19,6 +12,10 @@ struct GoalsView: View {
                              amount: "$29.00")]
     @State var currentGoal = [Goal(name: "Polishing Cloth",
                                    amount: "$29.00")]
+    
+    @State var showSheet: Bool = false
+    @State var goal = Goal(name: "",
+                           amount: "")
     
     var body: some View {
         NavigationView {
@@ -52,7 +49,7 @@ struct GoalsView: View {
                     .padding(.vertical)
                     
                     if futureCompleted == 0 {
-                        ForEach(goals){ goal in
+                        ForEach(goals) { goal in
                             let goalIndex = goals.firstIndex(of: goal)!
                             
                             NavigationLink(destination: GoalsDetailView(goal: $goals[goalIndex])) {
@@ -103,6 +100,7 @@ struct GoalsView: View {
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
                                     .accentColor(CustomColor.Cornflower)
+                                
                             }
                         }
                     }
@@ -124,7 +122,7 @@ struct GoalsView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        isNewGoalPresented = true
+                        showSheet.toggle()
                     }, label: {
                         Image(systemName: "plus")
                             .foregroundColor(CustomColor.Cornflower)
@@ -133,10 +131,48 @@ struct GoalsView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $isNewGoalPresented) {
-            NewGoalsView(goals: $goals)
+        .halfSheet(showSheet: $showSheet) {
+            // Your Half Sheet View....
+            ZStack{
+                VStack{
+                    NavigationView {
+                        Form {
+                            Section {
+                                TextField("Name", text: $goal.name)
+                                    .disableAutocorrection(true)
+                                TextField("Amount", text: $goal.amount)
+                                    .keyboardType(.numberPad)
+                            }
+                        }
+                        .navigationTitle("New Goal")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button(action: {
+                                    showSheet.toggle()
+                                }, label: {
+                                    Text("Cancel")
+                                })
+                            }
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button(action: {
+                                    showSheet.toggle()
+                                }, label: {
+                                    Text("Save")
+                                        .bold()
+                                })
+                            }
+                        }
+                    }
+                    .navigationViewStyle(StackNavigationViewStyle())
+                    .accentColor(CustomColor.Cornflower)
+                }
+            }
+            
+            .ignoresSafeArea()
+        } onEnd: {
         }
-        .accentColor(CustomColor.Cornflower)
+        
     }
 }
 
@@ -145,3 +181,5 @@ struct GoalsView_Previews: PreviewProvider {
         GoalsView()
     }
 }
+
+
