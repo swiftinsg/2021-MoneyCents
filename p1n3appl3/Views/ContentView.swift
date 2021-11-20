@@ -22,30 +22,35 @@ struct ContentView: View {
                 Log(name: "Pen", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.70, category: "", details: "Ran out of ink"),
             ]))
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Image(uiImage: UIImage(systemName: "house")!.imageWithoutBaseline())
+                    Text("Home")
                 }
             // History
             HistoryView()
                 .tabItem {
-                    Label("History", systemImage: "chart.bar")
+                    Image(uiImage: UIImage(systemName: "chart.bar")!.imageWithoutBaseline())
+                    Text("History")
                 }
             
             //Budget
             BudgetView(budgets: .constant([]))
                 .tabItem {
-                    Label("Budget", systemImage: "dollarsign.circle")
+                    Image(uiImage: UIImage(systemName: "dollarsign.circle")!.imageWithoutBaseline())
+                    Text("Budget")
                 }
             
             // Goals
             GoalsView()
                 .tabItem {
-                    Label("Goals", systemImage: "list.dash")
+                    Image(uiImage: UIImage(systemName: "list.dash")!.imageWithoutBaseline())
+                    Text("Goals")
                 }
             
             // Settings
             SettingsView()
                 .tabItem {
-                    Label("Settings", systemImage: "gear")
+                    Image(uiImage: UIImage(systemName: "gear")!.imageWithoutBaseline())
+                    Text("Settings")
                 }
         }
         .accentColor(CustomColor.Cornflower)
