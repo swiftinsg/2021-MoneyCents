@@ -9,9 +9,8 @@ import SwiftUI
 
 struct LogDetailView: View {
     
-    @State var isEditPresented = false
+    @State var isEditPresented:Bool = false
     @Binding var log: Log
-    @State private var text = ""
     
     var body: some View {
         List {
@@ -34,36 +33,7 @@ struct LogDetailView: View {
         }
         .sheet(isPresented: $isEditPresented) {
             // insert present code here
-            NavigationView {
-                List {
-                    Section {
-                        TextField("Milo",text: $text)
-                        TextField("Name", text: $text)
-                        TextField("Amount", text: $text)
-                        TextField("Description", text: $text)
-                        
-                    }
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        Button(action: {
-                            isEditPresented = false
-                        }, label: {
-                            Text("Cancel")
-                        })
-                    }
-
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            isEditPresented = false
-                        }, label: {
-                            Text("Save")
-                                .bold()
-                        })
-                    }
-                }
-            }
-            .navigationViewStyle(StackNavigationViewStyle())
+            SheetView(isEditPresented: $isEditPresented, tempLog: log, log: $log)
         }
     }
 }
@@ -72,5 +42,41 @@ struct LogDetailView_Previews: PreviewProvider {
         LogDetailView(log: .constant(
             Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.0, category: "A", details: "Bought at school canteen during break")
         ))
+    }
+}
+
+struct SheetView: View {
+    
+    @State private var text = ""
+    @Binding var isEditPresented:Bool
+    @State var tempLog: Log
+    @Binding var log: [Log]
+    
+    
+    
+    
+    var body: some View {
+        NavigationView {
+            List {
+                Section {
+                    TextField("Milo",text: $tempLog)
+                   /* TextField("Name", text: $text)
+                    TextField("Amount", text: $text)
+                    TextField("Description", text: $text)
+                  */
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Save"){
+                        isEditPresented = false
+                     tempLog = log
+                    }
+                }
+                
+
+            }
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
