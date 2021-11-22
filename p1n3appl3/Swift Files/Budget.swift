@@ -12,5 +12,4 @@ struct Budget: Identifiable, Equatable, Codable {
     var id = UUID()
     var nameOfItem: String
     var amount: String
-    
 }

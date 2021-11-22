@@ -14,10 +14,10 @@ struct GoalsDetailView: View {
     
     var body: some View {
         Form {
-                TextField("\(goal.name)", text: $goal.name)
-                    .disableAutocorrection(true)
-                TextField("\(goal.amount)", text: $goal.amount)
-                    .keyboardType(.numberPad)
+            TextField("\(goal.name)", text: $goal.name)
+                .disableAutocorrection(true)
+            TextField("\(goal.amount)", text: $goal.amount)
+                .keyboardType(.numberPad)
         }
         /*.toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

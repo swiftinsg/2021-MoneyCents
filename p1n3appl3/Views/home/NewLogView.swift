@@ -8,27 +8,24 @@
 import SwiftUI
 
 struct NewLogView: View {
-    
-    @State var selection = 0 // for picker
-    let category = ["Food","Transport","Entertainment"]
-    
     @Environment(\.presentationMode) var presentationMode
-    @Binding var logs: [Log]
-    @State var enteredAmountText = ""
     
-    // segmented picker
-    @State private var logPicker = 0
-    //
+    @Binding var logs: [Log]
     @State var log = Log(name: "",
                          icon: "bag",
                          amount: 0,
                          category: "",
                          details: "")
     
-    @State var dateSelector = Date()
+    let category = ["Food","Transport","Entertainment"]
     
+    // segmented picker
+    @State private var logPicker = 0
+    
+    @State var dateSelector = Date()
     @State private var isSFSymbolPickerPresented = false
     
+    @State var enteredAmountText = ""
     var enteredAmountDouble: Double {
         return (Double(enteredAmountText) ?? 0) / 100
     }
@@ -65,7 +62,7 @@ struct NewLogView: View {
                                 print(log.amount)
                             })
                                 .keyboardType(.numberPad)
-                                // .accentColor(.clear) // removes the cursor
+                            // .accentColor(.clear) // removes the cursor
                                 .foregroundColor(.clear) // hides the text inputted
                         }
                         .multilineTextAlignment(.trailing)
@@ -73,7 +70,7 @@ struct NewLogView: View {
                     
                     HStack {
                         Text("Icon")
-
+                        
                         Spacer()
                         
                         Button(action: {
@@ -89,13 +86,13 @@ struct NewLogView: View {
                     HStack {
                         Text("Category")
                         Spacer()
-
+                        
                         ZStack(alignment: .trailing) {
                             if log.category.isEmpty {
                                 Text("Select a Category")
                                     .foregroundColor(Color(UIColor(named: "AccentColor") ?? .blue))
                             }
-
+                            
                             Picker(selection: $log.category, label: Text("Select a Category")) {
                                 ForEach(category, id: \.self) {
                                     Text($0)
@@ -107,13 +104,9 @@ struct NewLogView: View {
                     }
                 }
                 
-                Section(header: Text("Details (e.g. location)")){
+                Section(header: Text("Details (e.g. location)")) {
                     TextEditor(text: $log.details)
                 }
-                /*
-                Section(header: Text("Optional")) {
-                    TextField("Details (e.g. location)", text: $log.details)
-                }*/
             }
             .navigationTitle("New Log")
             .navigationBarTitleDisplayMode(.inline)
@@ -125,7 +118,7 @@ struct NewLogView: View {
                         Text("Cancel")
                     })
                 }
-
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         logs.append(log)

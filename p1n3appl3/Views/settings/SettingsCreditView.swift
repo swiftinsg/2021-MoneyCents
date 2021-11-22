@@ -13,13 +13,10 @@ struct SettingsCreditView: View {
     let specialThanks:[String] = ["Jia Chen","YJ","Granwyn","Rochelle"]
     
     var body: some View {
-        
-        List{
-            Section(header: Text("The Team")){
-                
-                ForEach(team.indices){ index in
-                    VStack{
-                        
+        List {
+            Section(header: Text("The Team")) {
+                ForEach(team.indices) { index in
+                    VStack {
                         HStack {
                             Image(systemName: "person")
                                 .foregroundColor(.gray)
@@ -28,10 +25,10 @@ struct SettingsCreditView: View {
                     }
                 }      
             }
-            Section(header:Text("Special thanks")){
-                ForEach(specialThanks.indices){ index in
-                    VStack{
-                        
+            
+            Section(header:Text("Special thanks")) {
+                ForEach(specialThanks.indices) { index in
+                    VStack {
                         HStack {
                             Image(systemName: "person")
                                 .foregroundColor(.gray)

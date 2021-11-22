@@ -3,17 +3,20 @@ import SwiftUI
 struct GoalsView: View {
     
     @State private var futureCompleted = 0
+    
     @State private var switchNumber = 0
     @State var switchPickerNumber = 0
-    @State var isNewGoalPresented = false
-    @State var goals = [Goal(name: "Polishing Cloth no. 1",
-                             amount: "$29.00"),
-                        Goal(name: "Polishing Cloth no. 2",
-                             amount: "$29.00")]
-    @State var currentGoal = [Goal(name: "Polishing Cloth",
-                                   amount: "$29.00")]
     
+    @State var isNewGoalPresented = false
     @State var showSheet: Bool = false
+    
+    @State var goals = [
+        Goal(name: "Polishing Cloth no. 1", amount: "$29.00"),
+        Goal(name: "Polishing Cloth no. 2", amount: "$29.00")
+    ]
+    @State var currentGoal = [
+        Goal(name: "Polishing Cloth", amount: "$29.00")
+    ]
     @State var goal = Goal(name: "",
                            amount: "")
     
@@ -21,8 +24,7 @@ struct GoalsView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination:
-                                    GoalsDetailView(goal: $currentGoal[0])){
+                    NavigationLink(destination: GoalsDetailView(goal: $currentGoal[0])) {
                         VStack (alignment: .leading) {
                             HStack {
                                 Text(currentGoal[0].name)
@@ -37,7 +39,7 @@ struct GoalsView: View {
                                 .accentColor(.white)
                         }
                     }
-                                    .listRowBackground(Color(UIColor(named: "AccentColor") ?? .blue))
+                    .listRowBackground(Color(UIColor(named: "AccentColor") ?? .blue))
                 }
                 
                 Section(header: Text("Other Goals")) {
@@ -161,11 +163,10 @@ struct GoalsView: View {
                     .navigationViewStyle(StackNavigationViewStyle())
                 }
             }
-            
             .ignoresSafeArea()
         } onEnd: {
+            
         }
-        
     }
 }
 
@@ -174,5 +175,3 @@ struct GoalsView_Previews: PreviewProvider {
         GoalsView()
     }
 }
-
-

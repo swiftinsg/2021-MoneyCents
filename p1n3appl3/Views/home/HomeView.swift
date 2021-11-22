@@ -25,6 +25,7 @@ struct HomeView: View {
                                 .foregroundColor(.white)
                         }
                         .padding(.top)
+                        
                         ProgressView(value: 2, total: 29)
                             .padding(.bottom)
                             .accentColor(.white)
@@ -45,7 +46,9 @@ struct HomeView: View {
                                 Text(log.dateSelector, style: .date)
                                     .font(.subheadline)
                             }
+                            
                             Spacer()
+                            
                             Text(String(format: "%.2f", log.amount))
                                 .foregroundColor(.red)
                         }

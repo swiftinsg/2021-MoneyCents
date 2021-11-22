@@ -12,12 +12,12 @@ enum LogTypes: String, Codable {
     case others = "Others"
     case entertainment = "Entertainment"
     case transport = "Transport"
-
+    
     
     // function
     func getSymbolName() -> String {
         switch self {
-        
+            
         case.food:
             return "fork.knife"
         case .others:

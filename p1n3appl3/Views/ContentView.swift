@@ -18,14 +18,15 @@ struct ContentView: View {
     var body: some View {
         
         // Tab view
-        
         TabView {
+            
             // Home
             HomeView(logs: $logs)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "house")!.imageWithoutBaseline())
                     Text("Home")
                 }
+            
             // History
             HistoryView()
                 .tabItem {

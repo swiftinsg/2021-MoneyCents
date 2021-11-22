@@ -19,18 +19,19 @@ struct SFSymbolPickerView: View {
                 VStack {
                     Text("Choose an icon or enter its name:")
                         .font(.headline)
+                    
                     Image(uiImage: UIImage(systemName: log.icon) ?? UIImage(systemName: "questionmark.square.fill")!)
+                    
                     TextField("", text: $log.icon)
                         .autocapitalization(.none)
                         .multilineTextAlignment(.center)
                 }
                 .padding()
+                
                 Divider()
                 
                 SFSymbolsPicker(isPresented: $isSFSymbolsPickerPresented, icon: $log.icon, category: .p1n3appl3, axis: .vertical, haptic: false)
-                // .devices
-                // .objects
-                // .health
+                // .p1n3appl3 is a combination of .devices, .objects, and .health
             }
             .navigationTitle(Text("Icon"))
             .toolbar {

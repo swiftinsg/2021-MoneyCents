@@ -17,5 +17,4 @@ struct Log: Identifiable, Equatable, Codable {
     var amount: Double
     var category: String
     var details: String
-
 }

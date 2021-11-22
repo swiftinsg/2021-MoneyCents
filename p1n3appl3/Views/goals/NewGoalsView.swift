@@ -10,9 +10,9 @@ import SwiftUI
 struct NewGoalsView: View {
     
     @Environment(\.presentationMode) var presentationMode
+    
     @Binding var goals: [Goal]
-    @State var goal = Goal(name: "",
-                           amount: "")
+    @State var goal = Goal(name: "", amount: "")
     
     var body: some View {
         NavigationView {

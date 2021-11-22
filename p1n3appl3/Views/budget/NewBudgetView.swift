@@ -9,17 +9,18 @@
 import SwiftUI
 
 struct NewBudgetView: View {
-    
-    
     @Environment(\.presentationMode) var presentationMode
+    
     @Binding var budgets: [Budget]
     @State var budget = Budget(nameOfItem: "", amount: "")
+    
     @State var selection = 0
+    
     var enteredAmountDouble: Double {
         return (Double(budget.amount) ?? 0) / 100
     }
-    let catergory = ["Food","Transport","Entertainment", "Others"]
     
+    let catergory = ["Food","Transport","Entertainment", "Others"]
     
     var body: some View {
         NavigationView {
@@ -40,7 +41,6 @@ struct NewBudgetView: View {
                         }
                         .multilineTextAlignment(.trailing)
                     }
-                    
                 }
             }
             .navigationTitle("New Budget")
@@ -56,7 +56,6 @@ struct NewBudgetView: View {
                         budgets.append(budget)
                         presentationMode.wrappedValue.dismiss()
                     }
-                
             )
         }
     }

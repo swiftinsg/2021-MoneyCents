@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct FoodDetailView: View {
-    
-    
-    
     var body: some View {
         NavigationView{
             List {
-                Section(header: Text("Recent Transcations")){
+                Section(header: Text("Recent Transcations")) {
                     
                 }
             }

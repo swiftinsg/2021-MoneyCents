@@ -10,15 +10,16 @@ import SwiftUI
 struct BudgetView: View {
     
     @Binding var budgets: [Budget]
-    @State var showSheet: Bool = false
-    
-    @Environment(\.presentationMode) var presentationMode
     @State var budget = Budget(nameOfItem: "", amount: "")
+    
+    @State var showSheet: Bool = false
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var selection = 0
+    
     var enteredAmountDouble: Double {
         return (Double(budget.amount) ?? 0) / 100
     }
-    
     
     var body: some View {
         NavigationView {
@@ -73,11 +74,9 @@ struct BudgetView: View {
                 
             }
             .halfSheet(showSheet: $showSheet) {
-                
                 // Your Half Sheet View....
                 ZStack{
                     VStack{
-                        
                         NavigationView {
                             Form {
                                 Section {
@@ -96,7 +95,6 @@ struct BudgetView: View {
                                         }
                                         .multilineTextAlignment(.trailing)
                                     }
-                                    
                                 }
                             }
                             .navigationTitle("New Budget")
@@ -117,27 +115,15 @@ struct BudgetView: View {
                 }
                 .ignoresSafeArea()
             } onEnd: {
-                
                 print("Dismissed")
             }
         }
     }
     
 }
-//
-//}
-//}
 
 struct BudgetView_Previews: PreviewProvider {
     static var previews: some View {
         BudgetView(budgets: .constant([Budget(nameOfItem: "", amount: "0")]))
     }
 }
-
-
-//
-//class HomeModel: ObservableObject{
-//    @Published var showSheet = false
-//    @Published var tapped = false
-//}
-
