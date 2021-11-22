@@ -11,6 +11,12 @@ struct HomeView: View {
     
     @State var isNewLogPresented = false
     @Binding var logs: [Log]
+    @State var newLog: Log = Log(name: "",
+                                 icon: "bag",
+                                 amount: 0,
+                                 category: "",
+                                 details: "")
+    @State var newLogViewAction: SheetAction = .cancel
     
     var body: some View {
         NavigationView {
@@ -60,6 +66,12 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        newLogViewAction = .cancel
+                        newLog = Log(name: "",
+                                     icon: "bag",
+                                     amount: 0,
+                                     category: "",
+                                     details: "")
                         isNewLogPresented = true
                     }, label: {
                         Image(systemName: "plus")
@@ -68,8 +80,12 @@ struct HomeView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $isNewLogPresented) {
-            NewLogView(logs: $logs)
+        .sheet(isPresented: $isNewLogPresented, onDismiss: {
+            if newLogViewAction == .done {
+                logs.append(newLog)
+            }
+        }) {
+            NewLogView(log: $newLog, action: $newLogViewAction)
         }
     }
 }

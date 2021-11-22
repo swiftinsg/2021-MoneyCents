@@ -10,12 +10,8 @@ import SwiftUI
 struct NewLogView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @Binding var logs: [Log]
-    @State var log = Log(name: "",
-                         icon: "bag",
-                         amount: 0,
-                         category: "",
-                         details: "")
+    @Binding var log: Log
+    @Binding var action: SheetAction
     
     let category = ["Food","Transport","Entertainment"]
     
@@ -120,7 +116,7 @@ struct NewLogView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        logs.append(log)
+                        action = .done
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Save")
@@ -139,6 +135,9 @@ struct NewLogView: View {
 
 struct NewLogView_Previews: PreviewProvider {
     static var previews: some View {
-        NewLogView(logs: .constant([]))
+        NewLogView(
+            log: .constant(Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.00, category: "A", details: "")),
+            action: .constant(.cancel)
+        )
     }
 }

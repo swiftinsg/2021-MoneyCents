@@ -23,6 +23,7 @@
 		254AE28F27478E330017D199 /* SFSymbolPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254AE28E27478E330017D199 /* SFSymbolPickerView.swift */; };
 		254AE296274798030017D199 /* SFSymbolsPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 254AE295274798030017D199 /* SFSymbolsPicker */; };
 		2558FBE727434DD900CB9296 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 2558FBE627434DD900CB9296 /* SwiftUICharts */; };
+		255D7AC1274B669E0032EF12 /* SheetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D7AC0274B669E0032EF12 /* SheetAction.swift */; };
 		25C1E99A27460E2000104902 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1E99927460E2000104902 /* CustomColor.swift */; };
 		25D41B9F2741FA5A008968F8 /* p1n3appl3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */; };
 		25D41BA12741FA5A008968F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D41BA02741FA5A008968F8 /* ContentView.swift */; };
@@ -50,6 +51,7 @@
 		0AC7268B274396700003519B /* NewLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLogView.swift; sourceTree = "<group>"; };
 		0AFE9A672746338800F7360D /* LogTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTypes.swift; sourceTree = "<group>"; };
 		254AE28E27478E330017D199 /* SFSymbolPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolPickerView.swift; sourceTree = "<group>"; };
+		255D7AC0274B669E0032EF12 /* SheetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetAction.swift; sourceTree = "<group>"; };
 		25C1E99927460E2000104902 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		25D41B9B2741FA5A008968F8 /* p1n3appl3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = p1n3appl3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25D41B9E2741FA5A008968F8 /* p1n3appl3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = p1n3appl3App.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				0A2DABF0274B5DDC0073A896 /* LogData.swift */,
 				2E0A584927448FF800858ACE /* Goal.swift */,
 				25D41BA22741FA5C008968F8 /* Assets.xcassets */,
+				255D7AC0274B669E0032EF12 /* SheetAction.swift */,
 			);
 			path = "Swift Files";
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				254AE28F27478E330017D199 /* SFSymbolPickerView.swift in Sources */,
 				0AC7268A2743965E0003519B /* Log.swift in Sources */,
 				0A2DABF1274B5DDC0073A896 /* LogData.swift in Sources */,
+				255D7AC1274B669E0032EF12 /* SheetAction.swift in Sources */,
 				0A4153072741FCA900041359 /* HistoryView.swift in Sources */,
 				25D41BA12741FA5A008968F8 /* ContentView.swift in Sources */,
 				2EAE11D02744BB7700A2FD92 /* SettingsCreditView.swift in Sources */,
