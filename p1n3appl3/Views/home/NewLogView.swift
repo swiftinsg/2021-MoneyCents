@@ -22,7 +22,6 @@ struct NewLogView: View {
     // segmented picker
     @State private var logPicker = 0
     
-    @State var dateSelector = Date()
     @State private var isSFSymbolPickerPresented = false
     
     @State var enteredAmountText = ""
@@ -49,7 +48,7 @@ struct NewLogView: View {
                             .multilineTextAlignment(.trailing)
                     }
                     
-                    DatePicker("Date", selection: $dateSelector, displayedComponents: .date)
+                    DatePicker("Date", selection: $log.dateSelector, displayedComponents: .date)
                     
                     HStack {
                         Text("Amount")
