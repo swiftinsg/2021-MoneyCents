@@ -89,12 +89,21 @@ struct NewLogView: View {
                     HStack {
                         Text("Category")
                         Spacer()
-                        Picker(selection: $log.category, label: Text("Select a Category")) {
-                            ForEach(category, id: \.self) {
-                                Text($0)
+
+                        ZStack(alignment: .trailing) {
+                            if log.category.isEmpty {
+                                Text("Select a Category")
+                                    .foregroundColor(CustomColor.Cornflower)
                             }
+
+                            Picker(selection: $log.category, label: Text("Select a Category")) {
+                                ForEach(category, id: \.self) {
+                                    Text($0)
+                                }
+                            }
+                            .accentColor(log.category.isEmpty ? .clear : CustomColor.Cornflower)
+                            .pickerStyle(.menu)
                         }
-                        .pickerStyle(.menu)
                     }
                 }
                 
