@@ -17,8 +17,7 @@ struct p1n3appl3App: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-            HomeView(logs: $logData.logs)
+            ContentView(logs: $logData.logs)
                 .onAppear {
                     logData.load()
                 }
