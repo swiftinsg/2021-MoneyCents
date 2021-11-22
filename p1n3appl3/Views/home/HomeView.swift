@@ -40,7 +40,8 @@ struct HomeView: View {
                 } */
                 
                 Section(header: Text("Recent Transactions")) {
-                    ForEach(logs.sorted(by: { $0.dateSelector.compare($1.dateSelector) == .orderedDescending })) { log in
+                    let sortedLogs = logs.sorted(by: { $0.dateSelector.compare($1.dateSelector) == .orderedDescending })
+                    ForEach(sortedLogs) { log in
                         let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
                         
                         NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
@@ -59,11 +60,22 @@ struct HomeView: View {
                                 .foregroundColor(.red)
                         }
                     }
+                    .onDelete { offsets in
+                        for i in offsets {
+                            if let found = logs.firstIndex(where: { $0 == sortedLogs[i] }) {
+                                logs.remove(at: found)
+                            }
+                        }
+                    }
                 }
             }
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Home")
             .toolbar {
+                ToolbarItem(placement: .navigation) {
+                    EditButton()
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         editLogViewAction = .cancel
