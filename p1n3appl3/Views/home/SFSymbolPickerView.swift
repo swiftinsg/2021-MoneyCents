@@ -10,6 +10,7 @@ import SFSymbolsPicker
 
 struct SFSymbolPickerView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment (\.colorScheme) var colorScheme:ColorScheme
     @State private var isSFSymbolsPickerPresented = true
     @Binding var log: Log
     
@@ -20,7 +21,11 @@ struct SFSymbolPickerView: View {
                     Text("Choose an icon or enter its name:")
                         .font(.headline)
                     
-                    Image(uiImage: UIImage(systemName: log.icon) ?? UIImage(systemName: "questionmark.square.fill")!)
+                    if colorScheme == .light {
+                        Image(uiImage: UIImage(systemName: log.icon) ?? UIImage(systemName: "questionmark.square.fill")!)
+                    } else {
+                        Image(uiImage: UIImage(systemName: log.icon) ?? UIImage(systemName: "questionmark.square.fill")!).colorInvert()
+                    }
                     
                     TextField("", text: $log.icon)
                         .autocapitalization(.none)
