@@ -29,7 +29,7 @@ struct HomeView: View {
                             .padding(.bottom)
                             .accentColor(.white)
                     }
-                    .listRowBackground(CustomColor.Cornflower)
+                    .listRowBackground(Color(UIColor(named: "AccentColor") ?? .blue))
                 }
                 
                 Section(header: Text("Recent Transactions")) {
@@ -60,7 +60,6 @@ struct HomeView: View {
                         isNewLogPresented = true
                     }, label: {
                         Image(systemName: "plus")
-                            .foregroundColor(CustomColor.Cornflower)
                     })
                 }
             }

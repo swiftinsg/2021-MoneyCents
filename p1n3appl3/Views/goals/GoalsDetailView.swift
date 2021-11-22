@@ -30,7 +30,6 @@ struct GoalsDetailView: View {
                     goal.amount = temporaryGoal.amount
                 }, label: {
                     Text("Switch")
-                        .foregroundColor(CustomColor.Cornflower)
                 })
             }
         }*/

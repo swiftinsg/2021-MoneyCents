@@ -93,7 +93,7 @@ struct NewLogView: View {
                         ZStack(alignment: .trailing) {
                             if log.category.isEmpty {
                                 Text("Select a Category")
-                                    .foregroundColor(CustomColor.Cornflower)
+                                    .foregroundColor(Color(UIColor(named: "AccentColor") ?? .blue))
                             }
 
                             Picker(selection: $log.category, label: Text("Select a Category")) {
@@ -101,7 +101,7 @@ struct NewLogView: View {
                                     Text($0)
                                 }
                             }
-                            .accentColor(log.category.isEmpty ? .clear : CustomColor.Cornflower)
+                            .accentColor(log.category.isEmpty ? .clear : Color(UIColor(named: "AccentColor") ?? .blue))
                             .pickerStyle(.menu)
                         }
                     }

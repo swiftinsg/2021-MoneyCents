@@ -37,7 +37,7 @@ struct GoalsView: View {
                                 .accentColor(.white)
                         }
                     }
-                                    .listRowBackground(CustomColor.Cornflower)
+                                    .listRowBackground(Color(UIColor(named: "AccentColor") ?? .blue))
                 }
                 
                 Section(header: Text("Other Goals")) {
@@ -62,7 +62,6 @@ struct GoalsView: View {
                                     .padding(.top)
                                     ProgressView(value: 2, total: 29)
                                         .padding(.bottom)
-                                        .accentColor(CustomColor.Cornflower)
                                 }
                             }
                         }
@@ -84,7 +83,6 @@ struct GoalsView: View {
                                 
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
-                                    .accentColor(CustomColor.Cornflower)
                             }
                         }
                         
@@ -99,8 +97,6 @@ struct GoalsView: View {
                                 
                                 ProgressView(value: 2, total: 29)
                                     .padding(.bottom)
-                                    .accentColor(CustomColor.Cornflower)
-                                
                             }
                         }
                     }
@@ -115,9 +111,8 @@ struct GoalsView: View {
                      Text(goal.name).tag(switchPickerNumber)
                      }
                      }.pickerStyle(.menu)
-                     .accentColor(CustomColour.Cornflower)*/
+                     .accentColor(Color(UIColor(named: "AccentColor") ?? .blue))*/
                     EditButton()
-                        .foregroundColor(CustomColor.Cornflower)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -125,7 +120,6 @@ struct GoalsView: View {
                         showSheet.toggle()
                     }, label: {
                         Image(systemName: "plus")
-                            .foregroundColor(CustomColor.Cornflower)
                     })
                 }
             }
@@ -165,7 +159,6 @@ struct GoalsView: View {
                         }
                     }
                     .navigationViewStyle(StackNavigationViewStyle())
-                    .accentColor(CustomColor.Cornflower)
                 }
             }
             

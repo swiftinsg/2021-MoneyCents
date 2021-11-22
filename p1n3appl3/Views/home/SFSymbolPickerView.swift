@@ -39,7 +39,6 @@ struct SFSymbolPickerView: View {
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Done")
-                            .foregroundColor(CustomColor.Cornflower)
                     })
                 }
             }

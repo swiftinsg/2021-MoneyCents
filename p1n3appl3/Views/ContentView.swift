@@ -54,8 +54,6 @@ struct ContentView: View {
                     Text("Settings")
                 }
         }
-        .accentColor(CustomColor.Cornflower)
-        
     }
 }
 

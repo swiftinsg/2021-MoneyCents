@@ -62,8 +62,8 @@ struct HistoryView: View {
 struct CustomStyle {
     static let light = ChartStyle(
         backgroundColor: Color.black.opacity(0), // no background colour
-        accentColor: Color("Blue Titmouse"),
-        secondGradientColor: Color("Cornflower Blue"),
+        accentColor: Color(UIColor(named: "AccentColor") ?? .blue),
+        secondGradientColor: Color(UIColor(named: "AccentColor") ?? .blue),
         textColor: Color.black.opacity(0), // seems to have no effect
         legendTextColor: Color(UIColor.darkGray),
         dropShadowColor: Color.black.opacity(0) // seems to have no effect
@@ -71,8 +71,8 @@ struct CustomStyle {
     
     static let dark = ChartStyle(
         backgroundColor: Color.black.opacity(0), // no background colour
-        accentColor: Color("Blue Titmouse"),
-        secondGradientColor: Color("Cornflower Blue"),
+        accentColor: Color(UIColor(named: "AccentColor") ?? .blue),
+        secondGradientColor: Color(UIColor(named: "AccentColor") ?? .blue),
         textColor: Color.black.opacity(0), // seems to have no effect
         legendTextColor: Color.white,
         dropShadowColor: Color.black.opacity(0) // seems to have no effect
