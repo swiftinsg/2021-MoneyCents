@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State var logs = [
-        Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.00, category: "", details: "During break"),
-        Log(name: "Food", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 2.50, category: "", details: "Break time"),
-        Log(name: "Bag", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 3.00, category: "", details: "Shopping"),
+        Log(name: "Milo", icon: "fork.knife", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 0.80, category: "", details: "During break"),
+        Log(name: "bus", icon: "bus", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.50, category: "", details: "transport"),
+        Log(name: "Movie", icon: "theatermasks.fill", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 13.00, category: "", details: "Entertainment"),
         Log(name: "Pen", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.70, category: "", details: "Ran out of ink"),
     ]
     
