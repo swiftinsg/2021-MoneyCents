@@ -125,6 +125,7 @@ struct NewLogView: View {
                         Text("Save")
                             .bold()
                     })
+                        .disabled(log.name.isEmpty || log.category.isEmpty)
                 }
             }
         }
