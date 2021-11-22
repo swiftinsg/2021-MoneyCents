@@ -37,6 +37,7 @@ struct HomeView: View {
                         let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
                         
                         NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
+                            Image(systemName: log.icon)
                             
                             VStack(alignment: .leading) {
                                 Text(log.name)
