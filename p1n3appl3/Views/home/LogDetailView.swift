@@ -21,7 +21,7 @@ struct LogDetailView: View {
                 Text(log.details)
             }
         }
-        .navigationTitle("Milo")
+        .navigationTitle("\(log.name)")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
