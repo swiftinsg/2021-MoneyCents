@@ -1,4 +1,4 @@
-import SwiftUI
+/*import SwiftUI
 
 struct GoalsView: View {
     
@@ -175,3 +175,4 @@ struct GoalsView_Previews: PreviewProvider {
         GoalsView()
     }
 }
+*/

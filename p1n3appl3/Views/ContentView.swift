@@ -37,11 +37,13 @@ struct ContentView: View {
                 }
             
             // Goals
+            /*
             GoalsView()
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "list.dash")!.imageWithoutBaseline())
                     Text("Goals")
                 }
+             */
             
             // Settings
             SettingsView()

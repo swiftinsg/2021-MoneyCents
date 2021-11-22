@@ -30,20 +30,21 @@ struct HomeView: View {
         NavigationView {
             List {
                 Section {
-                    VStack (alignment: .leading) {
-                        HStack {
-                            Text("Polishing Cloth")
+                    HStack() {
+                        Spacer()
+                        VStack(){
+                            Text("Balance")
+                                .font(.system(size: 18))
+                                .foregroundColor(CustomColor.LightPurple)
+                            Text("$300")
                                 .foregroundColor(.white)
-                            Spacer()
-                            Text("$2.00 / $29.00")
+                                .font(.system(size: 60).weight(.bold))
+                            Text("Expenses: $300")
                                 .foregroundColor(.white)
                         }
-                        .padding(.top)
-                        
-                        ProgressView(value: 2, total: 29)
-                            .padding(.bottom)
-                            .accentColor(.white)
+                        Spacer()
                     }
+                    .padding()
                     .listRowBackground(Color(UIColor(named: "AccentColor") ?? .blue))
                 }
                 

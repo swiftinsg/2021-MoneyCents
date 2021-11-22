@@ -4,7 +4,7 @@
 //
 //  Created by sap on 11/19/21.
 //
-
+/*
 import SwiftUI
 
 struct GoalsDetailView: View {
@@ -41,3 +41,4 @@ struct GoalsDetailView_Previews: PreviewProvider {
         GoalsDetailView(goal: .constant(Goal(name: "Polishing Cloth", amount: "$29.00")))
     }
 }
+*/
