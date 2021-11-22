@@ -10,7 +10,7 @@ import SwiftUI
 struct NewLogView: View {
     
     @State var selection = 0 // for picker
-    let catergory = ["Food","Transport","Entertainment"]
+    let category = ["Food","Transport","Entertainment"]
     
     @Environment(\.presentationMode) var presentationMode
     @Binding var logs: [Log]
@@ -89,11 +89,12 @@ struct NewLogView: View {
                     HStack {
                         Text("Category")
                         Spacer()
-                        Picker(selection: $selection, label: Text("Category")) {
-                            ForEach(0 ..< catergory.count) { index in
-                                Text(self.catergory[index]).tag(index)
+                        Picker(selection: $log.category, label: Text("Select a Category")) {
+                            ForEach(category, id: \.self) {
+                                Text($0)
                             }
-                        }.pickerStyle(.menu)
+                        }
+                        .pickerStyle(.menu)
                     }
                 }
                 
