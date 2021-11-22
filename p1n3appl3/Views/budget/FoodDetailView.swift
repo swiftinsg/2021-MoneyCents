@@ -15,6 +15,7 @@ struct FoodDetailView: View {
                     
                 }
             }
+            .listStyle(InsetGroupedListStyle())
         }
     }
 }

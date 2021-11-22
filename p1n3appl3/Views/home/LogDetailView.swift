@@ -21,6 +21,7 @@ struct LogDetailView: View {
                 Text(log.details)
             }
         }
+        .listStyle(InsetGroupedListStyle())
         .navigationTitle("\(log.name)")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {

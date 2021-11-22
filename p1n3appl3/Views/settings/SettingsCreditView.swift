@@ -38,6 +38,7 @@ struct SettingsCreditView: View {
                 }
             }
         }
+        .listStyle(InsetGroupedListStyle())
     }
 }
 
