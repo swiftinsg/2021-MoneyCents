@@ -1,5 +1,5 @@
 //
-//  NewLogView.swift
+//  EditLogView.swift
 //  p1n3appl3
 //
 //  Created by Conqueriings on 16/11/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewLogView: View {
+struct EditLogView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var log: Log
@@ -133,9 +133,9 @@ struct NewLogView: View {
     }
 }
 
-struct NewLogView_Previews: PreviewProvider {
+struct EditLogView_Previews: PreviewProvider {
     static var previews: some View {
-        NewLogView(
+        EditLogView(
             log: .constant(Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.00, category: "A", details: "")),
             action: .constant(.cancel)
         )

@@ -16,7 +16,7 @@ struct HomeView: View {
                                  amount: 0,
                                  category: "",
                                  details: "")
-    @State var newLogViewAction: SheetAction = .cancel
+    @State var editLogViewAction: SheetAction = .cancel
     
     var body: some View {
         NavigationView {
@@ -66,7 +66,7 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        newLogViewAction = .cancel
+                        editLogViewAction = .cancel
                         newLog = Log(name: "",
                                      icon: "bag",
                                      amount: 0,
@@ -81,11 +81,11 @@ struct HomeView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $isNewLogPresented, onDismiss: {
-            if newLogViewAction == .done {
+            if editLogViewAction == .done {
                 logs.append(newLog)
             }
         }) {
-            NewLogView(log: $newLog, action: $newLogViewAction)
+            EditLogView(log: $newLog, action: $editLogViewAction)
         }
     }
 }
