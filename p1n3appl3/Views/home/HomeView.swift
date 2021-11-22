@@ -72,6 +72,10 @@ struct HomeView: View {
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Home")
             .toolbar {
+                ToolbarItem(placement: .navigation) {
+                    EditButton()
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         editLogViewAction = .cancel
