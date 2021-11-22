@@ -15,7 +15,7 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
+               /* Section {
                     VStack (alignment: .leading) {
                         HStack {
                             Text("Polishing Cloth")
@@ -31,7 +31,7 @@ struct HomeView: View {
                             .accentColor(.white)
                     }
                     .listRowBackground(Color(UIColor(named: "AccentColor") ?? .blue))
-                }
+                } */
                 
                 Section(header: Text("Recent Transactions")) {
                     ForEach(logs.sorted(by: { $0.dateSelector.compare($1.dateSelector) == .orderedDescending })) { log in
