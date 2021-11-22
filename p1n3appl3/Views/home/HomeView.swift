@@ -108,7 +108,7 @@ struct HomeView: View {
                 logs.append(newLog)
             }
         }) {
-            EditLogView(log: $newLog, action: $editLogViewAction)
+            EditLogView(log: $newLog, action: $editLogViewAction, isEdit: false)
         }
     }
 }

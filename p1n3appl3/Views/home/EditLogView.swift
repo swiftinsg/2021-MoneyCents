@@ -12,6 +12,7 @@ struct EditLogView: View {
     
     @Binding var log: Log
     @Binding var action: SheetAction
+    @State var isEdit: Bool
     
     let category = ["Food","Transport","Entertainment"]
     
@@ -103,7 +104,7 @@ struct EditLogView: View {
                     TextEditor(text: $log.details)
                 }
             }
-            .navigationTitle("New Log")
+            .navigationTitle(isEdit ? "Edit Log" : "New Log")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -137,7 +138,8 @@ struct EditLogView_Previews: PreviewProvider {
     static var previews: some View {
         EditLogView(
             log: .constant(Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.00, category: "A", details: "")),
-            action: .constant(.cancel)
+            action: .constant(.cancel),
+            isEdit: true
         )
     }
 }

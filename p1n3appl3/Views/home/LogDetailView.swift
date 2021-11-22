@@ -35,7 +35,7 @@ struct LogDetailView: View {
             }
         }
         .sheet(isPresented: $isEditPresented) {
-            EditLogView(log: $log, action: $editLogViewAction)
+            EditLogView(log: $log, action: $editLogViewAction, isEdit: true)
         }
     }
 }
