@@ -11,6 +11,7 @@ struct LogDetailView: View {
     
     @State var isEditPresented:Bool = false
     @Binding var log: Log
+    @State var editLogViewAction: SheetAction = .cancel
     
     var body: some View {
         List {
@@ -26,13 +27,16 @@ struct LogDetailView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button(action: {
+                    editLogViewAction = .cancel
                     isEditPresented.toggle()
                 }, label: {
                     Text("Edit")
                 })
             }
         }
-        
+        .sheet(isPresented: $isEditPresented) {
+            EditLogView(log: $log, action: $editLogViewAction)
+        }
     }
 }
 
