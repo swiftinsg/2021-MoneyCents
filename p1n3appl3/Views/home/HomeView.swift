@@ -46,6 +46,8 @@ struct HomeView: View {
                         
                         NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
                             Image(systemName: log.icon)
+                                .frame(width: 32.0, height: 32.0)
+                                .foregroundColor(Color(UIColor(named: "AccentColor") ?? .blue))
                             
                             VStack(alignment: .leading) {
                                 Text(log.name)
