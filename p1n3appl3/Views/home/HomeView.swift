@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+extension Date {
+   func getFormattedDate(format: String) -> String {
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = format
+        return dateformat.string(from: self)
+    }
+}
+
 struct HomeView: View {
     
     @State var isNewLogPresented = false
@@ -46,11 +54,14 @@ struct HomeView: View {
                         
                         NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
                             Image(systemName: log.icon)
+                                .font(Font.system(size: 16))
+                                .foregroundColor(Color(UIColor(named: "AccentColor") ?? .blue))
+                                .frame(minWidth: 30)
                             
                             VStack(alignment: .leading) {
                                 Text(log.name)
                                     .font(.headline)
-                                Text(log.dateSelector, style: .date)
+                                Text(log.dateSelector.getFormattedDate(format: "d MMM yyyy"))
                                     .font(.subheadline)
                             }
                             
