@@ -34,7 +34,7 @@ struct HomeView: View {
                 }
                 
                 Section(header: Text("Recent Transactions")) {
-                    ForEach(logs) { log in
+                    ForEach(logs.sorted(by: { $0.dateSelector.compare($1.dateSelector) == .orderedDescending })) { log in
                         let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
                         
                         NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
