@@ -16,10 +16,64 @@ struct LogDetailView: View {
     var body: some View {
         List {
             Section(header: Text("Information")) {
-                Text(log.name)
-                Text(log.dateSelector, style: .date)
-                Text(String(format: "%.2f", log.amount))
-                Text(log.details)
+                HStack {
+                    Image(systemName: "tray")
+                        .foregroundColor(.gray)
+                        .font(Font.system(size: 16))
+                        .frame(minWidth: 24)
+                    
+                    Text("Name")
+                    Spacer()
+                    Text(log.name)
+                }
+                HStack {
+                    Image(systemName: "calendar")
+                        .foregroundColor(.gray)
+                        .font(Font.system(size: 16))
+                        .frame(minWidth: 24)
+                    Text("Date")
+                    Spacer()
+                    Text(log.dateSelector, style: .date)
+                }
+                HStack {
+                    Image(systemName: "dollarsign.square")
+                        .foregroundColor(.gray)
+                        .font(Font.system(size: 16))
+                        .frame(minWidth: 24)
+                    Text("Amount")
+                    Spacer()
+                    Text(String(format: "%.2f", log.amount))
+                }
+                HStack {
+                    Image(systemName: "info.circle")
+                        .foregroundColor(.gray)
+                        .font(Font.system(size: 16))
+                        .frame(minWidth: 24)
+                    Text("Icon")
+                    Spacer()
+                    Image(systemName: log.icon)
+                    Text(log.icon)
+                }
+                HStack {
+                    Image(systemName: "folder")
+                        .foregroundColor(.gray)
+                        .font(Font.system(size: 16))
+                        .frame(minWidth: 24)
+                    Text("Category")
+                    Spacer()
+                    Text(log.category)
+                }
+                
+                
+                HStack {
+                    Image(systemName: "text.alignleft")
+                        .foregroundColor(.gray)
+                        .font(Font.system(size: 16))
+                        .frame(minWidth: 24)
+                    Text("Details")
+                    Spacer()
+                    Text(log.details)
+                }
             }
         }
         .listStyle(InsetGroupedListStyle())
@@ -35,7 +89,7 @@ struct LogDetailView: View {
             }
         }
         .sheet(isPresented: $isEditPresented) {
-            EditLogView(log: $log, action: $editLogViewAction)
+            EditLogView(log: $log, action: $editLogViewAction, isEdit: true)
         }
     }
 }

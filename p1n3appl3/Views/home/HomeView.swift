@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-extension Date {
-   func getFormattedDate(format: String) -> String {
-        let dateformat = DateFormatter()
-        dateformat.dateFormat = format
-        return dateformat.string(from: self)
-    }
-}
-
 struct HomeView: View {
     
     @State var isNewLogPresented = false
@@ -108,7 +100,7 @@ struct HomeView: View {
                 logs.append(newLog)
             }
         }) {
-            EditLogView(log: $newLog, action: $editLogViewAction)
+            EditLogView(log: $newLog, action: $editLogViewAction, isEdit: false)
         }
     }
 }
