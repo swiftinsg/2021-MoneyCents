@@ -12,12 +12,13 @@ struct NewBudgetView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var budgets: [Budget]
-    @State var budget = Budget(nameOfItem: "", amount: "")
+    @State var budget = Budget(nameOfItem: "", amount: 0.00)
     
     @State var selection = 0
     
+    @State var enteredAmountText = ""
     var enteredAmountDouble: Double {
-        return (Double(budget.amount) ?? 0) / 100
+        return (Double(enteredAmountText) ?? 0) / 100
     }
     
     let catergory = ["Food","Transport","Entertainment", "Others"]
@@ -32,9 +33,12 @@ struct NewBudgetView: View {
                         Text("Amount")
                         
                         ZStack(alignment: .trailing) {
-                            Text("\(enteredAmountDouble, specifier: "%.2f")")
+                            Text(String(format: "%.2f", enteredAmountDouble))
                             
-                            TextField("", text: $budget.amount)
+                            TextField("", text: $enteredAmountText, onEditingChanged: { (_) in
+                                budget.amount = enteredAmountDouble
+                                print(budget.amount)
+                            })
                                 .keyboardType(.numberPad)
                             // .accentColor(.clear) // removes the cursor
                                 .foregroundColor(.clear) // hides the text inputted

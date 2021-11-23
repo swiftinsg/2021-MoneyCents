@@ -10,15 +10,16 @@ import SwiftUI
 struct BudgetView: View {
     
     @Binding var budgets: [Budget]
-    @State var budget = Budget(nameOfItem: "", amount: "")
+    @State var budget = Budget(nameOfItem: "", amount: 0.00)
     
     @State var showSheet: Bool = false
     @Environment(\.presentationMode) var presentationMode
     
     @State var selection = 0
     
+    @State var enteredAmountText = ""
     var enteredAmountDouble: Double {
-        return (Double(budget.amount) ?? 0) / 100
+        return (Double(enteredAmountText) ?? 0) / 100
     }
     
     var body: some View {
@@ -84,11 +85,13 @@ struct BudgetView: View {
                                     
                                     HStack {
                                         Text("Amount")
-                                        
                                         ZStack(alignment: .trailing) {
-                                            Text("\(enteredAmountDouble, specifier: "%.2f")")
+                                            Text(String(format: "%.2f", enteredAmountDouble))
                                             
-                                            TextField("", text: $budget.amount)
+                                            TextField("", text: $enteredAmountText, onEditingChanged: { (_) in
+                                                budget.amount = enteredAmountDouble
+                                                print(budget.amount)
+                                            })
                                                 .keyboardType(.numberPad)
                                             // .accentColor(.clear) // removes the cursor
                                                 .foregroundColor(.clear) // hides the text inputted
@@ -107,6 +110,7 @@ struct BudgetView: View {
                                     .foregroundColor(.red),
                                 trailing:
                                     Button("Save") {
+                                        budgets.append(budget)
                                         showSheet.toggle()
                                     }
                             )
@@ -119,11 +123,10 @@ struct BudgetView: View {
             }
         }
     }
-    
 }
 
 struct BudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetView(budgets: .constant([Budget(nameOfItem: "", amount: "0")]))
+        BudgetView(budgets: .constant([Budget(nameOfItem: "", amount: 0.00)]))
     }
 }
