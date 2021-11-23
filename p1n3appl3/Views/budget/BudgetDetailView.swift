@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct BudgetDetailView: View {
+    @Binding var budget: Budget
+    
     var body: some View {
-        NavigationView{
-            List {
-                Section(header: Text("Recent Transcations")) {
-                    
-                }
+        List {
+            Section(header: Text("Recent Transcations")) {
+                
             }
-            .listStyle(InsetGroupedListStyle())
         }
+        .listStyle(InsetGroupedListStyle())
+        .navigationTitle(budget.name)
     }
 }
 
 struct BudgetDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetDetailView()
+        BudgetDetailView(budget: .constant(Budget(name: "", amount: 0.00)))
     }
 }
