@@ -11,8 +11,12 @@ import SwiftUI
 class BudgetData: ObservableObject {
     @Published var budgets: [Budget] = []
 
-    let sampleBudgets = [Budget(name: "", amount: 0.00)]
- 
+    let sampleBudgets = [
+        Budget(name: "Default", amount: 20.00),
+        Budget(name: "Food", amount: 30.00),
+        Budget(name: "Transport", amount: 20.00),
+        Budget(name: "Entertainment", amount: 30.00)
+    ]
     
     func getArchiveURL() -> URL {
         let plistName = "budgets.plist"
