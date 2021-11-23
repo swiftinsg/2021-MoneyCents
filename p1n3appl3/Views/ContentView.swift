@@ -34,7 +34,7 @@ struct ContentView: View {
             BudgetView(budgets: $budgets, logs: $logs)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "dollarsign.circle")!.imageWithoutBaseline())
-                    Text("Budget")
+                    Text("Categories")
                 }
             
             // Goals

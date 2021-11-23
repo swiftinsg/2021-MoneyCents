@@ -23,11 +23,11 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
+                Section {                    
                     HStack() {
                         Spacer()
                         VStack(){
-                            Text("Expenses within the past month")
+                            Text("Expenses within the past week")
                                 .font(.system(size: 18))
                                 .foregroundColor(CustomColor.LightPurple)
                             Text("$\(expenses, specifier: "%.2f")")
@@ -65,10 +65,16 @@ struct HomeView: View {
                                 .foregroundColor(.red)
                         }
                         .onAppear() {
-                            expenses += log.amount
+                            let keyDate = Date(timeIntervalSinceNow: -7 * 60 * 60 * 24)
+                            if log.dateSelector > keyDate {
+                                expenses += log.amount
+                            }
                         }
                         .onDisappear() {
-                            expenses -= log.amount
+                            let keyDate = Date(timeIntervalSinceNow: -7 * 60 * 60 * 24)
+                            if log.dateSelector > keyDate {
+                                expenses -= log.amount
+                            }
                         }
                     }
                     .onDelete { offsets in
@@ -106,7 +112,6 @@ struct HomeView: View {
         .sheet(isPresented: $isNewLogPresented, onDismiss: {
             if editLogViewAction == .done {
                 logs.append(newLog)
-                isNewLogPresented = false
             }
         }) {
             EditLogView(log: $newLog, budgets: $budgets, action: $editLogViewAction, isEdit: false)
@@ -123,3 +128,4 @@ struct HomeView_Previews: PreviewProvider {
         )
     }
 }
+

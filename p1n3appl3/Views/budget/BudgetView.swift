@@ -12,6 +12,7 @@ struct BudgetView: View {
     @Binding var budgets: [Budget]
     @Binding var logs: [Log]
     @State var budget = Budget(name: "", amount: 0.00)
+    @State var totalBudget = 0.00
     
     @State var showSheet: Bool = false
     @Environment(\.presentationMode) var presentationMode
@@ -39,6 +40,12 @@ struct BudgetView: View {
                             Text(String(format: "%.2f", budget.amount))
                                 .foregroundColor(.red)
                         }
+                        .onAppear(){
+                            totalBudget += budget.amount
+                        }
+                        .onDisappear(){
+                            totalBudget -= budget.amount
+                        }
                     }
                     .onDelete { offsets in
                         budgets.remove(atOffsets: offsets)
@@ -54,7 +61,7 @@ struct BudgetView: View {
                             Text("Total")
                         }
                         Spacer()
-                        Text("$45.00")
+                        Text("$\(totalBudget, specifier: "%.2f")")
                             .foregroundColor(.red)
                     }
                 }
