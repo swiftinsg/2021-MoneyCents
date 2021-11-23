@@ -11,6 +11,7 @@ struct HomeView: View {
     
     @State var isNewLogPresented = false
     @Binding var logs: [Log]
+    @State var expenses = 0.00
     @State var newLog: Log = Log(name: "",
                                  icon: "bag",
                                  amount: 0,
@@ -25,14 +26,12 @@ struct HomeView: View {
                     HStack() {
                         Spacer()
                         VStack(){
-                            Text("Balance")
+                            Text("Expenses within the past month")
                                 .font(.system(size: 18))
                                 .foregroundColor(CustomColor.LightPurple)
-                            Text("$300")
+                            Text("$\(expenses, specifier: "%.2f")")
                                 .foregroundColor(.white)
                                 .font(.system(size: 60).weight(.bold))
-                            Text("Expenses: $300")
-                                .foregroundColor(.white)
                         }
                         Spacer()
                     }
@@ -42,6 +41,7 @@ struct HomeView: View {
                 
                 Section(header: Text("Recent Transactions")) {
                     let sortedLogs = logs.sorted(by: { $0.dateSelector.compare($1.dateSelector) == .orderedDescending })
+                    
                     ForEach(sortedLogs) { log in
                         let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
                         
@@ -62,6 +62,12 @@ struct HomeView: View {
                             
                             Text(String(format: "%.2f", log.amount))
                                 .foregroundColor(.red)
+                        }
+                        .onAppear() {
+                            expenses += log.amount
+                        }
+                        .onDisappear() {
+                            expenses -= log.amount
                         }
                     }
                     .onDelete { offsets in
@@ -99,6 +105,7 @@ struct HomeView: View {
         .sheet(isPresented: $isNewLogPresented, onDismiss: {
             if editLogViewAction == .done {
                 logs.append(newLog)
+                isNewLogPresented = false
             }
         }) {
             EditLogView(log: $newLog, action: $editLogViewAction, isEdit: false)
