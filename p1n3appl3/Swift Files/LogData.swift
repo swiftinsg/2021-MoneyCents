@@ -12,10 +12,10 @@ class LogData: ObservableObject {
     @Published var logs: [Log] = []
     
     let sampleLogs = [
-        Log(name: "Milo", icon: "fork.knife", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 0.80, category: "", details: "During break"),
-        Log(name: "bus", icon: "bus", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.50, category: "", details: "transport"),
-        Log(name: "Movie", icon: "theatermasks.fill", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 13.00, category: "", details: "Entertainment"),
-        Log(name: "Pen", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658516460), amount: 1.70, category: "", details: "Ran out of ink"),
+        Log(name: "Milo", icon: "fork.knife", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 0.80, category: "Food", details: "During break"),
+        Log(name: "Bus", icon: "bus", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.50, category: "Transport", details: "transport"),
+        Log(name: "Movie", icon: "theatermasks.fill", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 13.00, category: "Entertainment", details: "Entertainment"),
+        Log(name: "Pen", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658516460), amount: 1.70, category: "Default", details: "Ran out of ink"),
     ]
     
     func getArchiveURL() -> URL {

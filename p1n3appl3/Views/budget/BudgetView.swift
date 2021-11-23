@@ -10,6 +10,7 @@ import SwiftUI
 struct BudgetView: View {
     
     @Binding var budgets: [Budget]
+    @Binding var logs: [Log]
     @State var budget = Budget(name: "", amount: 0.00)
     
     @State var showSheet: Bool = false
@@ -26,47 +27,48 @@ struct BudgetView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: BudgetDetailView(budget: .constant(Budget(name: "Food", amount: 40.00)))) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Food")
-                            }
+                    ForEach(budgets) { budget in
+                        let budgetIndex = budgets.firstIndex(of: budget)! // get the index of the current budget from budgets
+                        
+                        NavigationLink(destination: BudgetDetailView(budget: $budgets[budgetIndex], budgets: $budgets, logs: $logs)) {
+                            
+                            Text(budget.name)
+
                             Spacer()
-                            Text("$40.00")
+                            
+                            Text(String(format: "%.2f", budget.amount))
                                 .foregroundColor(.red)
                         }
                     }
-                    
-                    NavigationLink(destination: BudgetDetailView(budget: .constant(Budget(name: "Transport", amount: 5.00)))) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Transport")
-                            }
-                            Spacer()
-                            Text("$5.00")
-                                .foregroundColor(.red)
-                        }
+                    .onDelete { offsets in
+                        budgets.remove(atOffsets: offsets)
+                    }
+                    .onMove { source, destination in
+                        budgets.move(fromOffsets: source, toOffset: destination)
                     }
                 }
                 
                 Section {
-                    NavigationLink(destination: Text("Second View")){
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Total")
-                            }
-                            Spacer()
-                            Text("$45.00")
-                                .foregroundColor(.red)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Total")
                         }
+                        Spacer()
+                        Text("$45.00")
+                            .foregroundColor(.red)
                     }
                 }
             }
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Budget")
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        budget = Budget(name: "", amount: 0.00)
                         showSheet.toggle()
                     }, label: {
                         Image(systemName: "plus")
@@ -127,6 +129,6 @@ struct BudgetView: View {
 
 struct BudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetView(budgets: .constant([Budget(name: "", amount: 0.00)]))
+        BudgetView(budgets: .constant([Budget(name: "", amount: 0.00)]), logs: .constant([]))
     }
 }

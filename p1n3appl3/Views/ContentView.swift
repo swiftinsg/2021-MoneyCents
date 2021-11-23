@@ -17,7 +17,7 @@ struct ContentView: View {
         TabView {
             
             // Home
-            HomeView(logs: $logs)
+            HomeView(logs: $logs, budgets: $budgets)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "house")!.imageWithoutBaseline())
                     Text("Home")
@@ -31,7 +31,7 @@ struct ContentView: View {
                 }
             
             //Budget
-            BudgetView(budgets: $budgets)
+            BudgetView(budgets: $budgets, logs: $logs)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "dollarsign.circle")!.imageWithoutBaseline())
                     Text("Budget")
