@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Binding var logs: [Log]
+    @Binding var budgets: [Budget]
     
     var body: some View {
         
@@ -30,7 +31,7 @@ struct ContentView: View {
                 }
             
             //Budget
-            BudgetView(budgets: .constant([]))
+            BudgetView(budgets: $budgets)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "dollarsign.circle")!.imageWithoutBaseline())
                     Text("Budget")
@@ -57,6 +58,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(logs: .constant([]))
+        ContentView(logs: .constant([]), budgets: .constant([]))
     }
 }
