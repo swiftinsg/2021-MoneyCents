@@ -67,6 +67,7 @@ struct BudgetView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        budget = Budget(name: "", amount: 0.00)
                         showSheet.toggle()
                     }, label: {
                         Image(systemName: "plus")
