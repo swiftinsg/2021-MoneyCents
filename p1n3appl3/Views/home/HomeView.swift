@@ -11,6 +11,8 @@ struct HomeView: View {
     
     @State var isNewLogPresented = false
     @Binding var logs: [Log]
+    @State var expenses = 0.00
+    @Binding var budgets: [Budget]
     @State var newLog: Log = Log(name: "",
                                  icon: "bag",
                                  amount: 0,
@@ -21,18 +23,16 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List {
-                Section {
+                Section {                    
                     HStack() {
                         Spacer()
                         VStack(){
-                            Text("Balance")
+                            Text("Expenses within the past week")
                                 .font(.system(size: 18))
                                 .foregroundColor(CustomColor.LightPurple)
-                            Text("$300")
+                            Text("$\(expenses, specifier: "%.2f")")
                                 .foregroundColor(.white)
                                 .font(.system(size: 60).weight(.bold))
-                            Text("Expenses: $300")
-                                .foregroundColor(.white)
                         }
                         Spacer()
                     }
@@ -42,10 +42,11 @@ struct HomeView: View {
                 
                 Section(header: Text("Recent Transactions")) {
                     let sortedLogs = logs.sorted(by: { $0.dateSelector.compare($1.dateSelector) == .orderedDescending })
+                    
                     ForEach(sortedLogs) { log in
                         let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
                         
-                        NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
+                        NavigationLink(destination: LogDetailView(log: $logs[logIndex], budgets: $budgets)) {
                             Image(systemName: log.icon)
                                 .font(Font.system(size: 16))
                                 .foregroundColor(Color(UIColor(named: "AccentColor") ?? .blue))
@@ -60,8 +61,20 @@ struct HomeView: View {
                             
                             Spacer()
                             
-                            Text(String(format: "%.2f", log.amount))
+                            Text("$\(String(format: "%.2f", log.amount))")
                                 .foregroundColor(.red)
+                        }
+                        .onAppear() {
+                            let keyDate = Date(timeIntervalSinceNow: -7 * 60 * 60 * 24)
+                            if log.dateSelector > keyDate {
+                                expenses += log.amount
+                            }
+                        }
+                        .onDisappear() {
+                            let keyDate = Date(timeIntervalSinceNow: -7 * 60 * 60 * 24)
+                            if log.dateSelector > keyDate {
+                                expenses -= log.amount
+                            }
                         }
                     }
                     .onDelete { offsets in
@@ -101,7 +114,7 @@ struct HomeView: View {
                 logs.append(newLog)
             }
         }) {
-            EditLogView(log: $newLog, action: $editLogViewAction, isEdit: false)
+            EditLogView(log: $newLog, budgets: $budgets, action: $editLogViewAction, isEdit: false)
         }
     }
 }
@@ -110,6 +123,9 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(logs: .constant([
             Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.00, category: "A", details: "")
-        ]))
+        ]),
+                 budgets: .constant([])
+        )
     }
 }
+

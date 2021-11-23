@@ -12,7 +12,7 @@ struct NewBudgetView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var budgets: [Budget]
-    @State var budget = Budget(nameOfItem: "", amount: 0.00)
+    @State var budget = Budget(name: "", amount: 0.00)
     
     @State var selection = 0
     
@@ -27,7 +27,7 @@ struct NewBudgetView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Name", text: $budget.nameOfItem)
+                    TextField("Name", text: $budget.name)
                     
                     HStack {
                         Text("Amount")

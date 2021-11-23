@@ -10,7 +10,9 @@ import SwiftUI
 struct BudgetView: View {
     
     @Binding var budgets: [Budget]
-    @State var budget = Budget(nameOfItem: "", amount: 0.00)
+    @Binding var logs: [Log]
+    @State var budget = Budget(name: "", amount: 0.00)
+    @State var totalBudget = 0.00
     
     @State var showSheet: Bool = false
     @Environment(\.presentationMode) var presentationMode
@@ -26,47 +28,54 @@ struct BudgetView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: FoodDetailView()) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Food")
-                            }
+                    ForEach(budgets) { budget in
+                        let budgetIndex = budgets.firstIndex(of: budget)! // get the index of the current budget from budgets
+                        
+                        NavigationLink(destination: BudgetDetailView(budget: $budgets[budgetIndex], budgets: $budgets, logs: $logs)) {
+                            
+                            Text(budget.name)
+
                             Spacer()
-                            Text("$40.00")
+                            
+                            Text("$\(String(format: "%.2f", budget.amount))")
                                 .foregroundColor(.red)
+                        }
+                        .onAppear(){
+                            totalBudget += budget.amount
+                        }
+                        .onDisappear(){
+                            totalBudget -= budget.amount
                         }
                     }
-                    
-                    NavigationLink(destination: Text("Second View")) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Transport")
-                            }
-                            Spacer()
-                            Text("$5.00")
-                                .foregroundColor(.red)
-                        }
+                    .onDelete { offsets in
+                        budgets.remove(atOffsets: offsets)
+                    }
+                    .onMove { source, destination in
+                        budgets.move(fromOffsets: source, toOffset: destination)
                     }
                 }
                 
                 Section {
-                    NavigationLink(destination: Text("Second View")){
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Total")
-                            }
-                            Spacer()
-                            Text("$45.00")
-                                .foregroundColor(.red)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Total")
                         }
+                        Spacer()
+                        Text("$\(totalBudget, specifier: "%.2f")")
+                            .foregroundColor(.red)
                     }
                 }
             }
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Budget")
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        budget = Budget(name: "", amount: 0.00)
                         showSheet.toggle()
                     }, label: {
                         Image(systemName: "plus")
@@ -81,7 +90,7 @@ struct BudgetView: View {
                         NavigationView {
                             Form {
                                 Section {
-                                    TextField("Name", text: $budget.nameOfItem)
+                                    TextField("Name", text: $budget.name)
                                     
                                     HStack {
                                         Text("Amount")
@@ -102,18 +111,25 @@ struct BudgetView: View {
                             }
                             .navigationTitle("New Budget")
                             .navigationBarTitleDisplayMode(.inline)
-                            .navigationBarItems(
-                                leading:
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarLeading) {
                                     Button("Cancel") {
                                         showSheet.toggle()
                                     }
-                                    .foregroundColor(.red),
-                                trailing:
-                                    Button("Save") {
-                                        budgets.append(budget)
-                                        showSheet.toggle()
-                                    }
-                            )
+                                }
+                                
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    Button(action: {
+                                        if !budget.name.isEmpty {
+                                            budgets.append(budget)
+                                            showSheet.toggle()
+                                        }
+                                    }, label: {
+                                        Text("Save")
+                                            .bold()
+                                    })
+                                }
+                            }
                         }
                     }
                 }
@@ -127,6 +143,6 @@ struct BudgetView: View {
 
 struct BudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetView(budgets: .constant([Budget(nameOfItem: "", amount: 0.00)]))
+        BudgetView(budgets: .constant([Budget(name: "", amount: 0.00)]), logs: .constant([]))
     }
 }

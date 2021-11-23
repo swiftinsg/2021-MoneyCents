@@ -17,24 +17,24 @@ struct ContentView: View {
         TabView {
             
             // Home
-            HomeView(logs: $logs)
+            HomeView(logs: $logs, budgets: $budgets)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "house")!.imageWithoutBaseline())
                     Text("Home")
                 }
             
-            // History
-            HistoryView(logs: $logs)
+            // Reports
+            ReportsView(logs: $logs)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "chart.bar")!.imageWithoutBaseline())
-                    Text("History")
+                    Text("Reports")
                 }
             
             //Budget
-            BudgetView(budgets: $budgets)
+            BudgetView(budgets: $budgets, logs: $logs)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "dollarsign.circle")!.imageWithoutBaseline())
-                    Text("Budget")
+                    Text("Categories")
                 }
             
             // Goals

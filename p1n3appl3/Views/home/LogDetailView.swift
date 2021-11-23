@@ -11,6 +11,7 @@ struct LogDetailView: View {
     
     @State var isEditPresented:Bool = false
     @Binding var log: Log
+    @Binding var budgets: [Budget]
     @State var editLogViewAction: SheetAction = .cancel
     
     var body: some View {
@@ -42,7 +43,7 @@ struct LogDetailView: View {
                         .frame(minWidth: 24)
                     Text("Amount")
                     Spacer()
-                    Text(String(format: "%.2f", log.amount))
+                    Text("$\(String(format: "%.2f", log.amount))")
                 }
                 HStack {
                     Image(systemName: "info.circle")
@@ -89,7 +90,7 @@ struct LogDetailView: View {
             }
         }
         .sheet(isPresented: $isEditPresented) {
-            EditLogView(log: $log, action: $editLogViewAction, isEdit: true)
+            EditLogView(log: $log, budgets: $budgets, action: $editLogViewAction, isEdit: true)
         }
     }
 }
@@ -98,6 +99,8 @@ struct LogDetailView_Previews: PreviewProvider {
     static var previews: some View {
         LogDetailView(log: .constant(
             Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.0, category: "A", details: "Bought at school canteen during break")
-        ))
+        ),
+                      budgets: .constant([])
+        )
     }
 }
