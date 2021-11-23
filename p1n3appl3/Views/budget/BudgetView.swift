@@ -26,39 +26,29 @@ struct BudgetView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: BudgetDetailView(budget: .constant(Budget(name: "Food", amount: 40.00)))) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Food")
-                            }
+                    ForEach(budgets) { budget in
+                        let budgetIndex = budgets.firstIndex(of: budget)! // get the index of the current budget from budgets
+                        
+                        NavigationLink(destination: BudgetDetailView(budget: $budgets[budgetIndex])) {
+                            
+                            Text(budget.name)
+
                             Spacer()
-                            Text("$40.00")
-                                .foregroundColor(.red)
-                        }
-                    }
-                    
-                    NavigationLink(destination: BudgetDetailView(budget: .constant(Budget(name: "Transport", amount: 5.00)))) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Transport")
-                            }
-                            Spacer()
-                            Text("$5.00")
+                            
+                            Text(String(format: "%.2f", budget.amount))
                                 .foregroundColor(.red)
                         }
                     }
                 }
                 
                 Section {
-                    NavigationLink(destination: Text("Second View")){
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("Total")
-                            }
-                            Spacer()
-                            Text("$45.00")
-                                .foregroundColor(.red)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Total")
                         }
+                        Spacer()
+                        Text("$45.00")
+                            .foregroundColor(.red)
                     }
                 }
             }
