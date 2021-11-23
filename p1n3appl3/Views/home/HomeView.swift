@@ -11,6 +11,7 @@ struct HomeView: View {
     
     @State var isNewLogPresented = false
     @Binding var logs: [Log]
+    @Binding var budgets: [Budget]
     @State var newLog: Log = Log(name: "",
                                  icon: "bag",
                                  amount: 0,
@@ -45,7 +46,7 @@ struct HomeView: View {
                     ForEach(sortedLogs) { log in
                         let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
                         
-                        NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
+                        NavigationLink(destination: LogDetailView(log: $logs[logIndex], budgets: $budgets)) {
                             Image(systemName: log.icon)
                                 .font(Font.system(size: 16))
                                 .foregroundColor(Color(UIColor(named: "AccentColor") ?? .blue))
@@ -101,7 +102,7 @@ struct HomeView: View {
                 logs.append(newLog)
             }
         }) {
-            EditLogView(log: $newLog, action: $editLogViewAction, isEdit: false)
+            EditLogView(log: $newLog, budgets: $budgets, action: $editLogViewAction, isEdit: false)
         }
     }
 }
@@ -110,6 +111,8 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(logs: .constant([
             Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.00, category: "A", details: "")
-        ]))
+        ]),
+                 budgets: .constant([])
+        )
     }
 }

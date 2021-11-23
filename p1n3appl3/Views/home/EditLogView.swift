@@ -11,10 +11,9 @@ struct EditLogView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @Binding var log: Log
+    @Binding var budgets: [Budget]
     @Binding var action: SheetAction
     @State var isEdit: Bool
-    
-    let category = ["Food","Transport","Entertainment"]
     
     // segmented picker
     @State private var logPicker = 0
@@ -89,7 +88,7 @@ struct EditLogView: View {
                             }
                             
                             Picker(selection: $log.category, label: Text("Select a Category")) {
-                                ForEach(category, id: \.self) {
+                                ForEach(getCategories(budgets: budgets), id: \.self) {
                                     Text($0)
                                 }
                             }
@@ -133,10 +132,19 @@ struct EditLogView: View {
     }
 }
 
+func getCategories(budgets: [Budget]) -> [String] {
+    var categories: [String] = []
+    for budget in budgets {
+        categories .append(budget.name)
+    }
+    return categories
+}
+
 struct EditLogView_Previews: PreviewProvider {
     static var previews: some View {
         EditLogView(
             log: .constant(Log(name: "Milo", icon: "bag", dateSelector:Date(timeIntervalSinceReferenceDate: 658316460), amount: 1.00, category: "A", details: "")),
+            budgets: .constant([]),
             action: .constant(.cancel),
             isEdit: true
         )

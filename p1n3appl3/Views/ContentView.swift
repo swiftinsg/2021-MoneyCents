@@ -17,7 +17,7 @@ struct ContentView: View {
         TabView {
             
             // Home
-            HomeView(logs: $logs)
+            HomeView(logs: $logs, budgets: $budgets)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "house")!.imageWithoutBaseline())
                     Text("Home")

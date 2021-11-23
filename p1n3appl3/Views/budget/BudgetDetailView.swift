@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BudgetDetailView: View {
     @Binding var budget: Budget
+    @Binding var budgets: [Budget]
     @Binding var logs: [Log]
     
     var body: some View {
@@ -19,7 +20,7 @@ struct BudgetDetailView: View {
                 ForEach(sortedLogs) { log in
                     let logIndex = logs.firstIndex(of: log)! // get the index of the current log from logs
                     
-                    NavigationLink(destination: LogDetailView(log: $logs[logIndex])) {
+                    NavigationLink(destination: LogDetailView(log: $logs[logIndex], budgets: $budgets)) {
                         Image(systemName: log.icon)
                             .font(Font.system(size: 16))
                             .foregroundColor(Color(UIColor(named: "AccentColor") ?? .blue))
@@ -54,6 +55,9 @@ struct BudgetDetailView: View {
 
 struct BudgetDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetDetailView(budget: .constant(Budget(name: "", amount: 0.00)), logs: .constant([]))
+        BudgetDetailView(budget: .constant(Budget(name: "", amount: 0.00)),
+                         budgets: .constant([]),
+                         logs: .constant([])
+        )
     }
 }

@@ -30,7 +30,7 @@ struct BudgetView: View {
                     ForEach(budgets) { budget in
                         let budgetIndex = budgets.firstIndex(of: budget)! // get the index of the current budget from budgets
                         
-                        NavigationLink(destination: BudgetDetailView(budget: $budgets[budgetIndex], logs: $logs)) {
+                        NavigationLink(destination: BudgetDetailView(budget: $budgets[budgetIndex], budgets: $budgets, logs: $logs)) {
                             
                             Text(budget.name)
 
