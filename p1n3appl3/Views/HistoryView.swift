@@ -10,6 +10,7 @@ import SwiftUICharts
 
 struct HistoryView: View {
     
+    @Binding var logs: [Log]
     @State private var Yaxis = 0
     @State private var Xaxis = 0
     
@@ -17,7 +18,7 @@ struct HistoryView: View {
         NavigationView {
             List {
                 Section {
-                    Chart()
+                    Chart(logs: $logs)
                         .padding(.bottom)
                 }
                 
@@ -86,11 +87,38 @@ struct CustomStyle {
     }
 }
 
+func getSunday(date: Date) -> Date {
+    let calendar = Calendar.current
+    var components = calendar.dateComponents([.weekOfYear, .yearForWeekOfYear], from: date)
+    components.weekday = 1 // Sunday is first day of week
+    let sundayInWeek = calendar.date(from: components)!
+    return sundayInWeek
+}
+
+func calculateData(logs: [Log]) -> [Double] {
+    let sortedLogs = logs.sorted(by: { $0.dateSelector.compare($1.dateSelector) == .orderedDescending })
+    
+    var data: [Double] = [0, 0, 0, 0, 0, 0, 0]
+    
+    for log in sortedLogs {
+        if log.dateSelector < getSunday(date: Date()) {
+            break
+        }
+        
+        let weekday = Calendar.current.component(.weekday, from: log.dateSelector) - 1 // becuase it starts from 1 instead of 0 (e.g. Sunday is 1, Monday is 2, etc.)
+        data[weekday] += log.amount
+    }
+    
+    return data
+}
+
 struct Chart: View {
+    @Binding var logs: [Log]
+    
     var body: some View {
         VStack {
             LineView(
-                data: [1,10,1,3,5,1,8],
+                data: calculateData(logs: logs),
                 // title: "Line chart",
                 legend: "Amount / $",
                 style: CustomStyle.style
@@ -111,6 +139,6 @@ struct Chart: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView()
+        HistoryView(logs: .constant([]))
     }
 }

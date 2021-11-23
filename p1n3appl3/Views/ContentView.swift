@@ -23,7 +23,7 @@ struct ContentView: View {
                 }
             
             // History
-            HistoryView()
+            HistoryView(logs: $logs)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "chart.bar")!.imageWithoutBaseline())
                     Text("History")
