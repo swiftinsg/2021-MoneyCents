@@ -96,7 +96,8 @@ struct Chart: View {
                 style: CustomStyle.style
             )
             HStack {
-                let localizedWeekdays: [String] = Array(Calendar.current.shortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.shortWeekdaySymbols.count] + Calendar.current.shortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
+//                let localizedWeekdays: [String] = Array(Calendar.current.shortWeekdaySymbols[Calendar.current.firstWeekday - 1 ..< Calendar.current.shortWeekdaySymbols.count] + Calendar.current.shortWeekdaySymbols[0 ..< Calendar.current.firstWeekday - 1])
+                let localizedWeekdays: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
                 ForEach(localizedWeekdays, id: \.self) { day in
                     Spacer()
                     Text(day)
