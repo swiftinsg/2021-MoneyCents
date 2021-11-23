@@ -39,6 +39,12 @@ struct BudgetView: View {
                                 .foregroundColor(.red)
                         }
                     }
+                    .onDelete { offsets in
+                        budgets.remove(atOffsets: offsets)
+                    }
+                    .onMove { source, destination in
+                        budgets.move(fromOffsets: source, toOffset: destination)
+                    }
                 }
                 
                 Section {
@@ -55,6 +61,10 @@ struct BudgetView: View {
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Budget")
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
+                }
+                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         showSheet.toggle()
