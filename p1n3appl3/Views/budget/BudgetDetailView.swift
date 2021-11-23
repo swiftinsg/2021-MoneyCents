@@ -1,5 +1,5 @@
 //
-//  FoodDetailView.swift
+//  BudgetDetailView.swift
 //  p1n3appl3
 //
 //  Created by SAP on 20/11/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FoodDetailView: View {
+struct BudgetDetailView: View {
     var body: some View {
         NavigationView{
             List {
@@ -20,8 +20,8 @@ struct FoodDetailView: View {
     }
 }
 
-struct FoodDetailView_Previews: PreviewProvider {
+struct BudgetDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView()
+        BudgetDetailView()
     }
 }

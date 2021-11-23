@@ -26,7 +26,7 @@ struct BudgetView: View {
         NavigationView {
             List {
                 Section {
-                    NavigationLink(destination: FoodDetailView()) {
+                    NavigationLink(destination: BudgetDetailView()) {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Food")
