@@ -10,9 +10,10 @@ import SwiftUI
 @main
 struct p1n3appl3App: App {
     
-    
     @ObservedObject var logData = LogData()
     @Environment(\.scenePhase) var scenePhase
+    
+  
     
     
     var body: some Scene {
@@ -20,6 +21,7 @@ struct p1n3appl3App: App {
             ContentView(logs: $logData.logs)
                 .onAppear {
                     logData.load()
+                    
                 }
                 .onChange(of: scenePhase) { phase in
                     if phase == .inactive {

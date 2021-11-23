@@ -4,7 +4,7 @@
 //
 //  Created by sap on 11/17/21.
 //
-
+/*
 import SwiftUI
 
 struct NewGoalsView: View {
@@ -53,3 +53,4 @@ struct NewGoalsView_Previews: PreviewProvider {
         NewGoalsView(goals: .constant([]))
     }
 }
+*/

@@ -29,13 +29,13 @@ struct EditLogView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section {
-                    Picker("New Log", selection: $logPicker) {
-                        Text("Allowance").tag(0)
-                        Text("Expense").tag(1)
-                    }
-                    .pickerStyle(.segmented)
-                }
+//                Section {
+//                    Picker("New Log", selection: $logPicker) {
+//                        Text("Allowance").tag(0)
+//                        Text("Expense").tag(1)
+//                    }
+//                    .pickerStyle(.segmented)
+//                }
                 
                 Section(header: Text("Information")) {
                     HStack {
@@ -49,7 +49,6 @@ struct EditLogView: View {
                     
                     HStack {
                         Text("Amount")
-                        
                         ZStack(alignment: .trailing) {
                             Text(String(format: "%.2f", enteredAmountDouble))
                             
