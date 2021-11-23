@@ -37,7 +37,7 @@ struct BudgetView: View {
 
                             Spacer()
                             
-                            Text(String(format: "%.2f", budget.amount))
+                            Text("$\(String(format: "%.2f", budget.amount))")
                                 .foregroundColor(.red)
                         }
                         .onAppear(){
@@ -111,18 +111,25 @@ struct BudgetView: View {
                             }
                             .navigationTitle("New Budget")
                             .navigationBarTitleDisplayMode(.inline)
-                            .navigationBarItems(
-                                leading:
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarLeading) {
                                     Button("Cancel") {
                                         showSheet.toggle()
                                     }
-                                    .foregroundColor(.red),
-                                trailing:
-                                    Button("Save") {
-                                        budgets.append(budget)
-                                        showSheet.toggle()
-                                    }
-                            )
+                                }
+                                
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    Button(action: {
+                                        if !budget.name.isEmpty {
+                                            budgets.append(budget)
+                                            showSheet.toggle()
+                                        }
+                                    }, label: {
+                                        Text("Save")
+                                            .bold()
+                                    })
+                                }
+                            }
                         }
                     }
                 }

@@ -23,11 +23,11 @@ struct ContentView: View {
                     Text("Home")
                 }
             
-            // History
-            HistoryView(logs: $logs)
+            // Reports
+            ReportsView(logs: $logs)
                 .tabItem {
                     Image(uiImage: UIImage(systemName: "chart.bar")!.imageWithoutBaseline())
-                    Text("History")
+                    Text("Reports")
                 }
             
             //Budget

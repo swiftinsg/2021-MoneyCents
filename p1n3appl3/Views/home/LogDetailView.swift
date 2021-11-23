@@ -43,7 +43,7 @@ struct LogDetailView: View {
                         .frame(minWidth: 24)
                     Text("Amount")
                     Spacer()
-                    Text(String(format: "%.2f", log.amount))
+                    Text("$\(String(format: "%.2f", log.amount))")
                 }
                 HStack {
                     Image(systemName: "info.circle")

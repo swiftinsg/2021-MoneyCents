@@ -1,5 +1,5 @@
 //
-//  HistoryView.swift
+//  ReportsView.swift
 //  p1n3appl3
 //
 //  Created by Conqueriings on 15/11/21.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUICharts
 
-struct HistoryView: View {
+struct ReportsView: View {
     
     @Binding var logs: [Log]
     @State private var Yaxis = 0
@@ -54,7 +54,7 @@ struct HistoryView: View {
                 }
             }
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
-            .navigationTitle("History")
+            .navigationTitle("Reports")
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -137,8 +137,8 @@ struct Chart: View {
     }
 }
 
-struct HistoryView_Previews: PreviewProvider {
+struct ReportsView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView(logs: .constant([]))
+        ReportsView(logs: .constant([]))
     }
 }
