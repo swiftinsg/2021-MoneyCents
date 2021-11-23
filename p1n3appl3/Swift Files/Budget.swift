@@ -10,6 +10,6 @@ import SwiftUI
 
 struct Budget: Identifiable, Equatable, Codable {
     var id = UUID()
-    var nameOfItem: String
+    var name: String
     var amount: Double 
 }

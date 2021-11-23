@@ -10,7 +10,7 @@ import SwiftUI
 struct BudgetView: View {
     
     @Binding var budgets: [Budget]
-    @State var budget = Budget(nameOfItem: "", amount: 0.00)
+    @State var budget = Budget(name: "", amount: 0.00)
     
     @State var showSheet: Bool = false
     @Environment(\.presentationMode) var presentationMode
@@ -81,7 +81,7 @@ struct BudgetView: View {
                         NavigationView {
                             Form {
                                 Section {
-                                    TextField("Name", text: $budget.nameOfItem)
+                                    TextField("Name", text: $budget.name)
                                     
                                     HStack {
                                         Text("Amount")
@@ -127,6 +127,6 @@ struct BudgetView: View {
 
 struct BudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetView(budgets: .constant([Budget(nameOfItem: "", amount: 0.00)]))
+        BudgetView(budgets: .constant([Budget(name: "", amount: 0.00)]))
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 class BudgetData: ObservableObject {
     @Published var budgets: [Budget] = []
 
-    let sampleBudgets = [Budget(nameOfItem: "", amount: 0.00)]
+    let sampleBudgets = [Budget(name: "", amount: 0.00)]
  
     
     func getArchiveURL() -> URL {
