@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BudgetDetailView: View {
     @Binding var budget: Budget
+    @Binding var logs: [Log]
     
     var body: some View {
         List {
@@ -23,6 +24,6 @@ struct BudgetDetailView: View {
 
 struct BudgetDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetDetailView(budget: .constant(Budget(name: "", amount: 0.00)))
+        BudgetDetailView(budget: .constant(Budget(name: "", amount: 0.00)), logs: .constant([]))
     }
 }

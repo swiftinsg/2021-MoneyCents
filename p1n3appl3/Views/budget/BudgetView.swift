@@ -10,6 +10,7 @@ import SwiftUI
 struct BudgetView: View {
     
     @Binding var budgets: [Budget]
+    @Binding var logs: [Log]
     @State var budget = Budget(name: "", amount: 0.00)
     
     @State var showSheet: Bool = false
@@ -29,7 +30,7 @@ struct BudgetView: View {
                     ForEach(budgets) { budget in
                         let budgetIndex = budgets.firstIndex(of: budget)! // get the index of the current budget from budgets
                         
-                        NavigationLink(destination: BudgetDetailView(budget: $budgets[budgetIndex])) {
+                        NavigationLink(destination: BudgetDetailView(budget: $budgets[budgetIndex], logs: $logs)) {
                             
                             Text(budget.name)
 
@@ -128,6 +129,6 @@ struct BudgetView: View {
 
 struct BudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetView(budgets: .constant([Budget(name: "", amount: 0.00)]))
+        BudgetView(budgets: .constant([Budget(name: "", amount: 0.00)]), logs: .constant([]))
     }
 }
