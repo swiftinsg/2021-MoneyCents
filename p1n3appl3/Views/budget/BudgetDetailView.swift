@@ -35,7 +35,7 @@ struct BudgetDetailView: View {
                         
                         Spacer()
                         
-                        Text(String(format: "%.2f", log.amount))
+                        Text("$\(String(format: "%.2f", log.amount))")
                             .foregroundColor(.red)
                     }
                 }
