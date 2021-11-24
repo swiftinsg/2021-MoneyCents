@@ -115,6 +115,7 @@ struct EditLogView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        log.amount = enteredAmountDouble
                         action = .done
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
