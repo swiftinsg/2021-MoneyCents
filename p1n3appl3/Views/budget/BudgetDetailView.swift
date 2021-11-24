@@ -29,14 +29,19 @@ struct BudgetDetailView: View {
                         VStack(alignment: .leading) {
                             Text(log.name)
                                 .font(.headline)
+                                .lineLimit(1)
                             Text(log.dateSelector.getFormattedDate(format: "d MMM yyyy"))
                                 .font(.subheadline)
+                                .lineLimit(1)
                         }
+                        .frame(width: 100, alignment: .leading)
                         
                         Spacer()
                         
                         Text("$\(String(format: "%.2f", log.amount))")
                             .foregroundColor(.red)
+                            .minimumScaleFactor(0.7)
+                            .lineLimit(1)
                     }
                 }
                 .onDelete { offsets in

@@ -50,6 +50,7 @@ struct EditLogView: View {
                         Text("Amount")
                         ZStack(alignment: .trailing) {
                             Text(String(format: "%.2f", enteredAmountDouble))
+                                .lineLimit(1)
                             
                             TextField("", text: $enteredAmountText, onEditingChanged: { (_) in
                                 log.amount = enteredAmountDouble
