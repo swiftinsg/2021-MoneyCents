@@ -130,6 +130,9 @@ struct EditLogView: View {
         .sheet(isPresented: $isSFSymbolPickerPresented) {
             SFSymbolPickerView(log: $log)
         }
+        .onAppear {
+            enteredAmountText = String(log.amount * 100)
+        }
     }
 }
 
