@@ -34,11 +34,14 @@ struct BudgetView: View {
                         NavigationLink(destination: BudgetDetailView(budget: $budgets[budgetIndex], budgets: $budgets, logs: $logs)) {
                             
                             Text(budget.name)
+                                .lineLimit(1)
 
                             Spacer()
                             
                             Text("$\(String(format: "%.2f", budget.amount))")
                                 .foregroundColor(.red)
+                                .minimumScaleFactor(0.7)
+                                .lineLimit(1)
                         }
                         .onAppear(){
                             totalBudget += budget.amount
@@ -99,7 +102,6 @@ struct BudgetView: View {
                                             
                                             TextField("", text: $enteredAmountText, onEditingChanged: { (_) in
                                                 budget.amount = enteredAmountDouble
-                                                print(budget.amount)
                                             })
                                                 .keyboardType(.numberPad)
                                             // .accentColor(.clear) // removes the cursor
@@ -135,7 +137,7 @@ struct BudgetView: View {
                 }
                 .ignoresSafeArea()
             } onEnd: {
-                print("Dismissed")
+                
             }
         }
     }

@@ -30,9 +30,13 @@ struct HomeView: View {
                             Text("Expenses within the past week")
                                 .font(.system(size: 18))
                                 .foregroundColor(CustomColor.LightPurple)
+                                .minimumScaleFactor(0.01)
+                                .lineLimit(1)
                             Text("$\(expenses, specifier: "%.2f")")
                                 .foregroundColor(.white)
                                 .font(.system(size: 60).weight(.bold))
+                                .minimumScaleFactor(0.5)
+                                .lineLimit(1)
                         }
                         Spacer()
                     }
@@ -55,14 +59,19 @@ struct HomeView: View {
                             VStack(alignment: .leading) {
                                 Text(log.name)
                                     .font(.headline)
+                                    .lineLimit(1)
                                 Text(log.dateSelector.getFormattedDate(format: "d MMM yyyy"))
                                     .font(.subheadline)
+                                    .lineLimit(1)
                             }
+                            .frame(width: 100, alignment: .leading)
                             
                             Spacer()
                             
                             Text("$\(String(format: "%.2f", log.amount))")
                                 .foregroundColor(.red)
+                                .minimumScaleFactor(0.7)
+                                .lineLimit(1)
                         }
                         .onAppear() {
                             let keyDate = Date(timeIntervalSinceNow: -7 * 60 * 60 * 24)

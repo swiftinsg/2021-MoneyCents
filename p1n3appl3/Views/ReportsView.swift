@@ -130,6 +130,7 @@ struct Chart: View {
                     Spacer()
                     Text(day)
                         .foregroundColor(Color.gray)
+                        .scaledToFill()
                 }
             }
         }

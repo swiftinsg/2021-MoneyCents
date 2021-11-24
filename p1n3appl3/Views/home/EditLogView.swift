@@ -50,10 +50,10 @@ struct EditLogView: View {
                         Text("Amount")
                         ZStack(alignment: .trailing) {
                             Text(String(format: "%.2f", enteredAmountDouble))
+                                .lineLimit(1)
                             
                             TextField("", text: $enteredAmountText, onEditingChanged: { (_) in
                                 log.amount = enteredAmountDouble
-                                print(log.amount)
                             })
                                 .keyboardType(.numberPad)
                             // .accentColor(.clear) // removes the cursor
@@ -115,6 +115,7 @@ struct EditLogView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
+                        log.amount = enteredAmountDouble
                         action = .done
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
@@ -128,6 +129,9 @@ struct EditLogView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $isSFSymbolPickerPresented) {
             SFSymbolPickerView(log: $log)
+        }
+        .onAppear {
+            enteredAmountText = String(log.amount * 100)
         }
     }
 }
