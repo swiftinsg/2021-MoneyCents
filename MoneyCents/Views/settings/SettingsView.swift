@@ -14,8 +14,8 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Name")) {
-                    HStack {
+                Section(header: Text("Information")) {
+                    /*HStack {
                         Image(systemName: "person").foregroundColor(.gray)
                         TextField("Name",
                                   text:$name )
@@ -31,21 +31,21 @@ struct SettingsView: View {
                         Text("$49.00")
                         //WIP
                     }
-                    
+                    */
                     HStack{
                         Image(systemName: "line.3.horizontal").foregroundColor(.gray)
                         Text("Version number")
                         Spacer()
                         Text("1.0")
                     }
-                    
+                    /*
                     HStack{
                         Image(systemName: "calendar").foregroundColor(.gray)
                         Text("Date joined")
                         Spacer()
                         Text("12/12/21")
                     }
-                    
+                    */
                     HStack{
                         NavigationLink(destination:SettingsCreditView()) {
                             HStack {
