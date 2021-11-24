@@ -21,7 +21,7 @@ struct ReportsView: View {
                     Chart(logs: $logs)
                         .padding(.bottom)
                 }
-                
+                /*
                 Section {
                     VStack {
                         // Y-Axis & Segmented picker
@@ -52,6 +52,8 @@ struct ReportsView: View {
                         .padding(10)
                     }
                 }
+                
+                */
             }
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
             .navigationTitle("Reports")
