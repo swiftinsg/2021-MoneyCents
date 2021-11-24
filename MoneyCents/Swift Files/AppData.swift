@@ -1,0 +1,9 @@
+//
+//  AppData.swift
+//  MoneyCents
+//
+//  Created by Conqueriings on 16/11/21.
+//
+
+
+import Foundation
