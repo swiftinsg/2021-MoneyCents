@@ -70,7 +70,7 @@ struct BudgetView: View {
                 }
             }
             .listStyle(InsetGroupedListStyle()) // for iOS 15 list style on iOS 14
-            .navigationTitle("Budget")
+            .navigationTitle("Categories")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
