@@ -53,7 +53,6 @@ struct EditLogView: View {
                             
                             TextField("", text: $enteredAmountText, onEditingChanged: { (_) in
                                 log.amount = enteredAmountDouble
-                                print(log.amount)
                             })
                                 .keyboardType(.numberPad)
                             // .accentColor(.clear) // removes the cursor

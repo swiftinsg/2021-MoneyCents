@@ -99,7 +99,6 @@ struct BudgetView: View {
                                             
                                             TextField("", text: $enteredAmountText, onEditingChanged: { (_) in
                                                 budget.amount = enteredAmountDouble
-                                                print(budget.amount)
                                             })
                                                 .keyboardType(.numberPad)
                                             // .accentColor(.clear) // removes the cursor
@@ -135,7 +134,7 @@ struct BudgetView: View {
                 }
                 .ignoresSafeArea()
             } onEnd: {
-                print("Dismissed")
+                
             }
         }
     }
