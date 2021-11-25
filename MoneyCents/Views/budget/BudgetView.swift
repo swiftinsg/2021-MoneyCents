@@ -111,7 +111,7 @@ struct BudgetView: View {
                                     }
                                 }
                             }
-                            .navigationTitle("New Budget")
+                            .navigationTitle("New Category")
                             .navigationBarTitleDisplayMode(.inline)
                             .toolbar {
                                 ToolbarItem(placement: .navigationBarLeading) {
